@@ -13,6 +13,7 @@ import TicketPageConfirm from "./pages/TicketPage/TicketPageConfirm";
 import Notification from "./pages/Notification/Notification";
 import Homepage from "./pages/Homepage/Homepage";
 import History from "./pages/History/History";
+import CheckInPage from './pages/History/CheckIn';
 import Payment from "./pages/Payment/payment";
 import WishlistPage from './pages/Wishlist/wishlist';
 import axios from "axios";
@@ -48,14 +49,6 @@ function App() {
   }, [])
   return (
     <>
-      {/* {
-        route.pathname === '/admin'
-        ? <Sidebar/> 
-        : route.pathname === '/ticketschedule' ? <Sidebar />
-        : route.pathname === '/listorder' ? <Sidebar />
-        : ''
-        
-      } */}
       <BrowserRouter>
         <Suspense fallback={loading}>
           <Routes>
@@ -80,12 +73,13 @@ function App() {
             <Route path='/profile/update-profile' element={<EditProfilePage/>}/>
             <Route path='/notif' element={<Notification/>}/>
             <Route path='/history' element={<History/>}/>
+            <Route path='/history/checkin/:id' element={<CheckInPage/>}/>
             <Route path='/payment' element={<Payment/>}/>
             <Route path='/wishlist' element={<WishlistPage/>}/>
             <Route path='*' element={<DefaultLayout/>}/>
             <Route path="/ticket" element={<TicketPage />} />
             <Route path="/ticket/confirm" element={<TicketPageConfirm />} />
-            <Route path="/ticket/book" element={<TicketBook />} />
+            <Route path="/ticket/book/:id" element={<TicketBook />} />
           </Routes>
         </Suspense>
       </BrowserRouter>

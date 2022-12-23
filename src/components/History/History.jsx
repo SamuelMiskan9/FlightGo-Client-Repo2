@@ -2,8 +2,9 @@ import React from 'react'
 import pict1 from '../../components/assets/two.png'
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 function History() {
-  const [history, setHistory] = useState("");
+  const [history, setHistory] = useState([]);
   const historyUser = () => {
     axios
       .get('https://flightgo-be-server.up.railway.app/v1/api/ticket/transaction/data/history/member', {
@@ -12,8 +13,8 @@ function History() {
         },
       })
       .then((response) => {
-        console.log(response.data)
-        setHistory(response.data);
+        console.log(response.data.memberHistory)
+        setHistory(response.data.memberHistory);
       });
   };
   useEffect(() => {
@@ -33,24 +34,29 @@ return (
               <h3 className='ml ml-5 pt-3'>History</h3>
             </table>
           </div>
-
+          {history.map((history) => (
           <div className="p-3 bg-white rounded mt-4" style={{ boxShadow: "0 2px 4px 0 rgb(0 0 0 / 10%)" }}>
             <div className="d-flex justify-content-between">
-              <p className="px-2 py-1 ">Minggu, 22 Januray 2023</p>
+              <p className="px-2 py-1 ">{history.createdAt}</p>
             </div>
 
             <div className="d-flex justify-content-between">
               <div className="d-flex mt-4">
                 <div className='grid grid-cols-3'>
-                  <div>Jakarta</div>
+                  <p>{history.product.kota_asal}</p>
                   <img alt='pict1' src={pict1} style={{height: 30}} />
-                  <div>Semarang</div>
+                  <p>{history.product.kota_tujuan}</p>
                 </div>
               </div>
 
             </div>
+            <button >
+                <Link to={`/history/checkin/${history.id}`}>
+                 Check In
+                </Link>
+              </button>
           </div>
-
+          ))}
         </main>
       </div>
     </div>

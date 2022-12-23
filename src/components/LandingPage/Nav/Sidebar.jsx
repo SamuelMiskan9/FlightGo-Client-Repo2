@@ -8,7 +8,6 @@ import LogoIcon from "../../assets/svg/LandingPage/Logo";
 
 export default function Sidebar({ sidebarOpen, toggleSidebar }) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [search, setSearch] = useState("");
   const token = localStorage.getItem("token");
   const role = localStorage.getItem("role");
 
@@ -42,7 +41,7 @@ return (
       <a onClick={()=> toggleSidebar(!sidebarOpen)}
         className="blackColor"
         style={{ padding: "10px 15px" }}
-        href="#"
+        href="/wishlist"
         spy={true}
         smooth={true}
         offset={-60}
@@ -55,7 +54,7 @@ return (
       <a onClick={()=> toggleSidebar(!sidebarOpen)}
         className="blackColor"
         style={{ padding: "10px 15px" }}
-        href="#"
+        href="/history"
         spy={true}
         smooth={true}
         offset={-60}

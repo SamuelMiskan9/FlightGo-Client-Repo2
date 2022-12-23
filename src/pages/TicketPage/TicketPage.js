@@ -48,8 +48,6 @@ const TicketPage = () => {
         </div>
         {/* free */}
         <Card />
-        <Card />
-        <Card />
         {/* sign up */}
         <div className='row'>
           <div className="card-signup-login p-3 rounded mt-4">

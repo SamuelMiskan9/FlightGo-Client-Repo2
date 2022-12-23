@@ -22,6 +22,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 export default function ProfilePage() {
   const [users, setUsers] = useState("");
+  const [history, setHistory] = useState([]);
   const whoami = () => {
     axios
       .get('https://flightgo-be-server.up.railway.app/v1/api/current-user', {
@@ -36,7 +37,21 @@ export default function ProfilePage() {
   };
   useEffect(() => {
     whoami();
+    historyUser();
   }, [])
+
+  const historyUser = () => {
+    axios
+      .get('https://flightgo-be-server.up.railway.app/v1/api/ticket/transaction/data/history/member', {
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("token"),
+        },
+      })
+      .then((response) => {
+        console.log(response.data.memberHistory)
+        setHistory(response.data.memberHistory);
+      });
+  };
   return (
     <section style={{ backgroundColor: '#FBFBFB' }}>
       <MDBContainer className="py-5">
@@ -53,7 +68,7 @@ export default function ProfilePage() {
             </MDBBreadcrumb>
           </MDBCol>
         </MDBRow>
-        <MDBBtn href='/profile/update-profile'>Update Profile</MDBBtn>
+        <MDBBtn href='/profile/update-profile'>Edit Profile</MDBBtn>
         <MDBRow>
           <MDBCol lg="4">
             <MDBCard className="mb-4">
@@ -116,46 +131,30 @@ export default function ProfilePage() {
             <MDBCard className="mb-4">
               <MDBCardBody>
                 <MDBCardText className="mb-4"><span className="text-primary font-italic me-1">History</span> Transaction</MDBCardText>
-                <MDBTable hover>
+                <MDBTable hover responsive>
                   <MDBTableHead>
                     <tr>
-                      <th scope='col'>#</th>
-                      <th scope='col'>Date</th>
-                      <th scope='col'>Transaction ID</th>
+                      <th scope='col'>No</th>
+                      <th scope='col'>CheckIn</th>
+                      <th scope='col'>From</th>
+                      <th scope='col'>To</th>
                       <th scope='col'>Status</th>
                     </tr>
                   </MDBTableHead>
                   <MDBTableBody>
-                    <tr>
-                      <th scope='row'>1</th>
-                      <td>01/12/2022</td>
-                      <td>12345678</td>
-                      <td>
-                        <MDBBadge color='success' pill>
-                          Completed
-                        </MDBBadge>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope='row'>2</th>
-                      <td>29/11/2022</td>
-                      <td>12345678</td>
-                      <td>
-                        <MDBBadge color='primary' pill>
-                          Onboarding
-                        </MDBBadge>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope='row'>2</th>
-                      <td>04/12/2022</td>
-                      <td>12345678</td>
-                      <td>
-                        <MDBBadge color='warning' pill>
-                          Awaiting
-                        </MDBBadge>
-                      </td>
-                    </tr>
+                    {history.map((history, i) => (
+                      <tr>
+                        <th scope='row'>{i + 1}</th>
+                        <td>{history.checkIn}</td>
+                        <td>{history.product.kota_asal}</td>
+                        <td>{history.product.kota_tujuan}</td>
+                        <td>
+                          <MDBBadge color='success' pill>
+                            {history.status}
+                          </MDBBadge>
+                        </td>
+                      </tr>
+                    ))}
                   </MDBTableBody>
                 </MDBTable>
               </MDBCardBody>
