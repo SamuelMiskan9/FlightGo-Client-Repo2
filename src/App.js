@@ -18,6 +18,7 @@ import WishlistPage from './pages/Wishlist/wishlist';
 import axios from "axios";
 import NavigateToHome from "../src/auth/NavigateToHome"
 import ProtectedToken from "../src/auth/ProtectedToken"
+
 function App() {
   const loading = (
     <div className="pt-3 text-center">
@@ -28,23 +29,23 @@ function App() {
   const DefaultLayout = React.lazy(() => import('./layout/DefaultLayout'))
   const [users, setUsers] = useState("");
   const [role, setRole] = useState("");
-  
+
   const whoami = () => {
     axios
-        .get('https://flightgo-be-server.up.railway.app/v1/api/current-user', {
-            headers: {
-                Authorization: "Bearer " + localStorage.getItem("token"),
-            },
-        })
-        .then((response) => {
-            console.log(response.data.role)
-            setUsers(response.data.data);
-            setRole(response.data.role);
-        });
+      .get('https://flightgo-be-server.up.railway.app/v1/api/current-user', {
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("token"),
+        },
+      })
+      .then((response) => {
+        console.log(response.data.role)
+        setUsers(response.data.data);
+        setRole(response.data.role);
+      });
   };
 
   useEffect(() => {
-      whoami();
+    whoami();
   }, [])
   return (
     <>
@@ -61,28 +62,28 @@ function App() {
           <Routes>
             <Route path='/' element={
               <NavigateToHome users={users}>
-            <Homepage/>
-            </NavigateToHome>
-            }/>
-            <Route path='/landing' element={<Landing/>}/>
+                <Homepage />
+              </NavigateToHome>
+            } />
+            <Route path='/landing' element={<Landing />} />
             <Route path='/login' element={
               <NavigateToHome users={users}>
                 <LoginPage />
               </NavigateToHome>
-            }/>
+            } />
 
             <Route path='register' element={
               <NavigateToHome>
-                <RegisterPage/>
+                <RegisterPage />
               </NavigateToHome>
-            }/>
-            <Route path='/profile' element={<ProfilePage/>}/>
-            <Route path='/profile/update-profile' element={<EditProfilePage/>}/>
-            <Route path='/notif' element={<Notification/>}/>
-            <Route path='/history' element={<History/>}/>
-            <Route path='/payment' element={<Payment/>}/>
-            <Route path='/wishlist' element={<WishlistPage/>}/>
-            <Route path='*' element={<DefaultLayout/>}/>
+            } />
+            <Route path='/profile' element={<ProfilePage />} />
+            <Route path='/profile/update-profile' element={<EditProfilePage />} />
+            <Route path='/notif' element={<Notification />} />
+            <Route path='/history' element={<History />} />
+            <Route path='/payment' element={<Payment />} />
+            <Route path='/wishlist' element={<WishlistPage />} />
+            <Route path='*' element={<DefaultLayout />} />
             <Route path="/ticket" element={<TicketPage />} />
             <Route path="/ticket/confirm" element={<TicketPageConfirm />} />
             <Route path="/ticket/book" element={<TicketBook />} />

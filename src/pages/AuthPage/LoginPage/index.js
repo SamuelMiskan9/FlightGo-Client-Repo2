@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet';
 import Heroimage from '../../../components/assets/background.png'
 const LoginPage =()=>{
     return(
-        <div className="justify-content-center d-flex" style={{backgroundImage: `url(${Heroimage}`, height:'100vh'}}>
+        <div className="justify-content-center d-flex bg-fixed bg-cover bg-center" style={{backgroundImage: `url(${Heroimage}`, height:'100vh'}}>
             <Helmet>
                 <title className="">Login Page</title>
             </Helmet>

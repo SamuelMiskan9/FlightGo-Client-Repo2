@@ -2,60 +2,83 @@ import React from 'react'
 import pict1 from '../../components/assets/two.png'
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { useNavigate } from 'react-router-dom';
+
 function History() {
-  const [history, setHistory] = useState("");
-  const historyUser = () => {
-    axios
-      .get('https://flightgo-be-server.up.railway.app/v1/api/ticket/transaction/data/history/member', {
+  const [history, setHistory] = useState([]);
+  const token = localStorage.getItem("token");
+  const Navigate = useNavigate();
+
+  const Request = async () => {
+    try {
+      const Response = await axios.get("https://flightgo-be-server.up.railway.app/v1/api/ticket/transaction/data", {
         headers: {
-          Authorization: "Bearer " + localStorage.getItem("token"),
+          Authorization: `Bearer ${token}`,
         },
-      })
-      .then((response) => {
-        console.log(response.data)
-        setHistory(response.data);
       });
-  };
+
+      setHistory(Response.data.data)
+      console.log(Response.data.data)
+
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   useEffect(() => {
-    historyUser();
-  }, [])
-return (
-<div>
-  <header className="section-header pt-3"></header>
+    token ? Request() : Navigate('/login')
 
-  <section className="section-content padding-y pb-5">
-    <div className="container">
-      <div className="row">
-        <main className="col-md-24">
+  }, [token]);
 
-          <div className="card">
-            <table className="table table-borderless table-shopping-cart">
-              <h3 className='ml ml-5 pt-3'>History</h3>
-            </table>
-          </div>
+  return (
+    <div className='container-fluid bg-gray-100'>
+      <header className="section-header"></header>
 
-          <div className="p-3 bg-white rounded mt-4" style={{ boxShadow: "0 2px 4px 0 rgb(0 0 0 / 10%)" }}>
-            <div className="d-flex justify-content-between">
-              <p className="px-2 py-1 ">Minggu, 22 Januray 2023</p>
-            </div>
+      <section className="section-content padding-y pb-5">
+        <div className="container">
+          <div className="row">
+            <main className="col-md-12 col-lg-6 m-auto">
 
-            <div className="d-flex justify-content-between">
-              <div className="d-flex mt-4">
-                <div className='grid grid-cols-3'>
-                  <div>Jakarta</div>
-                  <img alt='pict1' src={pict1} style={{height: 30}} />
-                  <div>Semarang</div>
-                </div>
+              <div className="card">
+                <table className="table table-borderless ">
+                  <h3 className='ml ml-5 pt-3 my-auto'>History</h3>
+                </table>
               </div>
 
-            </div>
-          </div>
+              {history.map((items) => {
+                return (
+                  <div className="p-3 bg-white rounded mt-4" style={{ boxShadow: "0 2px 4px 0 rgb(0 0 0 / 10%)" }} >
+                    <div className="d-flex justify-content-between border-bottom">
+                      <p className="py-1 "> {items.checkIn} </p>
+                      <p className='py-1 '> {items.product.bentuk_penerbangan} </p>
+                    </div>
 
-        </main>
-      </div>
+                    <div className="d-flex justify-content-start pt-4">
+                      <div className="d-flex">
+                        <h6 className='m-auto'> {items.product.kota_asal} </h6>
+                        <img alt='pict1' src={pict1} style={{ height: 30 }} className='px-4 m-auto' />
+                        <h6 className='m-auto'> {items.product.kota_tujuan} </h6>
+                      </div>
+                    </div>
+
+                    <div className='text-end text-slate-900'>
+                      <p>total price: {items.product.total_price}</p>
+                    </div>
+
+                    <div className="mt-3 p-2 px-4 rounded-lg text-end bg-slate-700 text-white">
+                      <p className='my-auto'> {items.status} </p>
+                    </div>
+                  </div>
+                )
+              })}
+
+
+            </main>
+          </div>
+        </div>
+      </section>
     </div>
-  </section>
-</div>
-);
+  );
 }
+
 export default History;
