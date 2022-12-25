@@ -41,11 +41,11 @@ function Register() {
       });
   };
   return (
-    <Container className=""><br /><br /><br /><br /><br />
+    <Container ><br /><br /><br /><br /><br />
       <ToastContainer />
       <Row className="mt-5">
-        <Col md className="">
-          <Form className="">
+        <Col md >
+          <Form >
             <h1>Register Page</h1>
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>Email address</Form.Label>

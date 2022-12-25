@@ -41,8 +41,8 @@ const Dropdowns = () => {
       </CCol>
       <CRow className='mt-4'>
       {ticket.map((ticket, i) => (
-      <CCol md='4'>
-          <CCard className='px-1 shadow-sm mb-4' style={{ width: '20em', height: '28em' }}>
+      <CCol md='4' sm='6'>
+          <CCard className='px-1 shadow-sm m-2' style={{ width: '20em', height: '28em' }}>
             <CCardBody>
               <small className='mb-3 text-xs'>{ticket.bentuk_penerbangan} Flight</small>
               <CCardTitle className='flex text-sm font-bold'>{ticket.kota_asal} ({ticket.kode_negara_asal}) <FaPlane className='w-5 mx-2'/>{ticket.kota_tujuan} ({ticket.kode_negara_tujuan})</CCardTitle>
@@ -55,7 +55,7 @@ const Dropdowns = () => {
               </CCardText>
               <div className='flex position-absolute bottom-0 start-50 translate-middle-x justify-between'>
                 <CButton color='outline-danger' className='m-auto text-xs w-2/5 mr-2 mb-2 me-2' style={{ width: '9em' }}>
-                  <CIcon icon={cilTrash} className=''/>
+                  <CIcon icon={cilTrash} />
                   <Link to={`/editdata/${ticket.id}`} className='text-danger'>
                     Delete
                   </Link>

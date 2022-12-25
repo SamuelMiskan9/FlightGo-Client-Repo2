@@ -5,7 +5,7 @@ const LoginPage =()=>{
     return(
         <div className="justify-content-center d-flex" style={{backgroundImage: `url(${Heroimage}`, height:'100vh'}}>
             <Helmet>
-                <title className="">Login Page</title>
+                <title >Login Page</title>
             </Helmet>
             <div>
                 <Login/>

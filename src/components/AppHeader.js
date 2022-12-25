@@ -25,7 +25,7 @@ const AppHeader = () => {
           className="ps-1 flex items-center w-1/3"
         >
           <CIcon icon={cilMenu} size="lg" className='mr-4' onClick={() => dispatch({ type: 'set', sidebarShow: !sidebarShow })}/>
-          <CFormInput type="search" placeholder="Search" aria-label="default input example" className=''/>
+          <CFormInput type="search" placeholder="Search" aria-label="default input example" />
         </CHeaderToggler>        
         <CHeaderNav className="ms-3">
           <CNavItem>

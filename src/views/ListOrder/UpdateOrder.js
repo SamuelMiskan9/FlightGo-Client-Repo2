@@ -1,4 +1,4 @@
-import { Button, Container } from "react-bootstrap"
+import { Button, Container, Carousel } from "react-bootstrap"
 import React,  { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -87,11 +87,55 @@ const UpdateOrder = () => {
       }, [orders.price]);
     return(
         <Container>
-          <h1>Cek Transaksi</h1>
-            <p>status: {orders.status}</p>
+            <h3 className="fw-bold">Cek Transaksi</h3>
+            <Carousel variant="dark" className="w-50 m-auto text-info">
+              <Carousel.Item>
+                <img
+                  className="d-block w-100"
+                  src={orders.bukti_Pembayaran}
+                  alt="First slide"
+                />
+                <Carousel.Caption>
+                  <h3>Bukti Pembayaran</h3>
+                </Carousel.Caption>
+              </Carousel.Item>
+              <Carousel.Item>
+                <img
+                  className="d-block w-100"
+                  src={orders.userVisa}
+                  alt="Second slide"
+                />
+
+                <Carousel.Caption>
+                  <h3>Visa</h3>
+                </Carousel.Caption>
+              </Carousel.Item>
+              <Carousel.Item>
+                <img
+                  className="d-block w-100"
+                  src={orders.userPassport}
+                  alt="Third slide"
+                />
+
+                <Carousel.Caption>
+                  <h3>Passport</h3>
+                </Carousel.Caption>
+              </Carousel.Item>
+              <Carousel.Item>
+                <img
+                  className="d-block w-100"
+                  src={orders.userIzin}
+                  alt="4 slide"
+                />
+
+                <Carousel.Caption>
+                  <h3>Permit/Izin Tinggal</h3>
+                </Carousel.Caption>
+              </Carousel.Item>
+            </Carousel>
+            <p>Status: {orders.status}</p>
             <p>Ticket id: {orders.productId}</p>
             <p>User id: {orders.userId}</p>
-            <p>Bukti pembayaran: <img className='w-50' src={orders.bukti_Pembayaran} alt="bukti pembayaran"/> </p>
             <Button className="me-3" onClick={Accepted}>
                 Terima
             </Button>

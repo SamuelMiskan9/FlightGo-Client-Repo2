@@ -30,9 +30,9 @@ function Login() {
                     icon: "success",
                 });
                 const user = response.data.data.role
-                if(user === "admin"){
+                if (user === "admin") {
                     navigate("/listorder");
-                }else if (user === "member"){
+                } else if (user === "member") {
                     navigate("/landing");
                 }
             })
@@ -51,12 +51,12 @@ function Login() {
             });
     };
     return (
-        <Container className=""><br /><br /><br /><br /><br />
+        <Container ><br /><br /><br /><br /><br />
             <ToastContainer />
             {!isLoggedIn ? (
                 <Row className="mt-5">
-                    <Col md className="">
-                        <Form className="">
+                    <Col md >
+                        <Form >
                             <h1>Login Page</h1>
                             <Form.Group className="mb-3" controlId="formBasicEmail">
                                 <Form.Label>Email address</Form.Label>

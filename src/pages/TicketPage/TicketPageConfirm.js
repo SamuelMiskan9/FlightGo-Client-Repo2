@@ -78,7 +78,7 @@ const TicketPageConfirm = () => {
                     <div className="col-lg-12 row mt-4">
                       <div className="col-md-4">
                         
-                        <div className="">
+                        <div >
                           <p className="fonts-bold">01:05</p>
                           <p className="fonts-light">6 Dec 2022</p>
                         </div>
@@ -126,7 +126,7 @@ const TicketPageConfirm = () => {
 
               <div className='p-3 col-lg-12 bg-white rounded'>
                 <h6 className="font-bold">Price detail</h6>
-                <div className="">
+                <div >
                   <div className="d-flex justify-content-between">
                     <div>
                       <h6
@@ -160,7 +160,7 @@ const TicketPageConfirm = () => {
                   <div className="mt-4">
                     <div className="d-flex justify-between">
                       <h6 className="fonts-normal mb-3">Total Price</h6>
-                      <h6 className="">Rp 849.044</h6>
+                      <h6 >Rp 849.044</h6>
                     </div>
                     
                     <button className="btn w-full" style={{ backgroundColor: "#F97316" }}>

@@ -102,7 +102,7 @@ const TicketBook = () => {
                     <h6 className="text-bold my-auto" style={{color : "#F97316"}}>Detail</h6>
                   </div>
                   <div className="my-3">
-                    <h6 className="">Depart Flight</h6>
+                    <h6 >Depart Flight</h6>
                     <small>{ticket.depature_date}</small>
                   </div>
                   <div
@@ -112,7 +112,7 @@ const TicketBook = () => {
                       paddingBottom: "16px",
                     }}
                   >
-                    <h6 className="">Super FlightGo</h6>
+                    <h6 >Super FlightGo</h6>
                     <small>{ticket.bentuk_penerbangan} {ticket.jenis_penerbangan}</small>
                   </div>
                   <div
@@ -124,7 +124,7 @@ const TicketBook = () => {
                   >
                     <div className="d-flex">
                       <div>
-                        <div className="">
+                        <div >
                           <h6 className="fonts-bold">{ticket.depature_time}</h6>
                           <p className="font-weight-light fonts-light">
                           {ticket.depature_date}
@@ -133,7 +133,7 @@ const TicketBook = () => {
                         <p className="font-wight-light my-4 fonts-light">
                           1h 50m
                         </p>
-                        <div className="">
+                        <div >
                           {/* <p className="fonts-bold">01:05</p>
                           <p className="fonts-light">6 Dec 2022</p> */}
                         </div>
@@ -189,7 +189,7 @@ const TicketBook = () => {
                     <h6 className="text-bold my-auto" style={{color : "#F97316"}}>Detail</h6>
                   </div>
                   <div className="my-3">
-                    <h6 className="">Depart Flight</h6>
+                    <h6 >Depart Flight</h6>
                     <small>{ticket.depature_date_}</small>
                   </div>
                   <div
@@ -199,7 +199,7 @@ const TicketBook = () => {
                       paddingBottom: "16px",
                     }}
                   >
-                    <h6 className="">Super FlightGo</h6>
+                    <h6 >Super FlightGo</h6>
                     <small>{ticket.bentuk_penerbangan} {ticket.jenis_penerbangan}</small>
                   </div>
                   <div
@@ -211,7 +211,7 @@ const TicketBook = () => {
                   >
                     <div className="d-flex">
                       <div>
-                        <div className="">
+                        <div >
                           <h6 className="fonts-bold">{ticket.depature_time_}</h6>
                           <p className="font-weight-light fonts-light">
                           {ticket.depature_date_}
@@ -220,7 +220,7 @@ const TicketBook = () => {
                         <p className="font-wight-light my-4 fonts-light">
                           1h 50m
                         </p>
-                        <div className="">
+                        <div >
                           {/* <p className="fonts-bold">01:05</p>
                           <p className="fonts-light">6 Dec 2022</p> */}
                         </div>
@@ -270,7 +270,7 @@ const TicketBook = () => {
                   height: `${show ? "25vh" : "10vh"}`,
                 }}
               >
-                <div className="">
+                <div >
                   <div className="d-flex justify-content-between card-price-detail position-absolute">
                     <h6 className="fonts-normal">Total Price</h6>
                     <h6 className="my-auto">
@@ -288,7 +288,7 @@ const TicketBook = () => {
                           onChange={(e) => setTransaksi(e.target.files[0])}
                       />
                 </Form.Group>
-                <Button className="mt-2 mb-4" type="submit">
+                <Button className="mt-2 mb-4" style={{ backgroundColor: "#F97316" }} type="submit">
                     Submit
                 </Button>
               </Form>

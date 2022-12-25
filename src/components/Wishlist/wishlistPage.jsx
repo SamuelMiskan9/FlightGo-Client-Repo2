@@ -2,9 +2,8 @@ import React from 'react'
 
 // Assets
 import pict1 from '../assets/img/Wishlist/airAsia.png'
-import pict2 from '../assets/img/Wishlist/aviaStar.png'
-import pict3 from '../assets/img/Wishlist/batikAir.png'
 import Flight from '../assets/img/Wishlist/Flight.png'
+import { Link } from 'react-router-dom'
 import { useState, useEffect } from "react";
 import axios from "axios";
 export default function PaymentPage() {
@@ -60,7 +59,11 @@ export default function PaymentPage() {
                                                         </div>
                                                     </td>
                                                     <td className="text-right">
-                                                        <button href="" className="btn btn-danger"> Remove</button>
+                                                    <button className="border px-3 py-1 mx-2 text-left rounded d-flex items-center text-white" style={{ backgroundColor: "#F97316" }}>
+                                                        <Link className="text-white pe-3" to={`/ticket/book/${wishlist.id}`}>
+                                                            Choose Flight
+                                                        </Link>
+                                                    </button>
                                                     </td>
                                                 </>
                                             </tr>

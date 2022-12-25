@@ -16,7 +16,9 @@ import {
   MDBTableBody,
   MDBIcon,
   MDBListGroup,
-  MDBListGroupItem
+  MDBListGroupItem,
+  MDBCarousel,
+  MDBCarouselItem
 } from 'mdb-react-ui-kit';
 import { useState, useEffect } from "react";
 import axios from "axios";
@@ -66,7 +68,7 @@ export default function ProfilePage() {
             </MDBBreadcrumb>
           </MDBCol>
         </MDBRow>
-        <MDBBtn href='/profile/update-profile'>Edit Profile</MDBBtn>
+        <MDBBtn href='/profile/update-profile' className='mb-2' style={{ backgroundColor: "#F97316" }} >Edit Profile</MDBBtn>
         <MDBRow>
           <MDBCol lg="4">
             <MDBCard className="mb-4">
@@ -74,15 +76,44 @@ export default function ProfilePage() {
                 <MDBCardImage
                   src={users.image_user}
                   alt="avatar"
-                  className="rounded-circle mx-auto"
+                  className="square bg-primary rounded mx-auto"
                   style={{ width: '150px' }}
                   fluid />
                 <p className="text-muted mb-1 mt-3">{users.name}</p>
                 <p className="text-muted mb-4">{users.address}</p>
               </MDBCardBody>
             </MDBCard>
+            <MDBCard>
+              <MDBCarousel showControls fade>
+                <MDBCarouselItem
+                  className='w-100 d-block'
+                  itemId={1}
+                  src={users.visa}
+                  alt='...'
+                >
+                </MDBCarouselItem>
 
-            <MDBCard className="mb-4 mb-lg-0">
+                <MDBCarouselItem
+                  className='w-100 d-block'
+                  itemId={2}
+                  src={users.passport}
+                  alt='...'
+                >
+                  <h5>Passport</h5>
+                </MDBCarouselItem>
+
+                <MDBCarouselItem
+                  className='w-100 d-block'
+                  itemId={3}
+                  src={users.izin}
+                  alt='...'
+                >
+                  <h5>Permit</h5>
+                </MDBCarouselItem>
+              </MDBCarousel>
+            </MDBCard>
+
+            <MDBCard className="mt-4 mb-lg-0">
               <MDBCardBody className="p-0">
                 <MDBListGroup flush className="rounded-3">
                   <MDBListGroupItem className="d-flex justify-content-between align-items-center p-3">
@@ -136,7 +167,7 @@ export default function ProfilePage() {
                       <th scope='col'>CheckIn</th>
                       <th scope='col'>From</th>
                       <th scope='col'>To</th>
-                      <th scope='col'>Status</th>
+                      <th scope='col'>Status Pesanan</th>
                     </tr>
                   </MDBTableHead>
                   <MDBTableBody>
