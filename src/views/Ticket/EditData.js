@@ -34,6 +34,10 @@ const EditData = () => {
   const { id } = useParams();
 
   const navigate = useNavigate();
+  const role = localStorage.getItem("role");
+  if (role !== "admin") {
+    navigate("/landing");
+  }
   const getProduct = async () => {
     try {
       const res = await axios.get(
@@ -152,6 +156,7 @@ const EditData = () => {
           )
           .then((response) => {
             navigate("/ticketschedule");
+            window.location.reload();
           });
       } else {
         swal("Data tidak jadi dihapus!");
@@ -403,7 +408,7 @@ const EditData = () => {
 
           <Form.Group>
             <Button onClick={handleDelete} className="mt-2 mb-4 me-3 bg-danger">Hapus</Button>
-            <Button className="mt-2 mb-4 me-3 bg-warning" type="reset">
+            <Button className="mt-2 mb-4 me-3 bg-warning" href="/ticketschedule">
               Cancel
             </Button>
             <Button className="mt-2 mb-4 bg-success" type="submit">Submit</Button>

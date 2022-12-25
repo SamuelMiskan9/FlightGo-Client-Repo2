@@ -13,15 +13,19 @@ import React, {
   CTableBody,
   CTableDataCell
 } from '@coreui/react'
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import Sort from '../../components/assets/sort.png'
 import Payment from '../../components/assets/bukti.png'
 import axios from "axios";
-const ListOrder = () => {
 
+const ListOrder = () => {
+  const navigate = useNavigate();
   const [payment, setPayment] = useState(false)
   const [transaction, setTransaction] = useState([]);
-
+  const role = localStorage.getItem("role");
+  if (role !== "admin") {
+    navigate("/landing");
+  }
   useEffect(() => {
     getTransaction();
   }, []);

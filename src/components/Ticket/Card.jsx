@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { BsFillHeartFill } from "react-icons/bs";
 import {
   FaAmericanSignLanguageInterpreting,
   FaArrowRight,
@@ -30,7 +29,6 @@ const Card = () => {
         >
           <div className="col-lg-12 d-flex justify-content-between">
             <p className="px-2 py-1 ">Type : {ticket.bentuk_penerbangan} {ticket.jenis_penerbangan} </p>
-            <BsFillHeartFill color="red" />
           </div>
 
           <div className="col-lg-12 p-1">
@@ -90,7 +88,6 @@ const Card = () => {
               <div className="col-md-3 px-2">
                 <h6>FlightGo</h6>
                 <p className="font-weight-light">Indonesia FlightGo</p>
-                {/* <p className="fonts-light">QZ7518</p> */}
               </div>
 
               <div className='col-md-9 row px-2'>

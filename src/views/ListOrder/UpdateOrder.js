@@ -8,6 +8,10 @@ const UpdateOrder = () => {
     const { id } = useParams();
     const [orders, setOrders] = useState({});
     const navigate = useNavigate();
+    const role = localStorage.getItem("role");
+    if (role !== "admin") {
+      navigate("/landing");
+    }
     const orderProduct = async () => {
         await axios
           .get(`https://flightgo-be-server.up.railway.app/v1/api/ticket/transaction/data/${id}`, {
@@ -42,6 +46,7 @@ const UpdateOrder = () => {
               )
               .then((response) => {
                 navigate("/listorder");
+                window.location.reload();
               });
             swal("Pesanan berhasil diterima!", {
               icon: "success",
@@ -75,6 +80,7 @@ const UpdateOrder = () => {
               )
               .then((response) => {
                 navigate("/listorder");
+                window.location.reload();
               });
           } else {
             swal("Pesanan tidak jadi ditolak");

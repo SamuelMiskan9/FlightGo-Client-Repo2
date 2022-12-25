@@ -10,14 +10,18 @@ import {
   CCardText,
 } from '@coreui/react'
 import axios from "axios";
-import { cilPlus, cilClock, cilTrash, cilCommentSquare } from '@coreui/icons'
+import { cilPlus, cilClock } from '@coreui/icons'
 import CIcon from '@coreui/icons-react'
 import { Link } from 'react-router-dom'
 import {FaPlane} from 'react-icons/fa'
-
+import { useNavigate } from "react-router-dom";
 const Dropdowns = () => {
   const [ticket, setTicket] = useState([]);
-
+  const navigate = useNavigate();
+  const role = localStorage.getItem("role");
+  if (role !== "admin") {
+    navigate("/landing");
+  }
   const getTicket = async () => {
     const response = await axios.get("https://flightgo-be-server.up.railway.app/v1/api/ticket");
     setTicket(response.data);

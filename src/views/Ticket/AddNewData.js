@@ -33,7 +33,10 @@ const AddTicket = () => {
   const [deskripsi, setDeskripsi] = useState('')
   let [totalprice, setTotalprice] = useState('')
   const navigate = useNavigate();
-
+  const role = localStorage.getItem("role");
+  if (role !== "admin") {
+    navigate("/landing");
+  }
   async function handleSubmit(e) {
     e.preventDefault();
     const form = new FormData();
@@ -344,7 +347,7 @@ const AddTicket = () => {
             </Form.Group>
 
             <Form.Group>
-              <Button className="mt-2 mb-4 me-3 bg-danger" type="reset">
+              <Button className="mt-2 mb-4 me-3 bg-warning" href="/ticketschedule">
                 Cancel
               </Button>
               <Button className="mt-2 mb-4 bg-success" type="submit">Submit</Button>

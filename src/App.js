@@ -9,7 +9,6 @@ import ProfilePage from "./pages/ProfilePage";
 import EditProfilePage from './pages/ProfilePage/updateProfile';
 import TicketBook from "./pages/TicketPage/TicketBook";
 import TicketPage from "./pages/TicketPage/TicketPage";
-import TicketPageConfirm from "./pages/TicketPage/TicketPageConfirm";
 import Notification from "./pages/Notification/Notification";
 import Homepage from "./pages/Homepage/Homepage";
 import History from "./pages/History/History";
@@ -77,7 +76,6 @@ function App() {
             <Route path='/wishlist' element={<WishlistPage/>}/>
             <Route path='*' element={<DefaultLayout/>}/>
             <Route path="/ticket" element={<TicketPage />} />
-            <Route path="/ticket/confirm" element={<TicketPageConfirm />} />
             <Route path="/ticket/book/:id" element={<TicketBook />} />
           </Routes>
         </Suspense>

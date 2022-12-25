@@ -130,7 +130,7 @@ export default function ProfilePage() {
               <MDBCardBody>
                 <MDBRow>
                   <MDBCol sm="3">
-                    <MDBCardText>Full Name</MDBCardText>
+                    <MDBCardText className='fw-bold'>Full Name</MDBCardText>
                   </MDBCol>
                   <MDBCol sm="9">
                     <MDBCardText className="text-muted">{users.name}</MDBCardText>
@@ -139,7 +139,7 @@ export default function ProfilePage() {
                 <hr />
                 <MDBRow>
                   <MDBCol sm="3">
-                    <MDBCardText>Phone</MDBCardText>
+                    <MDBCardText className='fw-bold'>Phone</MDBCardText>
                   </MDBCol>
                   <MDBCol sm="9">
                     <MDBCardText className="text-muted">{users.phone}</MDBCardText>
@@ -148,7 +148,7 @@ export default function ProfilePage() {
                 <hr />
                 <MDBRow>
                   <MDBCol sm="3">
-                    <MDBCardText>Address</MDBCardText>
+                    <MDBCardText className='fw-bold'>Address</MDBCardText>
                   </MDBCol>
                   <MDBCol sm="9">
                     <MDBCardText className="text-muted">{users.address}</MDBCardText>
@@ -159,21 +159,21 @@ export default function ProfilePage() {
 
             <MDBCard className="mb-4">
               <MDBCardBody>
-                <MDBCardText className="mb-4"><span className="text-primary font-italic me-1">History</span> Transaction</MDBCardText>
+                <MDBCardText className="mb-4 fw-bold">History Transaction</MDBCardText>
                 <MDBTable hover responsive>
                   <MDBTableHead>
                     <tr>
-                      <th scope='col'>No</th>
-                      <th scope='col'>CheckIn</th>
-                      <th scope='col'>From</th>
-                      <th scope='col'>To</th>
-                      <th scope='col'>Status Pesanan</th>
+                      <th scope='col' className='fw-bold'>No</th>
+                      <th scope='col' className='fw-bold'>CheckIn</th>
+                      <th scope='col' className='fw-bold'>From</th>
+                      <th scope='col' className='fw-bold'>To</th>
+                      <th scope='col' className='fw-bold'>Status Pesanan</th>
                     </tr>
                   </MDBTableHead>
                   <MDBTableBody>
                     {history.map((history, i) => (
                       <tr>
-                        <th scope='row'>{i + 1}</th>
+                        <th scope='row' className='fw-bold'>{i + 1}</th>
                         <td>{history.checkIn}</td>
                         <td>{history.product.kota_asal}</td>
                         <td>{history.product.kota_tujuan}</td>
