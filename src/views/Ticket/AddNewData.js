@@ -344,7 +344,7 @@ const AddTicket = () => {
             </Form.Group>
 
             <Form.Group>
-              <Button className="mt-2 mb-4 me-3 bg-danger" onClick={() => navigate(-1)}>
+              <Button className="mt-2 mb-4 me-3 bg-danger" type="reset">
                 Cancel
               </Button>
               <Button className="mt-2 mb-4 bg-success" type="submit">Submit</Button>

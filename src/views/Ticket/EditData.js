@@ -403,7 +403,7 @@ const EditData = () => {
 
           <Form.Group>
             <Button onClick={handleDelete} className="mt-2 mb-4 me-3 bg-danger">Hapus</Button>
-            <Button className="mt-2 mb-4 me-3 bg-warning" onClick={() => navigate(-1)}>
+            <Button className="mt-2 mb-4 me-3 bg-warning" type="reset">
               Cancel
             </Button>
             <Button className="mt-2 mb-4 bg-success" type="submit">Submit</Button>

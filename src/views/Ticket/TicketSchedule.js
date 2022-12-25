@@ -54,15 +54,9 @@ const Dropdowns = () => {
                 <p className='text-xs font-thin'><CIcon icon={cilClock} /> Updated at {ticket.updatedAt}</p>
               </CCardText>
               <div className='flex position-absolute bottom-0 start-50 translate-middle-x justify-between'>
-                <CButton color='outline-danger' className='m-auto text-xs w-2/5 mr-2 mb-2 me-2' style={{ width: '9em' }}>
-                  <CIcon icon={cilTrash} />
-                  <Link to={`/editdata/${ticket.id}`} className='text-danger'>
-                    Delete
-                  </Link>
-                </CButton>
-                <CButton color='success' className='m-auto text-xs w-2/5 mr-2 mb-2' style={{ width: '9em' }}><CIcon className='me-2' icon={cilCommentSquare}/>
+                <CButton  className='m-auto text-xs mr-2 mb-2 w-100' style={{ backgroundColor: "#F97316" }} >
                   <Link to={`/editdata/${ticket.id}`} className='text-white mr-2'>
-                    Edit
+                    Detail Ticket
                   </Link>
                 </CButton>
               </div>

@@ -42,10 +42,10 @@ const ListOrder = () => {
         <p className='py-2 px-3 bg-gray-200 my-4'>Table list Booking Order</p>
         <button className='flex items-center bg-[#F66F4D] text-white px-3 py-1 rounded-lg'>Filter <img src={Sort} alt='' className='w-5'/></button>
         <p className=' mt-10 font-bold ml-5'>Latest Orders</p>
-        <CTable responsive className='shadow-sm text-center '>
+        <CTable responsive striped className='shadow-sm text-center '>
           <CTableHead>
             <CTableRow>
-              <CTableHeaderCell scope="col">Id</CTableHeaderCell>
+              <CTableHeaderCell scope="col">No</CTableHeaderCell>
               <CTableHeaderCell scope="col">Product Id</CTableHeaderCell>
               <CTableHeaderCell scope="col">userId</CTableHeaderCell>
               <CTableHeaderCell scope="col">Payment</CTableHeaderCell>
@@ -61,7 +61,7 @@ const ListOrder = () => {
           <CTableBody>
           {transaction.map((transaction, i) => (
             <CTableRow key={i}>
-              <CTableHeaderCell scope="row">{transaction.id}</CTableHeaderCell>
+              <CTableHeaderCell scope="row">{i+1}</CTableHeaderCell>
               <CTableDataCell>{transaction.productId}</CTableDataCell>
               <CTableDataCell>{transaction.userId}</CTableDataCell>
               <CTableDataCell><a href={transaction.bukti_Pembayaran} rel="noopener noreferrer" target="_blank">Click</a></CTableDataCell>

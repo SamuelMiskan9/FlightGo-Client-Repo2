@@ -16,7 +16,6 @@ import avatar8 from '../assets/images/avatars/8.jpg'
 
 const AppHeaderDropdown = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [search, setSearch] = useState("");
   const token = localStorage.getItem("token");
   const role = localStorage.getItem("role");
 

@@ -43,11 +43,11 @@ const UpdateOrder = () => {
               .then((response) => {
                 navigate("/listorder");
               });
-            swal("Status penawaran berhasil diubah!", {
+            swal("Pesanan berhasil diterima!", {
               icon: "success",
             });
           } else {
-            swal("Status penawaran tidak jadi diubah!");
+            swal("Pesanan tidak jadi diterima");
           }
         });
       };
@@ -77,14 +77,14 @@ const UpdateOrder = () => {
                 navigate("/listorder");
               });
           } else {
-            swal("Status penawaran tidak jadi diubah!");
+            swal("Pesanan tidak jadi ditolak");
           }
         });
       };
     
       useEffect(() => {
         orderProduct();
-      }, [orders.price]);
+      }, []);
     return(
         <Container>
             <h3 className="fw-bold">Cek Transaksi</h3>

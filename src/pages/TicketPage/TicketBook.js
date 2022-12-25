@@ -14,10 +14,37 @@ import { Form, Button } from "react-bootstrap";
 
 const TicketBook = () => {
   const [show, setShow] = useState(false);
+  const [users, setUsers] = useState("");
   const [ticket, setTicket] = useState({});
   const [transaksi, setTransaksi] = useState(null);
   const { id } = useParams();
   const navigate = useNavigate();
+
+  const whoami = () => {
+    axios
+      .get('https://flightgo-be-server.up.railway.app/v1/api/current-user', {
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("token"),
+        },
+      })
+      .then((response) => {
+        setUsers(response.data);
+      });
+  };
+  if (
+    users.izin === null ||
+    users.address === null ||
+    users.passport === null ||
+    users.visa === null
+  ) {
+    swal({
+      title: "Perhatian!",
+      text: "Anda belum melengkapi Info Akun, mohon lengkapi terlebih dahulu!",
+      icon: "warning",
+      button: "Mengerti",
+    });
+    navigate("/profile/update-profile");
+  }
   const orderProduct = async () => {
     await axios
       .get(`https://flightgo-be-server.up.railway.app/v1/api/ticket/${id}`, {
@@ -77,6 +104,7 @@ const TicketBook = () => {
 }
   useEffect(() => {
     orderProduct();
+    whoami();
   }, []);
   return (
     <>
