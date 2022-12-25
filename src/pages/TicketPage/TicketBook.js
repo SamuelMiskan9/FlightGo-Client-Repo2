@@ -8,16 +8,16 @@ import {
 import { ToastContainer, toast } from "react-toastify";
 import TopNavbar from '../../components/LandingPage/Nav/TopNavbar';
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import swal from "sweetalert";
 import { Form, Button } from "react-bootstrap";
-
 
 const TicketBook = () => {
   const [show, setShow] = useState(false);
   const [ticket, setTicket] = useState({});
-  const { id } = useParams();
   const [transaksi, setTransaksi] = useState(null);
+  const { id } = useParams();
+  const navigate = useNavigate();
   const orderProduct = async () => {
     await axios
       .get(`https://flightgo-be-server.up.railway.app/v1/api/ticket/${id}`, {
@@ -40,8 +40,8 @@ const TicketBook = () => {
                 type: "error",
             });
         } else {
-            const response = await axios.put(
-                `https://flightgo-be-server.up.railway.app/v1/api/ticket/transaction/${id}`,
+            const response = await axios.post(
+                `https://flightgo-be-server.up.railway.app/v1/api/ticket/transaction/${ticket.id}`,
                 form,
                 {
                     headers: {
@@ -51,6 +51,7 @@ const TicketBook = () => {
                 }
             );
             setTimeout(() => {
+               navigate("/ticket");
                 window.location.reload();
             }, 1000);
             swal({
@@ -278,7 +279,7 @@ const TicketBook = () => {
                   </div>
                 </div>
               </div>
-              <Form onSubmit={handleSubmit}>
+              <Form onSubmit={handleSubmit} >
                 <Form.Group>
                       <Form.Label>Bukti Resi Transfer</Form.Label>
                       <Form.Control
@@ -287,7 +288,7 @@ const TicketBook = () => {
                           onChange={(e) => setTransaksi(e.target.files[0])}
                       />
                 </Form.Group>
-                <Button className="mt-2 mb-4">
+                <Button className="mt-2 mb-4" type="submit">
                     Submit
                 </Button>
               </Form>

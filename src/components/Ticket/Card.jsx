@@ -18,14 +18,13 @@ const Card = () => {
   }, []);
   const getTicket = async () => {
     const response = await axios.get("https://flightgo-be-server.up.railway.app/v1/api/ticket");
-    console.log(response.data)
     setTicket(response.data);
   };
   return (
     <>
       {ticket.map((ticket, i) => (
         <div
-        key={i}
+          key={i}
           className="p-3 bg-white rounded mt-4 row"
           style={{ boxShadow: "0 2px 4px 0 rgb(0 0 0 / 10%)" }}
         >
@@ -121,7 +120,7 @@ const Card = () => {
                   <div className="col-md-8">
                     <h6 className="fonts-medium">{ticket.kota_tujuan} ( {ticket.kode_negara_tujuan} )</h6>
                     <h6 className="fonts-medium">
-                    {ticket.bandara_tujuan}
+                      {ticket.bandara_tujuan}
                     </h6>
                   </div>
                 </div>

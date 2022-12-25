@@ -31,7 +31,6 @@ export default function ProfilePage() {
         },
       })
       .then((response) => {
-        console.log(response.data)
         setUsers(response.data);
       });
   };
@@ -48,7 +47,6 @@ export default function ProfilePage() {
         },
       })
       .then((response) => {
-        console.log(response.data.memberHistory)
         setHistory(response.data.memberHistory);
       });
   };

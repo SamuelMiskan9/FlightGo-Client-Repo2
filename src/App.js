@@ -38,7 +38,6 @@ function App() {
             },
         })
         .then((response) => {
-            console.log(response.data.role)
             setUsers(response.data.data);
             setRole(response.data.role);
         });

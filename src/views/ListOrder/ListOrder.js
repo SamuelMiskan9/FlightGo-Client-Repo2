@@ -1,3 +1,4 @@
+import  { useState, useEffect } from "react";
 import React, {
   CCol,
   CRow,
@@ -13,11 +14,10 @@ import React, {
   CTableDataCell
 } from '@coreui/react'
 import { Link } from "react-router-dom";
-import Sort from '../../../components/assets/sort.png'
-import Payment from '../../../components/assets/bukti.png'
+import Sort from '../../components/assets/sort.png'
+import Payment from '../../components/assets/bukti.png'
 import axios from "axios";
-import  { useState, useEffect } from "react";
-const Accordion = () => {
+const ListOrder = () => {
 
   const [payment, setPayment] = useState(false)
   const [transaction, setTransaction] = useState([]);
@@ -31,7 +31,6 @@ const Accordion = () => {
             Authorization: "Bearer " + localStorage.getItem("token"),
         },
     });
-    console.log(response.data.data)
     setTransaction(response.data.data);
   };
   
@@ -54,6 +53,7 @@ const Accordion = () => {
               <CTableHeaderCell scope="col">Visa</CTableHeaderCell>
               <CTableHeaderCell scope="col">Passport</CTableHeaderCell>
               <CTableHeaderCell scope="col">Permit</CTableHeaderCell>
+              <CTableHeaderCell scope="col">Depature Date</CTableHeaderCell>
               <CTableHeaderCell scope="col">CheckIn</CTableHeaderCell>
               <CTableHeaderCell scope="col">Action</CTableHeaderCell>
             </CTableRow>
@@ -69,6 +69,7 @@ const Accordion = () => {
               <CTableDataCell><a href={transaction.userVisa} rel="noopener noreferrer" target="_blank">Click</a></CTableDataCell>
               <CTableDataCell><a href={transaction.userPassport} rel="noopener noreferrer" target="_blank">Click</a></CTableDataCell>
               <CTableDataCell><a href={transaction.userIzin} rel="noopener noreferrer" target="_blank">Click</a></CTableDataCell>
+              <CTableDataCell>{transaction.product.depature_date}</CTableDataCell>
               <CTableDataCell>{transaction.checkIn}</CTableDataCell>
               <CTableDataCell>
                 <Link to={`/updateorder/${transaction.id}`}>
@@ -106,4 +107,4 @@ const Accordion = () => {
   )
 }
 
-export default Accordion
+export default ListOrder

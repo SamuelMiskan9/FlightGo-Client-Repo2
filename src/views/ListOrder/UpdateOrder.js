@@ -16,7 +16,6 @@ const UpdateOrder = () => {
             },
           })
           .then((response) => {
-            console.log(response.data.data)
             setOrders(response.data.data);
           });
       };

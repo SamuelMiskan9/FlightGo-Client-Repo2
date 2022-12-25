@@ -1,22 +1,26 @@
 import React from "react";
 import styled from "styled-components";
 import '../landingPage.css'
+import { Button } from 'react-bootstrap';
 
 export default function Header() {
-return (
-<div className="bg-header">
-  <Wrapper id="header" className=" container flexSpaceCenter">
-    <LeftSide className="flexCenter">
-      <div className="jumbotron-text">
-        <h1 className="extraBold pb-3 font60">Book With Us and Ready to Take Off</h1>
-        <HeaderP className="font20 semiBold" style={{height: 300}}>
-          Explore the world by booking flight with us and get your best experience
-        </HeaderP>
-      </div>
-    </LeftSide>
-  </Wrapper>
-</div>
-);
+  return (
+    <div className="bg-header">
+      <Wrapper id="header" className=" container flexSpaceCenter">
+        <LeftSide className="flexCenter">
+          <div className="jumbotron-text">
+            <h1 className="extraBold pb-3 font60">Book With Us and Ready to Take Off</h1>
+            <HeaderP className="font20 semiBold" style={{ height: 300 }}>
+              Explore the world by booking flight with us and get your best experience
+              <Button href="/ticket">
+                Find Flight
+              </Button>
+            </HeaderP>
+          </div>
+        </LeftSide>
+      </Wrapper>
+    </div >
+  );
 }
 
 const Wrapper = styled.section`
