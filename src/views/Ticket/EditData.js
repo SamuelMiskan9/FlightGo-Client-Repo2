@@ -118,10 +118,10 @@ const EditData = () => {
           },
         }
       );
-      // navigate("/daftar-jual");
       toast("Produk berhasil diubah", {
         type: "success",
       });
+      navigate("/ticketschedule");
     } catch (err) {
       if (Array.isArray(err.response.data.message)) {
         err.response.data.message.forEach((err) => {

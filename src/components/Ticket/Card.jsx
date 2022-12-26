@@ -40,14 +40,14 @@ const Card = () => {
                 </div>
               </div>
               <div className="col-md-6 d-flex mt-4">
-                <div className="mx-3">
+                <div className="mx-3 col-md-4">
                   <h6>{ticket.bandara_asal}</h6>
                   <h6 className="fonts-light">{ticket.kode_negara_asal}</h6>
                 </div>
                 <div>
                   <FaArrowRight color="gray" />
                 </div>
-                <div className="mx-3">
+                <div className="mx-3 col-md-4">
                   <h6>{ticket.bandara_tujuan}</h6>
                   <h6 className="fonts-light">{ticket.kode_negara_tujuan}</h6>
                 </div>
@@ -55,20 +55,16 @@ const Card = () => {
                   <h6>{ticket.depature_date}</h6>
                   <h6 className="fonts-light">{ticket.depature_time}</h6>
                 </div>
-                <div className="mx-3">
-                  <FaCube style={{ marginRight: "10px" }} />
-                  <span className="d-inline-block">20kg</span>
-                </div>
               </div>
               <div className="col-md-4 mt-4">
                 <div className="mx-3 d-flex justify-content-start items-center">
-                  <div>
+                  <div className="col-md-6">
                     <h6 className="text-danger my-auto">
                       Rp {ticket.total_price.toString().replace(/(\d)(?=(\d{3})+(?:\.\d+)?$)/g, '$1.')} <span style={{ color: "gray" }}>/pax</span>
                     </h6>
                   </div>
-                  <div className="ms-3">
-                    <button className="border px-3 py-1 mx-2 text-left rounded d-flex items-center text-white" style={{ backgroundColor: "#F97316" }}>
+                  <div className="ms-3 col-md-6">
+                    <button className="border p-2 text-left rounded d-flex items-center text-white" style={{ backgroundColor: "#F97316" }}>
                       <Link className="text-white pe-3" to={`/ticket/book/${ticket.id}`}>
                         Choose Flight
                       </Link>
@@ -86,13 +82,12 @@ const Card = () => {
           {show && (
             <div className="row mx-2 mt-4 border-top pt-4">
               <div className="col-md-3 px-2">
-                <h6>FlightGo</h6>
-                <p className="font-weight-light">Indonesia FlightGo</p>
               </div>
 
               <div className='col-md-9 row px-2'>
                 <div className="col-lg-12 row">
                   <div className="col-md-4">
+                    <p>Depature Time</p>
                     <h6 className="fonts-bold">{ticket.depature_time}</h6>
                     <p className="font-weight-light fonts-light">{ticket.depature_date}</p>
                   </div>
@@ -112,6 +107,9 @@ const Card = () => {
 
                 <div className="col-lg-12 row mt-4">
                   <div className="col-md-4">
+                    <p> Round Trip Depature Time</p>
+                    <h6 className="fonts-bold">{ticket.depature_time_}</h6>
+                    <p className="font-weight-light fonts-light">{ticket.depature_date_}</p>
                   </div>
 
                   <div className="col-md-8">
@@ -133,7 +131,7 @@ const Card = () => {
                   </div>
                   <div className="col-xs-6 mb-4">
                     <FaCube className="mrs-3" />
-                    <small className="d-inline-block">Cabin baggage</small>
+                    <small className="d-inline-block">20kg</small>
                   </div>
                   <div className="col-xs-6">
                     <FaLanguage className="mrs-3" />
@@ -142,9 +140,11 @@ const Card = () => {
                 </div>
               </div>
             </div>
-          )}
-        </div>
-      ))}
+          )
+          }
+        </div >
+      ))
+      }
     </>
   );
 };

@@ -12,90 +12,84 @@ import LogoIcon from "../../assets/svg/LandingPage/Logo";
 import BurgerIcon from "../../assets/svg/LandingPage/BurgerIcon";
 
 export default function TopNavbar() {
-const [y, setY] = useState(window.scrollY);
-const [sidebarOpen, toggleSidebar] = useState(false);
-const [nav, setNav] = useState(false);
+  const [y, setY] = useState(window.scrollY);
+  const [sidebarOpen, toggleSidebar] = useState(false);
+  const [nav, setNav] = useState(false);
 
-useEffect(() => {
-window.addEventListener("scroll", () => setY(window.scrollY));
-return () => {
-window.removeEventListener("scroll", () => setY(window.scrollY));
-};
-}, [y]);
+  useEffect(() => {
+    window.addEventListener("scroll", () => setY(window.scrollY));
+    return () => {
+      window.removeEventListener("scroll", () => setY(window.scrollY));
+    };
+  }, [y]);
 
-const changeBackground = () => {
-if(window.scrollY >= 80){
-setNav(true);
-} else {
-setNav(false);
-}
-};
+  const changeBackground = () => {
+    if (window.scrollY >= 80) {
+      setNav(true);
+    } else {
+      setNav(false);
+    }
+  };
 
-window.addEventListener('scroll', changeBackground);
+  window.addEventListener('scroll', changeBackground);
 
-return (
-<>
-  <Sidebar sidebarOpen={sidebarOpen} toggleSidebar={toggleSidebar} />
-  {sidebarOpen &&
-  <Backdrop toggleSidebar={toggleSidebar} />}
-  <Wrapper className={nav ? 'nav activ' : 'nav' } style={y> 100 ? { height: "60px" } : { height: "80px" }}>
-    <NavInner className="container flexSpaceCenter">
-      <Link className="flexNullCenter" to="home" smooth={true}>
-      <LogoIcon />
-      </Link>
+  return (
+    <>
+      <Sidebar sidebarOpen={sidebarOpen} toggleSidebar={toggleSidebar} />
+      {sidebarOpen &&
+        <Backdrop toggleSidebar={toggleSidebar} />}
+      <Wrapper className={nav ? 'nav activ' : 'nav'} style={y > 100 ? { height: "60px" } : { height: "80px" }}>
+        <NavInner className="container flexSpaceCenter">
+          <Link className="flexNullCenter" to="home" smooth={true}>
+            <LogoIcon />
+          </Link>
 
-      <BurderWrapper className="pointer" onClick={()=> toggleSidebar(!sidebarOpen)}>
-        <BurgerIcon />
-      </BurderWrapper>
+          <BurderWrapper className="pointer" onClick={() => toggleSidebar(!sidebarOpen)}>
+            <BurgerIcon />
+          </BurderWrapper>
 
-      <UlWrapper className="flexNullCenter mt-3">
-        <li className="semiBold font15 pointer">
-          <a href='#panel' className="text-gray-600" style={{ padding: "10px 15px" }} spy={true} smooth={true}
-            offset={-80}>
-            Booking
-          </a>
-        </li>
+          <UlWrapper className="flexNullCenter mt-3">
+            <li className="semiBold font15 pointer">
+              <a href='#panel' className="text-gray-600" style={{ padding: "10px 15px" }} spy={true} smooth={true}
+                offset={-80}>
+                Booking
+              </a>
+            </li>
 
-        <li className="semiBold font15 pointer">
-          <a href='#about' className="text-gray-600" style={{ padding: "10px 15px" }} spy={true} smooth={true}
-            offset={-80}>
-            About Us
-          </a>
-        </li>
+            <li className="semiBold font15 pointer">
+              <a href='#about' className="text-gray-600" style={{ padding: "10px 15px" }} spy={true} smooth={true}
+                offset={-80}>
+                About Us
+              </a>
+            </li>
 
-        <li className="semiBold font15 pointer">
-          <a href='#destination' className="text-gray-600" style={{ padding: "10px 15px" }} spy={true} smooth={true}
-            offset={-80}>
-            Destination
-          </a>
-        </li>
+            <li className="semiBold font15 pointer">
+              <a href='#destination' className="text-gray-600" style={{ padding: "10px 15px" }} spy={true} smooth={true}
+                offset={-80}>
+                Destination
+              </a>
+            </li>
 
-        <li className="semiBold font15 pointer">
-          <a href='#testimonial' className="text-gray-600" style={{ padding: "10px 15px" }} spy={true} smooth={true}
-            offset={-80}>
-            Testimonial
-          </a>
-        </li>
-        <li className="semiBold font15 pointer">
-          <a href='/Profile' className="text-gray-600" style={{ padding: "10px 15px" }} spy={true} smooth={true}
-            offset={-80}>
-            Profile
-          </a>
-        </li>
-      </UlWrapper>
+            <li className="semiBold font15 pointer">
+              <a href='#testimonial' className="text-gray-600" style={{ padding: "10px 15px" }} spy={true} smooth={true}
+                offset={-80}>
+                Testimonial
+              </a>
+            </li>
+          </UlWrapper>
 
-      <UlWrapperRight className="flexNullCenter mt-3">
+          <UlWrapperRight className="flexNullCenter mt-3">
 
-        <li className="btnHover semiBold font15 pointer flexCenter">
-          <a href="/login" className="radius8 bg-orange-500 text-white" style={{ padding: "4px 15px" }}>
-            Sign In
-          </a>
-        </li>
-      </UlWrapperRight>
-    </NavInner>
-  </Wrapper>
-</>
-);
+            <li className="btnHover semiBold font15 pointer flexCenter">
+              <a href="/login" className="radius8 bg-orange-500 text-white" style={{ padding: "4px 15px" }}>
+                Sign In
+              </a>
+            </li>
+          </UlWrapperRight>
+        </NavInner>
+      </Wrapper>
+    </>
+  );
 }
 
 const Wrapper = styled.nav`
