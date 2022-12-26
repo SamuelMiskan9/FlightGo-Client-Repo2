@@ -8,7 +8,7 @@ import Flight from '../assets/img/Wishlist/Flight.png'
 import { useState, useEffect } from "react";
 import axios from "axios";
 export default function PaymentPage() {
-    const [wishlist, setWishlist] = useState("");
+    const [wishlist, setWishlist] = useState([]);
     const historyUser = () => {
         axios
         .get('https://flightgo-be-server.up.railway.app/v1/api/ticket/wishlist/list', {
@@ -18,7 +18,7 @@ export default function PaymentPage() {
         })
         .then((response) => {
             console.log(response.data.data)
-            setWishlist(response.data);
+            setWishlist(response.data.data);
         });
     };
     useEffect(() => {
@@ -39,84 +39,33 @@ export default function PaymentPage() {
                                         </tr>
                                     </thead>
                                     <tbody>
+                                    {wishlist.map((wishlist) => (
                                         <tr>
+                                            <>
                                             <td>
                                                 <div className="card border rounded-full shadow-sm p-1 cursor-pointer">
                                                     <div className="card-top">
                                                         <img src={pict1} alt='pict1' style={{height:100}} />
                                                         <div className='grid grid-cols-3 ml-5 text-base font-semibold pt-2'>
-                                                            <div>Jakarta</div>
+                                                            <div>{wishlist.product.kota_asal}</div>
                                                             <img alt='Flight' src={Flight} />
-                                                            <div>Lombok</div>
+                                                            <div>{wishlist.product.kota_tujuan}</div>
                                                         </div>
                                                     </div>
                                                     <div className="card-bottom text-sm">
                                                         <div>Mountain Hiking Tour</div>
                                                         <div className='grid grid-cols-2 pt-2'>
-                                                        <div>$89/ Person</div>
+                                                        <div>RP. {wishlist.product.total_price.toString().replace(/(\d)(?=(\d{3})+(?:\.\d+)?$)/g, '$1.')}</div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </td>
-
-
-
                                             <td className="text-right">
-                                                <a href="" className="btn btn-danger"> Remove</a>
+                                                <button href="" className="btn btn-danger"> Remove</button>
                                             </td>
+                                            </>
                                         </tr>
-
-                                        <tr>
-                                            <td>
-                                                <div className="card border rounded-full shadow-sm p-1 cursor-pointer">
-                                                    <div className="card-top">
-                                                        <img src={pict2} alt='pict2' style={{height:100}} />
-                                                        <div className='grid grid-cols-3 ml-5 text-base font-semibold pt-2'>
-                                                            <div>Jakarta</div>
-                                                            <img alt='Flight' src={Flight} />
-                                                            <div>Bandung</div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div className="card-bottom text-sm">
-                                                        <div>Bandung</div>
-                                                        <div className='grid grid-cols-2 pt-2'>
-                                                            <div>$99/ Person</div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </td>
-
-                                            <td className="text-right">
-                                                <a href="" className="btn btn-danger btn-round"> Remove</a>
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>
-                                                <div className="card border rounded-full shadow-sm p-1 cursor-pointer">
-                                                    <div className="card-top">
-                                                        <img src={pict3} alt='pict3' style={{height:100}} />
-                                                        <div className='grid grid-cols-3 ml-5 text-base font-semibold pt-2'>
-                                                            <div>Jakarta</div>
-                                                            <img alt='Flight' src={Flight} />
-                                                            <div>Lombok</div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div className="card-bottom text-sm">
-                                                        <div>Mountain Hiking Tour</div>
-                                                        <div className='grid grid-cols-2 pt-2'>
-                                                            <div>$89/ Person</div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </td>
-
-                                            <td className="text-right">
-                                                <a href="/" className="btn btn-danger btn-round"> Remove</a>
-                                            </td>
-                                        </tr>
+                                        ))}
                                     </tbody>
                                 </table>
                             </div>
