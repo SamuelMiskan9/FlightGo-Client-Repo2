@@ -1,4 +1,4 @@
-import { Container, Form, Button, Row, Col } from "react-bootstrap"
+import { Container, Form, Button} from "react-bootstrap"
 import {
   FaAmericanSignLanguageInterpreting,
   FaCube,
@@ -66,6 +66,7 @@ function CheckIn() {
   return (
     <Container>
       <br /><br /><br /><hr />
+      <h4 className="ms-4 fw-bold">Check-in Page</h4>
       <div className="row px-2">
         <div className="col-lg-6 d-inline outline-2">
           <div className="col-lg-12 p-3 bg-white rounded">
