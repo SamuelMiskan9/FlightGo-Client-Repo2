@@ -59,7 +59,7 @@ const EditProfile = () => {
                 setTimeout(() => {
                     navigate("/profile");
                     window.location.reload();
-                }, 10000);
+                }, 1000);
                 swal({
                     title: "Berhasil!",
                     text: "Profil Updated",
