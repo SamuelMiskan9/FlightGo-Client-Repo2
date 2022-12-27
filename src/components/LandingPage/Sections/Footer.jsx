@@ -81,16 +81,24 @@ return (
         <MDBCol md='4' lg='3' xl='3' className='mx-auto mb-md-0 mb-4 text-center'>
           <h6 className='text-uppercase fw-bold mb-4 text-slate-600'>Support</h6>
           <p>
-            <MDBIcon color='secondary' />Booking Guide
+            <a href='#!' className='text-reset'>
+              Booking Guide
+            </a>
           </p>
           <p>
-            <MDBIcon color='secondary' />FAQ
+            <a href='#!' className='text-reset'>
+              FAQ
+            </a>
           </p>
           <p>
-            <MDBIcon color='secondary' />Help Center
+            <a href='#!' className='text-reset'>
+             Help Center
+            </a>
           </p>
           <p>
-            <MDBIcon color='secondary' />Terms & Condiions
+            <a href='#!' className='text-reset'>
+              Terms & Condiions
+            </a>
           </p>
         </MDBCol>
       </MDBRow>
