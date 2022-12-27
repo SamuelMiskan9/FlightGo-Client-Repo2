@@ -3,10 +3,12 @@ import React,  { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 
-import swal from "sweetalert";;
+import swal from "sweetalert";
 const UpdateOrder = () => {
     const { id } = useParams();
     const [orders, setOrders] = useState({});
+    // const [user, setUser] = useState({});
+    // const [userid, setuserId] = useState([]);
     const navigate = useNavigate();
     const role = localStorage.getItem("role");
     if (role !== "admin") {
@@ -20,7 +22,7 @@ const UpdateOrder = () => {
             },
           })
           .then((response) => {
-            setOrders(response.data.data);
+            setOrders(response.data.data);        
           });
       };
       const Accepted = () => {

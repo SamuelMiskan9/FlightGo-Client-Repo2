@@ -30,12 +30,12 @@ function History() {
             <main className="col-md-24">
 
               <div className="card">
-                <table className="table table-borderless table-shopping-cart">
+                <div className="table table-borderless table-shopping-cart">
                   <h3 className='ml ml-5 pt-3'>History</h3>
-                </table>
+                </div>
               </div>
-              {history.map((history) => (
-                <div className="p-3 rounded mt-4" style={{ boxShadow: "0 2px 4px 0 rgb(0 0 0 / 10%)" }}>
+              {history.map((history, i) => (
+                <div className="p-3 rounded mt-4" key={i} style={{ boxShadow: "0 2px 4px 0 rgb(0 0 0 / 10%)" }}>
                   <Row>
                     <Col md={8}>
                       <div className="d-flex justify-content-between col-md-5">

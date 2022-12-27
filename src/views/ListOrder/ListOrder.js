@@ -17,6 +17,7 @@ import { Link,useNavigate } from "react-router-dom";
 import Sort from '../../components/assets/sort.png'
 import Payment from '../../components/assets/bukti.png'
 import axios from "axios";
+import { FaEdit } from "react-icons/fa";
 
 const ListOrder = () => {
   const navigate = useNavigate();
@@ -51,12 +52,9 @@ const ListOrder = () => {
             <CTableRow>
               <CTableHeaderCell scope="col">No</CTableHeaderCell>
               <CTableHeaderCell scope="col">Product Id</CTableHeaderCell>
-              <CTableHeaderCell scope="col">userId</CTableHeaderCell>
+              <CTableHeaderCell scope="col">User Document</CTableHeaderCell>
               <CTableHeaderCell scope="col">Payment</CTableHeaderCell>
               <CTableHeaderCell scope="col">Status</CTableHeaderCell>
-              <CTableHeaderCell scope="col">Visa</CTableHeaderCell>
-              <CTableHeaderCell scope="col">Passport</CTableHeaderCell>
-              <CTableHeaderCell scope="col">Permit</CTableHeaderCell>
               <CTableHeaderCell scope="col">Depature Date</CTableHeaderCell>
               <CTableHeaderCell scope="col">CheckIn</CTableHeaderCell>
               <CTableHeaderCell scope="col">Action</CTableHeaderCell>
@@ -67,17 +65,18 @@ const ListOrder = () => {
             <CTableRow key={i}>
               <CTableHeaderCell scope="row">{i+1}</CTableHeaderCell>
               <CTableDataCell>{transaction.productId}</CTableDataCell>
-              <CTableDataCell>{transaction.userId}</CTableDataCell>
+              <CTableDataCell>
+                 <Link to={`/listorder/userdetail/${transaction.userId}`} target="_blank">
+                   Detail
+                 </Link>
+              </CTableDataCell>
               <CTableDataCell><a href={transaction.bukti_Pembayaran} rel="noopener noreferrer" target="_blank">Click</a></CTableDataCell>
               <CTableDataCell>{transaction.status}</CTableDataCell>
-              <CTableDataCell><a href={transaction.userVisa} rel="noopener noreferrer" target="_blank">Click</a></CTableDataCell>
-              <CTableDataCell><a href={transaction.userPassport} rel="noopener noreferrer" target="_blank">Click</a></CTableDataCell>
-              <CTableDataCell><a href={transaction.userIzin} rel="noopener noreferrer" target="_blank">Click</a></CTableDataCell>
               <CTableDataCell>{transaction.product.depature_date}</CTableDataCell>
               <CTableDataCell>{transaction.checkIn}</CTableDataCell>
               <CTableDataCell>
                 <Link to={`/updateorder/${transaction.id}`}>
-                 Detail
+                  <FaEdit className="m-auto"/>
                 </Link>
               </CTableDataCell>
             </CTableRow>

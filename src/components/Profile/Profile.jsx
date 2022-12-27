@@ -22,6 +22,7 @@ import {
 } from 'mdb-react-ui-kit';
 import { useState, useEffect } from "react";
 import axios from "axios";
+import swal from "sweetalert";
 export default function ProfilePage() {
   const [users, setUsers] = useState("");
   const [history, setHistory] = useState([]);
@@ -36,6 +37,19 @@ export default function ProfilePage() {
         setUsers(response.data);
       });
   };
+  if (
+    users.izin === null ||
+    users.address === null ||
+    users.passport === null ||
+    users.visa === null
+  ) {
+    swal({
+      title: "Perhatian!",
+      text: "Anda belum melengkapi Info Akun, mohon lengkapi terlebih dahulu!",
+      icon: "warning",
+      button: "Mengerti",
+    });
+  }
   useEffect(() => {
     whoami();
     historyUser();
@@ -172,7 +186,7 @@ export default function ProfilePage() {
                   </MDBTableHead>
                   <MDBTableBody>
                     {history.map((history, i) => (
-                      <tr>
+                      <tr key={i}>
                         <th scope='row' className='fw-bold'>{i + 1}</th>
                         <td>{history.checkIn}</td>
                         <td>{history.product.kota_asal}</td>

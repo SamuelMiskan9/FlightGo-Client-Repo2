@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Notification.css";
 import axios from "axios";
+import { Button } from "react-bootstrap";
 
 function Notification() {
   const [menunggu, setMenunggu] = useState([]);
@@ -47,22 +48,36 @@ function Notification() {
     NotifDiterima();
     NotifDitolak();
   }, [])
+  const listmenunggu = (menunggu.length)
+  const listditerima = (diterima.length)
+  const listditolak = (ditolak.length)
   return (
     <div>
-      <header className="section-header pt-3"></header>
+      <header className="section-header"></header>
 
-      <section className="section-content padding-y pb-5">
+      <section className="section-content">
         <div className="container">
           <div className="row">
             <main className="col-md-24">
 
               <div className="card">
-                <table className="table table-borderless table-shopping-cart">
-                  <h3 className='ml ml-5 pt-3'>Notification</h3>
-                </table>
-                <p className="fw-bold ">Berhasil Memesan</p>
+                <div className="table table-borderless table-shopping-cart">
+                  <h3 className='ml'>Notification</h3>
+                  <p>Status :
+                    <a  href='#menunggu'>
+                      <small>Menunggu {listmenunggu}</small>
+                    </a>
+                    <a  href='#berhasil'>
+                      <small className="text-success">Berhasil {listditerima}</small>
+                    </a>
+                    <a  href='#ditolak'>
+                      <small className="text-danger">Ditolak {listditolak}</small>
+                    </a>
+                  </p>
+                </div>
+                <p className="fw-bold " id="menunggu">Berhasil Memesan Ticket</p>
                 {menunggu.map((menunggu, i) => (
-                  <div className="card-body border-top bg-sky-100">
+                  <div className="card-body border-top bg-sky-100" key={i}>
                     <div className=''>
                       <p>
                         Anda berhasil <strong>memesan</strong> tiket dari {menunggu.product.kota_asal} ke {menunggu.product.kota_tujuan}
@@ -70,20 +85,19 @@ function Notification() {
                     </div>
                   </div>
                 ))}
-                <p className="fw-bold mt-3">Pembayaran <strong className="text-success">Berhasil</strong></p>
+                <p className="fw-bold mt-3" id="berhasil">Pembayaran <strong className="text-success">Berhasil</strong></p>
                 {diterima.map((diterima, i) => (
-                  <div className="card-body border-top bg-sky-100">
+                  <div className="card-body border-top bg-sky-100"key={i}>
                     <div className=''>
                       <p>
-                        Tiket pesanan anda dari {diterima.product.kota_asal} ke {diterima.product.kota_tujuan} telah <strong>diterima</strong>
-                        silahkan <a alt='' href={`/history/checkin/${diterima.product.id}`}>Check-in</a>
+                        Tiket pesanan anda dari {diterima.product.kota_asal} ke {diterima.product.kota_tujuan} telah <strong>diterima</strong> silahkan <a alt='' href={`/history/checkin/${diterima.product.id}`}>Check-in</a>
                       </p>
                     </div>
                   </div>
                 ))}
-                <p className="fw-bold mt-3">Pembayaran <strong className="text-danger"> Ditolak</strong> </p>
+                <p className="fw-bold mt-3" id='ditolak'>Pembayaran <strong className="text-danger"> Ditolak</strong> </p>
                 {ditolak.map((ditolak, i) => (
-                  <div className="card-body border-top bg-sky-100">
+                  <div className="card-body border-top bg-sky-100" key={i}>
                     <div className=''>
                       <p>
                         Tiket pesanan anda dari {ditolak.product.kota_asal} ke {ditolak.product.kota_tujuan} <strong>ditolak</strong>

@@ -12,7 +12,7 @@ export default function Sidebar({ sidebarOpen, toggleSidebar }) {
   const role = localStorage.getItem("role");
 
   const navigate = useNavigate();
-
+  const userRole = role === "admin"
   useEffect(() => {
     token ? setIsLoggedIn(true) : setIsLoggedIn(false);
   }, [token]);
@@ -37,6 +37,8 @@ return (
   </SidebarHeader>
 
   <UlStyle className="flexNullCenter flexColumn">
+  {!userRole ? (
+    <>
     <li className="semiBold font15 pointer">
       <a onClick={()=> toggleSidebar(!sidebarOpen)}
         className="blackColor"
@@ -94,7 +96,82 @@ return (
         Sign Out
       </button>
     </li>
+    </>
+      ) : (
+        <>
+        <li className="semiBold font15 pointer">
+          <a onClick={()=> toggleSidebar(!sidebarOpen)}
+            className="blackColor"
+            style={{ padding: "10px 15px" }}
+            href="/listorder"
+            spy={true}
+            smooth={true}
+            offset={-60}
+            >
+            Dashboard
+          </a>
+        </li>
+        <li className="semiBold font15 pointer">
+          <a onClick={()=> toggleSidebar(!sidebarOpen)}
+            className="blackColor"
+            style={{ padding: "10px 15px" }}
+            href="/wishlist"
+            spy={true}
+            smooth={true}
+            offset={-60}
+            >
+            Wishlist
+          </a>
+        </li>
+    
+        <li className="semiBold font15 pointer">
+          <a onClick={()=> toggleSidebar(!sidebarOpen)}
+            className="blackColor"
+            style={{ padding: "10px 15px" }}
+            href="/history"
+            spy={true}
+            smooth={true}
+            offset={-60}
+            >
+            History
+          </a>
+        </li>
+    
+        <li className="semiBold font15 pointer">
+          <a onClick={()=> toggleSidebar(!sidebarOpen)}
+            className="blackColor"
+            style={{ padding: "10px 15px" }}
+            href="/notif"
+            spy={true}
+            smooth={true}
+            offset={-60}
+            >
+            Notifications
+          </a>
+        </li>
+    
+        <li className="semiBold font15 pointer">
+          <a onClick={()=> toggleSidebar(!sidebarOpen)}
+            className="blackColor"
+            style={{ padding: "10px 15px" }}
+            href="/profile"
+            spy={true}
+            smooth={true}
+            offset={-60}
+            >
+            Profile
+          </a>
+        </li>
+    
+        <li className="semiBold font15 pointer flexCenter">
+          <button className="radius8 bg-orange-500 text-white" style={{ padding: "4px 15px" }}onClick={logout}>
+            Sign Out
+          </button>
+        </li>
+        </>
+        )}
   </UlStyle>
+
 </Wrapper>
 );
 }

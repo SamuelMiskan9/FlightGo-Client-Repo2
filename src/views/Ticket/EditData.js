@@ -177,11 +177,13 @@ const EditData = () => {
           <Form.Group>
           <FormLabel>Jenis Penerbangan <p className='text-danger d-inline'>*</p></FormLabel>
             <FormSelect
+              required
               onChange={(e) => {
               const JP = e.target.value;
               setJenispenerbangan(JP);
               }}
               >
+              <option value="" selected disabled hidden>Pilih disini</option>
               <option value={'One-way'}>One-way</option>
               <option value={'Round-trip'}>Round-trip</option>
             </FormSelect>
@@ -190,11 +192,13 @@ const EditData = () => {
           <Form.Group>
           <FormLabel>Tipe Penerbangan <p className='text-danger d-inline'>*</p></FormLabel>
             <FormSelect
+              required
               onChange={(e) => {
               const TP = e.target.value;
               setBentukpenerbangan(TP);
               }}
               >
+              <option value="" selected disabled hidden>Pilih disini</option>
               <option value={'Domestik'}>Domestik</option>
               <option value={'Internasional'}>Internasional</option>
             </FormSelect>
@@ -284,7 +288,7 @@ const EditData = () => {
               <Form.Group className="mt-4 mb-2">
                 <FormLabel>Harga Tiket <p className='text-danger d-inline'>*</p></FormLabel>
                 <FormControl
-                  type="text"
+                  type="number"
                   placeholder="Contoh: 450000"
                   value={price}
                   onChange={(e) => setPrice(e.target.value)}
@@ -368,7 +372,7 @@ const EditData = () => {
             <Form.Group className="mt-4 mb-2">
               <FormLabel>Harga Tiket <p className='text-danger d-inline'>*</p></FormLabel>
               <FormControl
-                type="text"
+                type="number"
                 placeholder="Contoh: 450000"
                 value={price_}
                 onChange={(e) => setPrice_(e.target.value)}
@@ -381,7 +385,7 @@ const EditData = () => {
           <Form.Group>
             <FormLabel>Total Price <p className='text-danger d-inline'>*</p></FormLabel>
             <FormControl 
-            type='text'
+            type='number'
             placeholder="Contoh: 900000"
             value={totalprice}
             onChange={(e) => setTotalprice(e.target.value)}

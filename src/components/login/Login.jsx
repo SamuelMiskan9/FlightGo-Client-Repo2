@@ -25,7 +25,7 @@ function Login() {
                 localStorage.setItem("role", response.data.data.role);
                 setTimeout(() => {
                     window.location.reload();
-                }, 300000);
+                }, 100000);
                 swal("Login Success", {
                     icon: "success",
                 });
@@ -45,7 +45,7 @@ function Login() {
                     });
                 } else {
                     toast("email or password are wrong", {
-                        type: "error",
+                        // type: "error",
                     });
                 }
             });
@@ -60,7 +60,7 @@ function Login() {
                             <h1>Login Page</h1>
                             <Form.Group className="mb-3" controlId="formBasicEmail">
                                 <Form.Label>Email address</Form.Label>
-                                <Form.Control type="email" placeholder="Enter email" onChange={setEmail} />
+                                <Form.Control className="" type="email" placeholder="Enter email" onChange={setEmail} />
                                 <Form.Text className="text-muted">
                                     We'll never share your email with anyone else.
                                 </Form.Text>
