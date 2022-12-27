@@ -16,12 +16,15 @@ import {
   MDBTableBody,
   MDBIcon,
   MDBListGroup,
-  MDBListGroupItem
+  MDBListGroupItem,
+  MDBCarousel,
+  MDBCarouselItem
 } from 'mdb-react-ui-kit';
 import { useState, useEffect } from "react";
 import axios from "axios";
 export default function ProfilePage() {
   const [users, setUsers] = useState("");
+  const [history, setHistory] = useState([]);
   const whoami = () => {
     axios
       .get('https://flightgo-be-server.up.railway.app/v1/api/current-user', {
@@ -30,13 +33,25 @@ export default function ProfilePage() {
         },
       })
       .then((response) => {
-        console.log(response.data)
         setUsers(response.data);
       });
   };
   useEffect(() => {
     whoami();
+    historyUser();
   }, [])
+
+  const historyUser = () => {
+    axios
+      .get('https://flightgo-be-server.up.railway.app/v1/api/ticket/transaction/data/history/member', {
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("token"),
+        },
+      })
+      .then((response) => {
+        setHistory(response.data.memberHistory);
+      });
+  };
   return (
     <section style={{ backgroundColor: '#FBFBFB' }}>
       <MDBContainer className="py-5">
@@ -53,7 +68,7 @@ export default function ProfilePage() {
             </MDBBreadcrumb>
           </MDBCol>
         </MDBRow>
-        <MDBBtn href='/profile/update-profile'>Update Profile</MDBBtn>
+        <MDBBtn href='/profile/update-profile' className='mb-2' style={{ backgroundColor: "#F97316" }} >Edit Profile</MDBBtn>
         <MDBRow>
           <MDBCol lg="4">
             <MDBCard className="mb-4">
@@ -61,15 +76,44 @@ export default function ProfilePage() {
                 <MDBCardImage
                   src={users.image_user}
                   alt="avatar"
-                  className="rounded-circle mx-auto"
+                  className="square bg-primary rounded mx-auto"
                   style={{ width: '150px' }}
                   fluid />
                 <p className="text-muted mb-1 mt-3">{users.name}</p>
                 <p className="text-muted mb-4">{users.address}</p>
               </MDBCardBody>
             </MDBCard>
+            <MDBCard>
+              <MDBCarousel showControls fade>
+                <MDBCarouselItem
+                  className='w-100 d-block'
+                  itemId={1}
+                  src={users.visa}
+                  alt='...'
+                >
+                </MDBCarouselItem>
 
-            <MDBCard className="mb-4 mb-lg-0">
+                <MDBCarouselItem
+                  className='w-100 d-block'
+                  itemId={2}
+                  src={users.passport}
+                  alt='...'
+                >
+                  <h5>Passport</h5>
+                </MDBCarouselItem>
+
+                <MDBCarouselItem
+                  className='w-100 d-block'
+                  itemId={3}
+                  src={users.izin}
+                  alt='...'
+                >
+                  <h5>Permit</h5>
+                </MDBCarouselItem>
+              </MDBCarousel>
+            </MDBCard>
+
+            <MDBCard className="mt-4 mb-lg-0">
               <MDBCardBody className="p-0">
                 <MDBListGroup flush className="rounded-3">
                   <MDBListGroupItem className="d-flex justify-content-between align-items-center p-3">
@@ -86,7 +130,7 @@ export default function ProfilePage() {
               <MDBCardBody>
                 <MDBRow>
                   <MDBCol sm="3">
-                    <MDBCardText>Full Name</MDBCardText>
+                    <MDBCardText className='fw-bold'>Full Name</MDBCardText>
                   </MDBCol>
                   <MDBCol sm="9">
                     <MDBCardText className="text-muted">{users.name}</MDBCardText>
@@ -95,7 +139,7 @@ export default function ProfilePage() {
                 <hr />
                 <MDBRow>
                   <MDBCol sm="3">
-                    <MDBCardText>Phone</MDBCardText>
+                    <MDBCardText className='fw-bold'>Phone</MDBCardText>
                   </MDBCol>
                   <MDBCol sm="9">
                     <MDBCardText className="text-muted">{users.phone}</MDBCardText>
@@ -104,7 +148,7 @@ export default function ProfilePage() {
                 <hr />
                 <MDBRow>
                   <MDBCol sm="3">
-                    <MDBCardText>Address</MDBCardText>
+                    <MDBCardText className='fw-bold'>Address</MDBCardText>
                   </MDBCol>
                   <MDBCol sm="9">
                     <MDBCardText className="text-muted">{users.address}</MDBCardText>
@@ -115,47 +159,31 @@ export default function ProfilePage() {
 
             <MDBCard className="mb-4">
               <MDBCardBody>
-                <MDBCardText className="mb-4"><span className="text-primary font-italic me-1">History</span> Transaction</MDBCardText>
-                <MDBTable hover>
+                <MDBCardText className="mb-4 fw-bold">History Transaction</MDBCardText>
+                <MDBTable hover responsive>
                   <MDBTableHead>
                     <tr>
-                      <th scope='col'>#</th>
-                      <th scope='col'>Date</th>
-                      <th scope='col'>Transaction ID</th>
-                      <th scope='col'>Status</th>
+                      <th scope='col' className='fw-bold'>No</th>
+                      <th scope='col' className='fw-bold'>CheckIn</th>
+                      <th scope='col' className='fw-bold'>From</th>
+                      <th scope='col' className='fw-bold'>To</th>
+                      <th scope='col' className='fw-bold'>Status Pesanan</th>
                     </tr>
                   </MDBTableHead>
                   <MDBTableBody>
-                    <tr>
-                      <th scope='row'>1</th>
-                      <td>01/12/2022</td>
-                      <td>12345678</td>
-                      <td>
-                        <MDBBadge color='success' pill>
-                          Completed
-                        </MDBBadge>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope='row'>2</th>
-                      <td>29/11/2022</td>
-                      <td>12345678</td>
-                      <td>
-                        <MDBBadge color='primary' pill>
-                          Onboarding
-                        </MDBBadge>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope='row'>2</th>
-                      <td>04/12/2022</td>
-                      <td>12345678</td>
-                      <td>
-                        <MDBBadge color='warning' pill>
-                          Awaiting
-                        </MDBBadge>
-                      </td>
-                    </tr>
+                    {history.map((history, i) => (
+                      <tr>
+                        <th scope='row' className='fw-bold'>{i + 1}</th>
+                        <td>{history.checkIn}</td>
+                        <td>{history.product.kota_asal}</td>
+                        <td>{history.product.kota_tujuan}</td>
+                        <td>
+                          <MDBBadge color='success' pill>
+                            {history.status}
+                          </MDBBadge>
+                        </td>
+                      </tr>
+                    ))}
                   </MDBTableBody>
                 </MDBTable>
               </MDBCardBody>

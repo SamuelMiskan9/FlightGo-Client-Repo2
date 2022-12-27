@@ -9,10 +9,10 @@ import ProfilePage from "./pages/ProfilePage";
 import EditProfilePage from './pages/ProfilePage/updateProfile';
 import TicketBook from "./pages/TicketPage/TicketBook";
 import TicketPage from "./pages/TicketPage/TicketPage";
-import TicketPageConfirm from "./pages/TicketPage/TicketPageConfirm";
 import Notification from "./pages/Notification/Notification";
 import Homepage from "./pages/Homepage/Homepage";
 import History from "./pages/History/History";
+import CheckInPage from './pages/History/CheckIn';
 import Payment from "./pages/Payment/payment";
 import WishlistPage from './pages/Wishlist/wishlist';
 import axios from "axios";
@@ -37,7 +37,6 @@ function App() {
             },
         })
         .then((response) => {
-            console.log(response.data.role)
             setUsers(response.data.data);
             setRole(response.data.role);
         });
@@ -48,44 +47,83 @@ function App() {
   }, [])
   return (
     <>
-      {/* {
-        route.pathname === '/admin'
-        ? <Sidebar/> 
-        : route.pathname === '/ticketschedule' ? <Sidebar />
-        : route.pathname === '/listorder' ? <Sidebar />
-        : ''
-        
-      } */}
       <BrowserRouter>
         <Suspense fallback={loading}>
           <Routes>
             <Route path='/' element={
-              <NavigateToHome users={users}>
-            <Homepage/>
+              <NavigateToHome>
+            <Homepage users={users}/>
             </NavigateToHome>
             }/>
-            <Route path='/landing' element={<Landing/>}/>
+            <Route path='/landing' element={
+             <ProtectedToken>
+               <Landing />
+             </ProtectedToken>
+            }/>
             <Route path='/login' element={
-              <NavigateToHome users={users}>
-                <LoginPage />
+              <NavigateToHome>
+                <LoginPage users={users}/>
               </NavigateToHome>
             }/>
 
             <Route path='register' element={
               <NavigateToHome>
-                <RegisterPage/>
+                <RegisterPage users={users}/>
               </NavigateToHome>
             }/>
-            <Route path='/profile' element={<ProfilePage/>}/>
-            <Route path='/profile/update-profile' element={<EditProfilePage/>}/>
-            <Route path='/notif' element={<Notification/>}/>
-            <Route path='/history' element={<History/>}/>
-            <Route path='/payment' element={<Payment/>}/>
-            <Route path='/wishlist' element={<WishlistPage/>}/>
-            <Route path='*' element={<DefaultLayout/>}/>
-            <Route path="/ticket" element={<TicketPage />} />
-            <Route path="/ticket/confirm" element={<TicketPageConfirm />} />
-            <Route path="/ticket/book" element={<TicketBook />} />
+            <Route path='/profile' element={
+            <ProtectedToken>
+              <ProfilePage users={users}/>
+            </ProtectedToken>
+            }/>
+            <Route path='/profile/update-profile' element={
+            <ProtectedToken>
+              <EditProfilePage users={users}/>
+            </ProtectedToken>
+            }/>
+            <Route path='/notif' element={
+              <ProtectedToken>
+                <Notification users={users}/>
+              </ProtectedToken>
+            }/>
+            <Route path='/history' element={
+            <ProtectedToken>
+              <History/>
+            </ProtectedToken>            
+            }/>
+            <Route path='/history/checkin/:id' element={
+            <ProtectedToken>
+               <CheckInPage users={users}/>
+            </ProtectedToken>
+            }/>
+
+            <Route path='/payment' element={
+            <ProtectedToken>
+               <Payment users={users}/>
+            </ProtectedToken>
+            }/>
+
+            <Route path='/wishlist' element={
+             <ProtectedToken>
+                <WishlistPage users={users}/>
+             </ProtectedToken>            
+            }/>
+            
+            <Route path='*' element={
+            <ProtectedToken>
+              <DefaultLayout users={users}/>
+            </ProtectedToken>
+            }/>
+            <Route path="/ticket" element={
+              <ProtectedToken>
+                <TicketPage users={users} />
+              </ProtectedToken>
+            } />
+            <Route path="/ticket/book/:id" element={
+              <ProtectedToken>
+                <TicketBook users={users}/>
+              </ProtectedToken>
+            } />
           </Routes>
         </Suspense>
       </BrowserRouter>

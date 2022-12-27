@@ -19,18 +19,14 @@ const AppHeader = () => {
   const sidebarShow = useSelector((state) => state.sidebarShow)
 
   return (
-    <CHeader position="sticky" className="mb-4">
+    <CHeader position="sticky" className="mb-4" >
       <CContainer fluid>
         <CHeaderToggler
           className="ps-1 flex items-center w-1/3"
         >
           <CIcon icon={cilMenu} size="lg" className='mr-4' onClick={() => dispatch({ type: 'set', sidebarShow: !sidebarShow })}/>
-          <CFormInput type="search" placeholder="Search" aria-label="default input example" className=''/>
-        </CHeaderToggler>
-        <CHeaderNav>
-          <a href="/landing">LandingPage</a>
-        </CHeaderNav>
-        
+          <CFormInput type="search" placeholder="Search" aria-label="default input example" />
+        </CHeaderToggler>        
         <CHeaderNav className="ms-3">
           <CNavItem>
             <CNavLink href="#">

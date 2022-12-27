@@ -1,3 +1,4 @@
+import  { useState, useEffect } from "react";
 import React, {
   CCol,
   CRow,
@@ -12,17 +13,19 @@ import React, {
   CTableBody,
   CTableDataCell
 } from '@coreui/react'
-import { useParams } from "react-router-dom";
-import Sort from '../../../components/assets/sort.png'
-import Payment from '../../../components/assets/bukti.png'
+import { Link,useNavigate } from "react-router-dom";
+import Sort from '../../components/assets/sort.png'
+import Payment from '../../components/assets/bukti.png'
 import axios from "axios";
-import  { useState, useEffect } from "react";
-import swal from "sweetalert";
-const Accordion = () => {
 
+const ListOrder = () => {
+  const navigate = useNavigate();
   const [payment, setPayment] = useState(false)
   const [transaction, setTransaction] = useState([]);
-  // const { id } = useParams();
+  const role = localStorage.getItem("role");
+  if (role !== "admin") {
+    navigate("/landing");
+  }
   useEffect(() => {
     getTransaction();
   }, []);
@@ -32,110 +35,21 @@ const Accordion = () => {
             Authorization: "Bearer " + localStorage.getItem("token"),
         },
     });
-    console.log(response.data.data)
     setTransaction(response.data.data);
   };
   
-  function accOrder(id) {
-    swal({
-      title: "Apakah anda yakin?",
-      // text: "Setelah dihapus, Anda tidak akan dapat mengembalikan produk ini!",
-      icon: "warning",
-      buttons: true,
-      dangerMode: true,
-    }).then((willAcc) => {
-      if (willAcc) {
-        axios
-          .put(
-            `https://flightgo-be-server.up.railway.app/v1/api/ticket/transaction/accept/${id}`,
-            {
-              headers: {
-                Authorization: "Bearer " + localStorage.getItem("token"),
-              },
-            }
-          )
-          .then((response) => {})
-          .catch((error) => {})
-          .finally(() => {
-            window.location.href = "/listorder";
-          });
-        swal("Orderan berhasil diterima", {
-          icon: "success",
-        });
-      } else {
-        swal("Data produk tidak jadi diterima");
-      }
-    });
-  }
-  function rejectOrder(id) {
-    swal({
-      title: "Apakah anda yakin?",
-      // text: "Setelah dihapus, Anda tidak akan dapat mengembalikan produk ini!",
-      icon: "warning",
-      buttons: true,
-      dangerMode: true,
-    }).then((willReject) => {
-      if (willReject) {
-        axios
-          .put(
-            `https://flightgo-be-server.up.railway.app/v1/api/ticket/transaction/accept/${id}`,
-            {
-              headers: {
-                Authorization: "Bearer " + localStorage.getItem("token"),
-              },
-            }
-          )
-          .then((response) => {})
-          .catch((error) => {})
-          .finally(() => {
-            window.location.href = "/listorder";
-          });
-        swal("Orderan berhasil diterima", {
-          icon: "success",
-        });
-      } else {
-        swal("Data produk tidak jadi diterima");
-      }
-    });
-  }
-  // const accTransaction = async (id) => {
-  //   try {
-  //     const response = await axios.put(`https://flightgo-be-server.up.railway.app/v1/api/ticket/transaction/accept/${id}`, {
-  //       headers: {
-  //           Authorization: "Bearer " + localStorage.getItem("token"),
-  //       },
-  //     });
-  //     console.log(response)
-  //     getTransaction();
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-  // const rejectTransaction = async (id) => {
-  //   try {
-  //     const response = await axios.put(`https://flightgo-be-server.up.railway.app/v1/api/ticket/transaction/reject/${id}`, {
-  //       headers: {
-  //           Authorization: "Bearer " + localStorage.getItem("token"),
-  //       },
-  //     });
-  //     console.log(response)
-  //     getTransaction();
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
 
   return (
-    <CRow>
-      <CCol xs={12}>
+    <CRow fluid>
+      <CCol xs={12} md={12}>
         <p className='font-bold text-3xl'>List Booking Order</p>
         <p className='py-2 px-3 bg-gray-200 my-4'>Table list Booking Order</p>
         <button className='flex items-center bg-[#F66F4D] text-white px-3 py-1 rounded-lg'>Filter <img src={Sort} alt='' className='w-5'/></button>
         <p className=' mt-10 font-bold ml-5'>Latest Orders</p>
-        <CTable responsive className='shadow-sm text-center bg-[#FFFFFF]'>
+        <CTable responsive striped className='shadow-sm text-center '>
           <CTableHead>
             <CTableRow>
-              <CTableHeaderCell scope="col">Id</CTableHeaderCell>
+              <CTableHeaderCell scope="col">No</CTableHeaderCell>
               <CTableHeaderCell scope="col">Product Id</CTableHeaderCell>
               <CTableHeaderCell scope="col">userId</CTableHeaderCell>
               <CTableHeaderCell scope="col">Payment</CTableHeaderCell>
@@ -143,14 +57,15 @@ const Accordion = () => {
               <CTableHeaderCell scope="col">Visa</CTableHeaderCell>
               <CTableHeaderCell scope="col">Passport</CTableHeaderCell>
               <CTableHeaderCell scope="col">Permit</CTableHeaderCell>
+              <CTableHeaderCell scope="col">Depature Date</CTableHeaderCell>
               <CTableHeaderCell scope="col">CheckIn</CTableHeaderCell>
               <CTableHeaderCell scope="col">Action</CTableHeaderCell>
             </CTableRow>
           </CTableHead>
           <CTableBody>
-          {transaction.map((transaction) => (
-            <CTableRow>
-              <CTableHeaderCell scope="row">{transaction.id}</CTableHeaderCell>
+          {transaction.map((transaction, i) => (
+            <CTableRow key={i}>
+              <CTableHeaderCell scope="row">{i+1}</CTableHeaderCell>
               <CTableDataCell>{transaction.productId}</CTableDataCell>
               <CTableDataCell>{transaction.userId}</CTableDataCell>
               <CTableDataCell><a href={transaction.bukti_Pembayaran} rel="noopener noreferrer" target="_blank">Click</a></CTableDataCell>
@@ -158,14 +73,12 @@ const Accordion = () => {
               <CTableDataCell><a href={transaction.userVisa} rel="noopener noreferrer" target="_blank">Click</a></CTableDataCell>
               <CTableDataCell><a href={transaction.userPassport} rel="noopener noreferrer" target="_blank">Click</a></CTableDataCell>
               <CTableDataCell><a href={transaction.userIzin} rel="noopener noreferrer" target="_blank">Click</a></CTableDataCell>
+              <CTableDataCell>{transaction.product.depature_date}</CTableDataCell>
               <CTableDataCell>{transaction.checkIn}</CTableDataCell>
               <CTableDataCell>
-                <button type='button' onClick={accOrder}>
-                  Acc
-                </button>
-                <button onClick={rejectOrder}>
-                  Reject
-                </button>
+                <Link to={`/updateorder/${transaction.id}`}>
+                 Detail
+                </Link>
               </CTableDataCell>
             </CTableRow>
           ))}
@@ -198,4 +111,4 @@ const Accordion = () => {
   )
 }
 
-export default Accordion
+export default ListOrder
