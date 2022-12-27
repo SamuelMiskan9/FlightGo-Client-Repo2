@@ -60,12 +60,12 @@ function Notification() {
           <div className="row">
             <main className="col-md-24">
 
-              <div className="card">
+              <div className="card mb-5">
                 <div className="table table-borderless table-shopping-cart">
-                  <h3 className='ml'>Notification</h3>
+                  <h3 className=''>Notification</h3>
                   <p>Status :
                     <a  href='#menunggu'>
-                      <small>Menunggu {listmenunggu}</small>
+                      <small className="text-primary">Menunggu {listmenunggu}</small>
                     </a>
                     <a  href='#berhasil'>
                       <small className="text-success">Berhasil {listditerima}</small>
@@ -75,7 +75,7 @@ function Notification() {
                     </a>
                   </p>
                 </div>
-                <p className="fw-bold " id="menunggu">Berhasil Memesan Ticket</p>
+                <p className="fw-bold " id="menunggu">Berhasil <strong className="text-primary">Memesan</strong> Tiket</p>
                 {menunggu.map((menunggu, i) => (
                   <div className="card-body border-top bg-sky-100" key={i}>
                     <div className=''>
@@ -90,7 +90,7 @@ function Notification() {
                   <div className="card-body border-top bg-sky-100"key={i}>
                     <div className=''>
                       <p>
-                        Tiket pesanan anda dari {diterima.product.kota_asal} ke {diterima.product.kota_tujuan} telah <strong>diterima</strong> silahkan <a alt='' href={`/history/checkin/${diterima.product.id}`}>Check-in</a>
+                        Tiket pesanan anda dari {diterima.product.kota_asal} ke {diterima.product.kota_tujuan} telah <strong>diterima</strong> silahkan <a className="text-primary" href={`/history/checkin/${diterima.product.id}`}>Check-in</a>
                       </p>
                     </div>
                   </div>

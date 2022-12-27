@@ -1,5 +1,5 @@
 import React from 'react'
-import pict1 from '../../components/assets/two.png'
+import Pict1 from '../../components/assets/two.png'
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
@@ -37,16 +37,16 @@ function History() {
               {history.map((history, i) => (
                 <div className="p-3 rounded mt-4" key={i} style={{ boxShadow: "0 2px 4px 0 rgb(0 0 0 / 10%)" }}>
                   <Row>
-                    <Col md={8}>
+                    <Col className='bg-info' md={8}>
                       <div className="d-flex justify-content-between col-md-5">
-                        <p className=" py-1 ">Date: {history.createdAt}</p>
+                        <p className=" py-1 ">{history.product.jenis_penerbangan} {history.product.depature_date}</p>
                       </div>
 
-                      <div className="d-flex justify-content-between col-md-5">
+                      <div className="d-flex justify-content-between col-md-5 ">
                         <div className="d-flex mt-4">
                           <div className='grid grid-cols-3'>
-                            <p className='me-5'>{history.product.kota_asal}</p>
-                            <img alt='pict1' src={pict1} style={{ height: 30 }} />
+                            <p>{history.product.kota_asal}</p>
+                            <img className='mx-auto bg-info' alt='pict1' src={Pict1} style={{ height: '2em' }} />
                             <p>{history.product.kota_tujuan}</p>
                           </div>
                         </div>
