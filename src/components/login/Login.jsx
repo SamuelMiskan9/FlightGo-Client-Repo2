@@ -4,6 +4,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import swal from "sweetalert";
 import { useNavigate } from "react-router-dom";
+import './login.css'
 function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
