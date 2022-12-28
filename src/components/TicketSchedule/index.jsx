@@ -5,9 +5,9 @@ import TopBar from '../TopBar';
 const TicketSchedule = () => {
   return (
     <div className='position-absolute left-1/4 w-3/4'>
-        <MDBContainer breakpoint='lg'>
-            <TopBar />
-        </MDBContainer>
+      <MDBContainer breakpoint='lg'>
+        <TopBar />
+      </MDBContainer>
     </div>
   )
 }

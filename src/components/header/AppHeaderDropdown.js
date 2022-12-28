@@ -15,17 +15,18 @@ import {
 import CIcon from '@coreui/icons-react'
 
 const AppHeaderDropdown = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  // eslint-disable-next-line no-unused-vars
+  const [userLogin, setUserLogin] = useState(false);
   const token = localStorage.getItem("token");
-  const role = localStorage.getItem("role");
+
 
   const navigate = useNavigate();
   useEffect(() => {
-    token ? setIsLoggedIn(true) : setIsLoggedIn(false);
+    token ? setUserLogin(true) : setUserLogin(false);
   }, [token]);
 
   const logout = () => {
-    setIsLoggedIn(false);
+    setUserLogin(false);
     localStorage.removeItem("token");
     localStorage.removeItem("role")
     navigate('/login')

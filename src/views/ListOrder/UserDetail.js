@@ -35,6 +35,7 @@ const UserDetail = () => {
       };
       useEffect(() => {
         userProfile();
+      // eslint-disable-next-line react-hooks/exhaustive-deps
       }, []);
     return(
         <section style={{ backgroundColor: '#FBFBFB' }}>
@@ -57,7 +58,7 @@ const UserDetail = () => {
               <MDBCard>
               </MDBCard>
             </MDBCol>
-  
+
             <MDBCol lg="8">
               <MDBCard className="mb-4">
                 <MDBCardBody>

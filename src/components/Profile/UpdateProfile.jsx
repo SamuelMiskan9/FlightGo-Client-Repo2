@@ -46,6 +46,7 @@ const EditProfile = () => {
             if (name === null || address === null || phone === null || image === null || visa === null || passport === null || izin === null) {
                 toast("Isi Semua data");
             } else {
+                // eslint-disable-next-line no-unused-vars
                 const response = await axios.put(
                     "https://flightgo-be-server.up.railway.app/v1/api/users",
                     form,
@@ -83,7 +84,7 @@ const EditProfile = () => {
     }
     return (
         <Container className="mt-5">
-            <Button className="mt-2 mb-4 me-3"  style={{ backgroundColor: "#F97316" }} href="/profile">
+            <Button className="mt-2 mb-4 me-3" style={{ backgroundColor: "#F97316" }} href="/profile">
                 Kembali
             </Button>
             <Form onSubmit={handleSubmit}>
@@ -156,7 +157,7 @@ const EditProfile = () => {
                 <Button className="mt-2 mb-4 bg-success" type="submit">
                     Submit
                 </Button>
-                <ToastContainer className='text-danger'/>
+                <ToastContainer className='text-danger' />
             </Form>
         </Container>
     )

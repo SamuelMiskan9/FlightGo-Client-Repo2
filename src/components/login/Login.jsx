@@ -7,11 +7,11 @@ import { useNavigate } from "react-router-dom";
 function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [userLogin, setUserLogin] = useState(false);
     const token = localStorage.getItem("token");
     const navigate = useNavigate();
     useEffect(() => {
-        token ? setIsLoggedIn(true) : setIsLoggedIn(false);
+        token ? setUserLogin(true) : setUserLogin(false);
     }, [token]);
 
     const login = () => {
@@ -53,7 +53,7 @@ function Login() {
     return (
         <Container ><br /><br /><br /><br /><br />
             <ToastContainer />
-            {!isLoggedIn ? (
+            {!userLogin ? (
                 <Row className="mt-5">
                     <Col md={12} >
                         <Form >

@@ -6,31 +6,25 @@ import {
   FaLanguage,
   FaWpforms,
 } from "react-icons/fa";
-import { FiChevronDown, FiChevronUp } from "react-icons/fi";
+import { FiChevronDown, FiChevronUp, FiHeart } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import swal from "sweetalert";
 const Card = () => {
   const [show, setShow] = useState(false);
   const [ticket, setTicket] = useState([]);
-  const [wishlist, setWishlist] = useState(JSON.parse(localStorage.getItem('wishlist')) || '');
+  const [wishlist, setWishlist] = useState(JSON.parse(localStorage.getItem('wishlist')) || []);
   useEffect(() => {
     getTicket();
   }, []);
-    // Fungsi untuk menambahkan produk ke wishlist
+  // Fungsi untuk menambahkan produk ke wishlist
   const addToWishlist = ticket => {
     setWishlist([...wishlist, ticket]);
     localStorage.setItem('wishlist', JSON.stringify(wishlist));
     swal(" Brhasil Menambahkan Wishlist", {
       icon: "success",
-  });
+    });
   }
-
-  // Fungsi untuk menghapus produk dari wishlist
-  // const removeFromWishlist = ticketId => {
-  //   setWishlist(wishlist.filter(item => item.id !== ticketId));
-  //   localStorage.setItem('wishlist', JSON.stringify(wishlist));
-  // }
   const getTicket = async () => {
     const response = await axios.get("https://flightgo-be-server.up.railway.app/v1/api/ticket");
     setTicket(response.data);
@@ -43,18 +37,17 @@ const Card = () => {
           className="p-3 bg-white rounded mt-4 row"
           style={{ boxShadow: "0 2px 4px 0 rgb(0 0 0 / 10%)" }}
         >
-          <div className="col-lg-12 d-flex justify-content-between">
-            <p className="px-2 py-1 ">Type : {ticket.bentuk_penerbangan} {ticket.jenis_penerbangan} </p>
+          <div className="col-lg-12 d-flex justify-content-between ">
+            <p className="px-2 py-1 ">Type : {ticket.bentuk_penerbangan} {ticket.jenis_penerbangan} </p><p onClick={() => addToWishlist(ticket)} className="border px-2 py-1 me-5 text-left rounded d-flex items-center" ><FiHeart /></p>
           </div>
           <div className="col-lg-12 p-1">
             <div className="row ">
               <div className="col-md-2 mt-4">
                 <div className="mx-3">
-                  <h6>FlightGo</h6>
-                  <h6>Indonesia FlightGo</h6>
+                  <img className="" src={ticket.image_product} alt="" />
                 </div>
               </div>
-              <div className="col-md-6 d-flex mt-4">
+              <div className="col-md-5 d-flex mt-4">
                 <div className="mx-3 col-md-4">
                   <h6>{ticket.bandara_asal}</h6>
                   <h6 className="fonts-light">{ticket.kode_negara_asal}</h6>
@@ -66,20 +59,19 @@ const Card = () => {
                   <h6>{ticket.bandara_tujuan}</h6>
                   <h6 className="fonts-light">{ticket.kode_negara_tujuan}</h6>
                 </div>
-                <div className="mx-3">
+                <div className="d-none d-md-block">
                   <h6>{ticket.depature_date}</h6>
                   <h6 className="fonts-light">{ticket.depature_time}</h6>
                 </div>
               </div>
-              <div className="col-md-4 mt-4">
-                <div className="mx-3 d-flex justify-content-start items-center">
+              <div className="col-md-5 mt-4">
+                <div className="mx-3 d-flex justify-content-between items-center">
                   <div className="col-md-6">
                     <h6 className="text-danger my-auto">
                       Rp {ticket.total_price.toString().replace(/(\d)(?=(\d{3})+(?:\.\d+)?$)/g, '$1.')} <span style={{ color: "gray" }}>/pax</span>
                     </h6>
                   </div>
-                  <div className="ms-3 col-md-6">
-                  <button onClick={() => addToWishlist(ticket)+1} className="border p-2 m-auto text-left rounded d-flex items-center text-white" style={{ backgroundColor: "#F97316" }}>add</button>
+                  <div>
                     <button className="border p-2 m-auto text-left rounded d-flex items-center text-white" style={{ backgroundColor: "#F97316" }}>
                       <Link className="text-white " to={`/ticket/book/${ticket.id}`}>
                         Choose Flight
@@ -92,6 +84,7 @@ const Card = () => {
                   </div>
                 </div>
               </div>
+
             </div>
 
           </div>

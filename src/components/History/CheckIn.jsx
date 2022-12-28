@@ -1,4 +1,4 @@
-import { Container, Form, Button} from "react-bootstrap"
+import { Container, Form, Button } from "react-bootstrap"
 import {
   FaAmericanSignLanguageInterpreting,
   FaCube,
@@ -13,7 +13,6 @@ import swal from "sweetalert";;
 function CheckIn() {
   const { id } = useParams();
   const [orders, setOrders] = useState({});
-  const [show, setShow] = useState(false);
   const navigate = useNavigate();
   const orderProduct = async () => {
     await axios
@@ -62,6 +61,7 @@ function CheckIn() {
   };
   useEffect(() => {
     orderProduct();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <Container>
@@ -235,8 +235,7 @@ function CheckIn() {
         <div
           className="mt-3 rounded p-3 ms-4 position-relative"
           style={{
-            boxSizing: "border-box",
-            height: `${show ? "25vh" : "10vh"}`,
+            boxSizing: "border-box"
           }}
         >
           <div >

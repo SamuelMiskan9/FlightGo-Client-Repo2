@@ -78,7 +78,7 @@ export default function Sidebar({ sidebarOpen, toggleSidebar }) {
 
         <li className="semiBold font15 pointer flexCenter">
           <a href="/login" className="radius8 bg-orange-500 text-white" style={{ padding: "4px 15px" }}>
-              Sign In
+            Sign In
           </a>
         </li>
       </UlStyle>

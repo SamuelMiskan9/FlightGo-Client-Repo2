@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Notification.css";
 import axios from "axios";
-import { Button } from "react-bootstrap";
+
 
 function Notification() {
   const [menunggu, setMenunggu] = useState([]);
@@ -59,18 +59,17 @@ function Notification() {
         <div className="container">
           <div className="row">
             <main className="col-md-24">
-
               <div className="card mb-5">
                 <div className="table table-borderless table-shopping-cart">
                   <h3 className=''>Notification</h3>
                   <p>Status :
-                    <a  href='#menunggu'>
+                    <a href='#menunggu'>
                       <small className="text-primary">Menunggu {listmenunggu}</small>
                     </a>
-                    <a  href='#berhasil'>
+                    <a href='#berhasil'>
                       <small className="text-success">Berhasil {listditerima}</small>
                     </a>
-                    <a  href='#ditolak'>
+                    <a href='#ditolak'>
                       <small className="text-danger">Ditolak {listditolak}</small>
                     </a>
                   </p>
@@ -87,7 +86,7 @@ function Notification() {
                 ))}
                 <p className="fw-bold mt-3" id="berhasil">Pembayaran <strong className="text-success">Berhasil</strong></p>
                 {diterima.map((diterima, i) => (
-                  <div className="card-body border-top bg-sky-100"key={i}>
+                  <div className="card-body border-top bg-sky-100" key={i}>
                     <div className=''>
                       <p>
                         Tiket pesanan anda dari {diterima.product.kota_asal} ke {diterima.product.kota_tujuan} telah <strong>diterima</strong> silahkan <a className="text-primary" href={`/history/checkin/${diterima.product.id}`}>Check-in</a>
@@ -110,10 +109,7 @@ function Notification() {
           </div>
         </div >
       </section >
-
     </div >
-
-
   )
 }
 export default Notification

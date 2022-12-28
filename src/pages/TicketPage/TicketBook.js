@@ -13,6 +13,7 @@ import swal from "sweetalert";
 import { Form, Button } from "react-bootstrap";
 
 const TicketBook = () => {
+  // eslint-disable-next-line no-unused-vars
   const [show, setShow] = useState(false);
   const [users, setUsers] = useState("");
   const [ticket, setTicket] = useState({});
@@ -66,8 +67,8 @@ const TicketBook = () => {
             toast("Isi Semua data", {
                 type: "error",
             });
-        } else {
-            const response = await axios.post(
+        } else { 
+              axios.post(
                 `https://flightgo-be-server.up.railway.app/v1/api/ticket/transaction/${ticket.id}`,
                 form,
                 {
@@ -105,6 +106,7 @@ const TicketBook = () => {
   useEffect(() => {
     orderProduct();
     whoami();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <>

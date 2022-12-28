@@ -1,4 +1,4 @@
-import { Button, Container, Carousel } from "react-bootstrap"
+import { Button, Card, Col, Container, Row } from "react-bootstrap"
 import React,  { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -7,8 +7,7 @@ import swal from "sweetalert";
 const UpdateOrder = () => {
     const { id } = useParams();
     const [orders, setOrders] = useState({});
-    // const [user, setUser] = useState({});
-    // const [userid, setuserId] = useState([]);
+    const [ticket, setTicket] = useState({});
     const navigate = useNavigate();
     const role = localStorage.getItem("role");
     if (role !== "admin") {
@@ -22,6 +21,7 @@ const UpdateOrder = () => {
             },
           })
           .then((response) => {
+            setTicket(response.data.data.product)
             setOrders(response.data.data);        
           });
       };
@@ -92,64 +92,33 @@ const UpdateOrder = () => {
     
       useEffect(() => {
         orderProduct();
+      // eslint-disable-next-line react-hooks/exhaustive-deps
       }, []);
     return(
         <Container>
-            <h3 className="fw-bold">Cek Transaksi</h3>
-            <Carousel variant="dark" className="w-50 m-auto text-info">
-              <Carousel.Item>
-                <img
-                  className="d-block w-100"
-                  src={orders.bukti_Pembayaran}
-                  alt="First slide"
-                />
-                <Carousel.Caption>
-                  <h3>Bukti Pembayaran</h3>
-                </Carousel.Caption>
-              </Carousel.Item>
-              <Carousel.Item>
-                <img
-                  className="d-block w-100"
-                  src={orders.userVisa}
-                  alt="Second slide"
-                />
-
-                <Carousel.Caption>
-                  <h3>Visa</h3>
-                </Carousel.Caption>
-              </Carousel.Item>
-              <Carousel.Item>
-                <img
-                  className="d-block w-100"
-                  src={orders.userPassport}
-                  alt="Third slide"
-                />
-
-                <Carousel.Caption>
-                  <h3>Passport</h3>
-                </Carousel.Caption>
-              </Carousel.Item>
-              <Carousel.Item>
-                <img
-                  className="d-block w-100"
-                  src={orders.userIzin}
-                  alt="4 slide"
-                />
-
-                <Carousel.Caption>
-                  <h3>Permit/Izin Tinggal</h3>
-                </Carousel.Caption>
-              </Carousel.Item>
-            </Carousel>
-            <p>Status: {orders.status}</p>
-            <p>Ticket id: {orders.productId}</p>
-            <p>User id: {orders.userId}</p>
-            <Button className="me-3" onClick={Accepted}>
-                Terima
-            </Button>
-            <Button  onClick={Rejected}>
-                Tolak
-            </Button>
+          <Card>
+            <Row>
+              <Col md={4}>
+                <Card.Body>
+                  <Card.Title className='fw-bold'>Cek Transaksi</Card.Title>
+                    <Card.Text>Status: {orders.status}</Card.Text>
+                    <Card.Text>Penerbangan: {ticket.bentuk_penerbangan}-{ticket.jenis_penerbangan}</Card.Text>
+                    <Card.Text>Kota Asal: {ticket.kota_asal}</Card.Text>
+                    <Card.Text>Kota Tujuan: {ticket.kota_tujuan}</Card.Text>
+                  <Button className="me-3" onClick={Accepted}>
+                    Terima
+                  </Button>
+                  <Button  onClick={Rejected}>
+                      Tolak
+                  </Button>
+                </Card.Body>
+              </Col>
+              <Col md={8}>
+              <Card.Text className="fw-bold">Bukti Pembayaran</Card.Text>
+                <Card.Img variant="top" src={orders.bukti_Pembayaran}/>
+              </Col>
+            </Row>
+          </Card>
         </Container>
     )
 }
