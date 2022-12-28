@@ -70,7 +70,7 @@ return (
         <div>Mountain Hiking Tour</div>
         <div className='grid grid-cols-2 pt-2'>
           <div>$89/ Person</div>
-          <button className='btnHover py-1 bg-orange-500  rounded-md text-white'>Booking Now</button>
+          <button href='/ticket' className='btnHover py-1 bg-orange-500  rounded-md text-white'>Booking Now</button>
         </div>
       </div>
     </div>
@@ -89,7 +89,7 @@ return (
         <div>Bandung</div>
         <div className='grid grid-cols-2 pt-2'>
           <div>$99/ Person</div>
-          <button className='btnHover py-1 bg-orange-500 rounded-md text-white'>Booking Now</button>
+          <button href='/ticket' className='btnHover py-1 bg-orange-500 rounded-md text-white'>Booking Now</button>
         </div>
       </div>
     </div>
@@ -108,7 +108,7 @@ return (
         <div>Mountain Hiking Tour</div>
         <div className='grid grid-cols-2 pt-2'>
           <div>$79/ Person</div>
-          <button className='btnHover py-1 bg-orange-500 rounded-md text-white'>Booking Now</button>
+          <button href='/ticket' className='btnHover py-1 bg-orange-500 rounded-md text-white'>Booking Now</button>
         </div>
       </div>
     </div>
@@ -127,7 +127,7 @@ return (
         <div>Bali</div>
         <div className='grid grid-cols-2 pt-2'>
           <div>$69/ Person</div>
-          <button className='btnHover py-1 bg-orange-500 rounded-md text-white'>Booking Now</button>
+          <button href='/ticket' className='btnHover py-1 bg-orange-500 rounded-md text-white'>Booking Now</button>
         </div>
       </div>
     </div>
@@ -149,7 +149,7 @@ return (
         <div>Mountain Hiking Tour</div>
         <div className='grid grid-cols-2 pt-2'>
           <div>$89/ Person</div>
-          <button className='btnHover py-1 bg-orange-500 rounded-md text-white'>Booking Now</button>
+          <button href='/ticket' className='btnHover py-1 bg-orange-500 rounded-md text-white'>Booking Now</button>
         </div>
       </div>
     </div>
@@ -168,7 +168,7 @@ return (
         <div>Qatar</div>
         <div className='grid grid-cols-2 pt-2'>
           <div>$99/ Person</div>
-          <button className='btnHover py-1 bg-orange-500 rounded-md text-white'>Booking Now</button>
+          <button href='/ticket' className='btnHover py-1 bg-orange-500 rounded-md text-white'>Booking Now</button>
         </div>
       </div>
     </div>
@@ -187,7 +187,7 @@ return (
         <div>Mountain Hiking Tour</div>
         <div className='grid grid-cols-2 pt-2'>
           <div>$79/ Person</div>
-          <button className='btnHover py-1 bg-orange-500 rounded-md text-white'>Booking Now</button>
+          <button href='/ticket' className='btnHover py-1 bg-orange-500 rounded-md text-white'>Booking Now</button>
         </div>
       </div>
     </div>
@@ -206,7 +206,7 @@ return (
         <div>Amerika</div>
         <div className='grid grid-cols-2 pt-2'>
           <div>$69/ Person</div>
-          <button className='btnHover py-1 bg-orange-500 rounded-md text-white'>Booking Now</button>
+          <button href='/ticket' className='btnHover py-1 bg-orange-500 rounded-md text-white'>Booking Now</button>
         </div>
       </div>
     </div>

@@ -37,7 +37,7 @@ function History() {
               {history.map((history, i) => (
                 <div className="p-3 rounded mt-4" key={i} style={{ boxShadow: "0 2px 4px 0 rgb(0 0 0 / 10%)" }}>
                   <Row>
-                    <Col className='bg-info' md={8}>
+                    <Col md={8}>
                       <div className="d-flex justify-content-between col-md-5">
                         <p className=" py-1 ">{history.product.jenis_penerbangan} {history.product.depature_date}</p>
                       </div>
@@ -46,7 +46,7 @@ function History() {
                         <div className="d-flex mt-4">
                           <div className='grid grid-cols-3'>
                             <p>{history.product.kota_asal}</p>
-                            <img className='mx-auto bg-info' alt='pict1' src={Pict1} style={{ height: '2em' }} />
+                            <img className='mx-auto' alt='pict1' src={Pict1} style={{ height: '2em' }} />
                             <p>{history.product.kota_tujuan}</p>
                           </div>
                         </div>

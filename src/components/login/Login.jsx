@@ -25,7 +25,7 @@ function Login() {
                 localStorage.setItem("role", response.data.data.role);
                 setTimeout(() => {
                     window.location.reload();
-                }, 100000);
+                }, 1000);
                 swal("Login Success", {
                     icon: "success",
                 });
@@ -55,7 +55,7 @@ function Login() {
             <ToastContainer />
             {!isLoggedIn ? (
                 <Row className="mt-5">
-                    <Col md >
+                    <Col md={12} >
                         <Form >
                             <h1>Login Page</h1>
                             <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -70,8 +70,7 @@ function Login() {
                                 <Form.Label>Password</Form.Label>
                                 <Form.Control type="password" placeholder="Password" onChange={setPassword} />
                             </Form.Group>
-                            <Button onClick={login} className="text-center m-auto" variant="primary" > Login
-                            </Button>
+                            <Button onClick={login} className="text-center m-auto w-100" variant="primary" > Login</Button>
                             <p> Not a FlightGo Member?
                                 <a href="/Register">Register</a>
                             </p>

@@ -183,7 +183,7 @@ const EditData = () => {
               setJenispenerbangan(JP);
               }}
               >
-              <option value="" selected disabled hidden>Pilih disini</option>
+              {/* <option value="" selected disabled hidden>Pilih disini</option> */}
               <option value={'One-way'}>One-way</option>
               <option value={'Round-trip'}>Round-trip</option>
             </FormSelect>
@@ -198,7 +198,7 @@ const EditData = () => {
               setBentukpenerbangan(TP);
               }}
               >
-              <option value="" selected disabled hidden>Pilih disini</option>
+              {/* <option value="" selected disabled hidden>Pilih disini</option> */}
               <option value={'Domestik'}>Domestik</option>
               <option value={'Internasional'}>Internasional</option>
             </FormSelect>

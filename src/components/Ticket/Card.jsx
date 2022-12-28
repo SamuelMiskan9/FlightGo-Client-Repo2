@@ -9,12 +9,28 @@ import {
 import { FiChevronDown, FiChevronUp } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import swal from "sweetalert";
 const Card = () => {
   const [show, setShow] = useState(false);
   const [ticket, setTicket] = useState([]);
+  const [wishlist, setWishlist] = useState(JSON.parse(localStorage.getItem('wishlist')) || '');
   useEffect(() => {
     getTicket();
   }, []);
+    // Fungsi untuk menambahkan produk ke wishlist
+  const addToWishlist = ticket => {
+    setWishlist([...wishlist, ticket]);
+    localStorage.setItem('wishlist', JSON.stringify(wishlist));
+    swal(" Brhasil Menambahkan Wishlist", {
+      icon: "success",
+  });
+  }
+
+  // Fungsi untuk menghapus produk dari wishlist
+  // const removeFromWishlist = ticketId => {
+  //   setWishlist(wishlist.filter(item => item.id !== ticketId));
+  //   localStorage.setItem('wishlist', JSON.stringify(wishlist));
+  // }
   const getTicket = async () => {
     const response = await axios.get("https://flightgo-be-server.up.railway.app/v1/api/ticket");
     setTicket(response.data);
@@ -30,7 +46,6 @@ const Card = () => {
           <div className="col-lg-12 d-flex justify-content-between">
             <p className="px-2 py-1 ">Type : {ticket.bentuk_penerbangan} {ticket.jenis_penerbangan} </p>
           </div>
-
           <div className="col-lg-12 p-1">
             <div className="row ">
               <div className="col-md-2 mt-4">
@@ -64,8 +79,9 @@ const Card = () => {
                     </h6>
                   </div>
                   <div className="ms-3 col-md-6">
-                    <button className="border p-2 text-left rounded d-flex items-center text-white" style={{ backgroundColor: "#F97316" }}>
-                      <Link className="text-white pe-3" to={`/ticket/book/${ticket.id}`}>
+                  <button onClick={() => addToWishlist(ticket)+1} className="border p-2 m-auto text-left rounded d-flex items-center text-white" style={{ backgroundColor: "#F97316" }}>add</button>
+                    <button className="border p-2 m-auto text-left rounded d-flex items-center text-white" style={{ backgroundColor: "#F97316" }}>
+                      <Link className="text-white " to={`/ticket/book/${ticket.id}`}>
                         Choose Flight
                       </Link>
                     </button>

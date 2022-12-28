@@ -59,7 +59,7 @@ function Register() {
               <Form.Label>Password</Form.Label>
               <Form.Control type="password" placeholder="Password" onChange={setPassword} />
             </Form.Group>
-            <Button className="text-center m-auto" variant="primary" onClick={register}>
+            <Button className="text-center m-auto w-100" variant="primary" onClick={register}>
               Sign-In
             </Button>
             <p> Already Have A Account?
