@@ -10,6 +10,7 @@ import pict4 from '../../assets/img/LandingPage/destinations/citiLink.png'
 import pict5 from '../../assets/img/LandingPage/destinations/garudaIndonesia.png'
 import pict6 from '../../assets/img/LandingPage/destinations/lionAir.png'
 import Flight from '../../assets/img/LandingPage/destinations/Flight.png'
+import { Button } from 'react-bootstrap';
 
 function Destination() {
 
@@ -70,7 +71,7 @@ function Destination() {
             <div>Mountain Hiking Tour</div>
             <div className='grid grid-cols-2 pt-2'>
               <div>$89/ Person</div>
-              <button href='/ticket' className='btnHover py-1 bg-orange-500  rounded-md text-white'>Booking Now</button>
+              <Button href='/ticket' style={{ backgroundColor: "#F97316" }}>Booking Now</Button>
             </div>
           </div>
         </div>
@@ -89,7 +90,7 @@ function Destination() {
             <div>Bandung</div>
             <div className='grid grid-cols-2 pt-2'>
               <div>$99/ Person</div>
-              <button href='/ticket' className='btnHover py-1 bg-orange-500 rounded-md text-white'>Booking Now</button>
+              <Button href='/ticket' style={{ backgroundColor: "#F97316" }}>Booking Now</Button>
             </div>
           </div>
         </div>
@@ -108,7 +109,7 @@ function Destination() {
             <div>Mountain Hiking Tour</div>
             <div className='grid grid-cols-2 pt-2'>
               <div>$79/ Person</div>
-              <button href='/ticket' className='btnHover py-1 bg-orange-500 rounded-md text-white'>Booking Now</button>
+              <Button href='/ticket' style={{ backgroundColor: "#F97316" }}>Booking Now</Button>
             </div>
           </div>
         </div>
@@ -127,11 +128,11 @@ function Destination() {
             <div>Bali</div>
             <div className='grid grid-cols-2 pt-2'>
               <div>$69/ Person</div>
-              <button href='/ticket' className='btnHover py-1 bg-orange-500 rounded-md text-white'>Booking Now</button>
+              <Button href='/ticket' style={{ backgroundColor: "#F97316" }}>Booking Now</Button>
             </div>
           </div>
         </div>
-      </Slider>
+      </Slider >
 
       <div className='text-4xl font-bold pt-16 pb-3'>International</div>
       <Slider {...settings}>
@@ -149,7 +150,7 @@ function Destination() {
             <div>Mountain Hiking Tour</div>
             <div className='grid grid-cols-2 pt-2'>
               <div>$89/ Person</div>
-              <button href='/ticket' className='btnHover py-1 bg-orange-500 rounded-md text-white'>Booking Now</button>
+              <Button href='/ticket' style={{ backgroundColor: "#F97316" }}>Booking Now</Button>
             </div>
           </div>
         </div>
@@ -168,7 +169,7 @@ function Destination() {
             <div>Qatar</div>
             <div className='grid grid-cols-2 pt-2'>
               <div>$99/ Person</div>
-              <button href='/ticket' className='btnHover py-1 bg-orange-500 rounded-md text-white'>Booking Now</button>
+              <Button href='/ticket' style={{ backgroundColor: "#F97316" }}>Booking Now</Button>
             </div>
           </div>
         </div>
@@ -187,7 +188,7 @@ function Destination() {
             <div>Mountain Hiking Tour</div>
             <div className='grid grid-cols-2 pt-2'>
               <div>$79/ Person</div>
-              <button href='/ticket' className='btnHover py-1 bg-orange-500 rounded-md text-white'>Booking Now</button>
+              <Button href='/ticket' style={{ backgroundColor: "#F97316" }}>Booking Now</Button>
             </div>
           </div>
         </div>
@@ -206,12 +207,12 @@ function Destination() {
             <div>Amerika</div>
             <div className='grid grid-cols-2 pt-2'>
               <div>$69/ Person</div>
-              <button href='/ticket' className='btnHover py-1 bg-orange-500 rounded-md text-white'>Booking Now</button>
+              <Button href='/ticket' style={{ backgroundColor: "#F97316" }}>Booking Now</Button>
             </div>
           </div>
         </div>
       </Slider>
-    </div>
+    </div >
   );
 }
 

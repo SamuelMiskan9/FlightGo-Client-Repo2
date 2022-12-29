@@ -26,8 +26,8 @@ export default function Sidebar({ sidebarOpen, toggleSidebar }) {
             className="blackColor"
             style={{ padding: "10px 15px" }}
             href="#panel"
-            spy={true}
-            smooth={true}
+            spy={true.toString()}
+            smooth={true.toString()}
             offset={-60}
           >
             Booking
@@ -40,8 +40,8 @@ export default function Sidebar({ sidebarOpen, toggleSidebar }) {
             className="blackColor"
             style={{ padding: "10px 15px" }}
             href="#about"
-            spy={true}
-            smooth={true}
+            spy={true.toString()}
+            smooth={true.toString()}
             offset={-60}
           >
             About Us
@@ -54,8 +54,8 @@ export default function Sidebar({ sidebarOpen, toggleSidebar }) {
             className="blackColor"
             style={{ padding: "10px 15px" }}
             href="#destination"
-            spy={true}
-            smooth={true}
+            spy={true.toString()}
+            smooth={true.toString()}
             offset={-60}
           >
             Destination
@@ -68,8 +68,8 @@ export default function Sidebar({ sidebarOpen, toggleSidebar }) {
             className="blackColor"
             style={{ padding: "10px 15px" }}
             href="#testimonial"
-            spy={true}
-            smooth={true}
+            spy={true.toString()}
+            smooth={true.toString()}
             offset={-60}
           >
             Testimonial

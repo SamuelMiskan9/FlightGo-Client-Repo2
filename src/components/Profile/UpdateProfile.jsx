@@ -89,7 +89,7 @@ const EditProfile = () => {
             </Button>
             <Form onSubmit={handleSubmit}>
                 <Form.Group className="my-2 mt-3">
-                    <Form.Label>Nama <p className='text-danger d-inline'>*</p></Form.Label>
+                    <Form.Label>Nama <small className='text-danger d-inline'>*</small></Form.Label>
                     <Form.Control
                         type="text"
                         placeholder="Nama Kamu"
@@ -99,7 +99,7 @@ const EditProfile = () => {
                     />
                 </Form.Group>
                 <Form.Group className="mt-2">
-                    <Form.Label>Alamat <p className='text-danger d-inline'>*</p></Form.Label>
+                    <Form.Label>Alamat <small className='text-danger d-inline'>*</small></Form.Label>
                     <Form.Control
                         as="textarea"
                         placeholder="Contoh: Jalan Asoka dalam no.5"
@@ -109,7 +109,7 @@ const EditProfile = () => {
                     />
                 </Form.Group>
                 <Form.Group className="mb-2">
-                    <Form.Label>No. Handphone <p className='text-danger d-inline'>*</p></Form.Label>
+                    <Form.Label>No. Handphone <small className='text-danger d-inline'>*</small></Form.Label>
                     <Form.Control
                         type="text"
                         placeholder="Contoh: 0812345678"
@@ -119,7 +119,7 @@ const EditProfile = () => {
                     />
                 </Form.Group>
                 <Form.Group>
-                    <Form.Label>Picture <p className='text-danger d-inline'>*</p></Form.Label>
+                    <Form.Label>Picture <small className='text-danger d-inline'>*</small></Form.Label>
                     <Form.Control
                         type="file"
                         id="image"
@@ -128,7 +128,7 @@ const EditProfile = () => {
                     />
                 </Form.Group>
                 <Form.Group>
-                    <Form.Label>Visa <p className='text-danger d-inline'>*</p></Form.Label>
+                    <Form.Label>Visa <small className='text-danger d-inline'>*</small></Form.Label>
                     <Form.Control
                         type="file"
                         id="image"
@@ -137,7 +137,7 @@ const EditProfile = () => {
                     />
                 </Form.Group>
                 <Form.Group>
-                    <Form.Label>Passport <p className='text-danger d-inline'>*</p></Form.Label>
+                    <Form.Label>Passport <small className='text-danger d-inline'>*</small></Form.Label>
                     <Form.Control
                         type="file"
                         id="image"
@@ -146,7 +146,7 @@ const EditProfile = () => {
                     />
                 </Form.Group>
                 <Form.Group>
-                    <Form.Label>Permit/Izin Tinggal <p className='text-danger d-inline'>*</p></Form.Label>
+                    <Form.Label>Permit/Izin Tinggal <small className='text-danger d-inline'>*</small></Form.Label>
                     <Form.Control
                         type="file"
                         id="image"

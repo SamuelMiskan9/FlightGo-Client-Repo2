@@ -12,9 +12,11 @@ export default function Header() {
             <h1 className="extraBold pb-3 font60">Book With Us and Ready to Take Off</h1>
             <HeaderP className="font20 semiBold" style={{ height: 300 }}>
               Explore the world by booking flight with us and get your best experience
-              <Button href="/ticket" className="ms-5" style={{ backgroundColor: "#F97316" }}>
-                Find Flight
-              </Button>
+              <div>
+                <Button href="/ticket" className="w-25 mt-2" style={{ backgroundColor: "#F97316" }}>
+                  Find Flight
+                </Button>
+              </div>
             </HeaderP>
           </div>
         </LeftSide>

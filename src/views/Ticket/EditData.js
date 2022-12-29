@@ -108,6 +108,7 @@ const EditData = () => {
     form.append("desctiption", deskripsi);
 
     try {
+      // eslint-disable-next-line no-unused-vars
       const res = await axios.put(
         `https://flightgo-be-server.up.railway.app/v1/api/ticket/${id}`,
         form,
@@ -165,17 +166,17 @@ const EditData = () => {
   }
   useEffect(() => {
     getProduct();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <Container>
     {/* <ToastContainer /> */}
-    <p className='font-bold text-3xl'>Flight Ticket Schedule</p>
-    <p className='py-2 px-3 bg-gray-200 my-4'>
-      <AppBreadcrumb />
-    </p>
+    <div className='py-2 px-3 bg-gray-200 my-4'>
+        <AppBreadcrumb />
+      </div>
     <Form onSubmit={handleEdit}>
           <Form.Group>
-          <FormLabel>Jenis Penerbangan <p className='text-danger d-inline'>*</p></FormLabel>
+          <FormLabel>Jenis Penerbangan <small className='text-danger d-inline'>*</small></FormLabel>
             <FormSelect
               required
               onChange={(e) => {
@@ -190,7 +191,7 @@ const EditData = () => {
           </Form.Group>
 
           <Form.Group>
-          <FormLabel>Tipe Penerbangan <p className='text-danger d-inline'>*</p></FormLabel>
+          <FormLabel>Tipe Penerbangan <small className='text-danger d-inline'>*</small></FormLabel>
             <FormSelect
               required
               onChange={(e) => {
@@ -207,7 +208,7 @@ const EditData = () => {
             <Col md={6}>
               <p className='font-bold text-lg mt-5'>Depature Flight <FaPlaneDeparture className='d-inline'/></p>
               <Form.Group className="mt-4 mb-2">
-                <FormLabel>Kota Asal <p className='text-danger d-inline'>*</p></FormLabel>
+                <FormLabel>Kota Asal <small className='text-danger d-inline'>*</small></FormLabel>
                 <FormControl
                   type="text"
                   placeholder="Nama Kota Asal"
@@ -217,7 +218,7 @@ const EditData = () => {
                 />
               </Form.Group>
               <Form.Group className="mt-4 mb-2">
-                <FormLabel>Bandara Asal <p className='text-danger d-inline'>*</p></FormLabel>
+                <FormLabel>Bandara Asal <small className='text-danger d-inline'>*</small></FormLabel>
                 <FormControl
                   type="text"
                   placeholder="Contoh: Soekarno Hatta International Airport"
@@ -227,7 +228,7 @@ const EditData = () => {
                 />
               </Form.Group>
               <Form.Group className="mt-4 mb-2">
-                <FormLabel>Kota Tujuan <p className='text-danger d-inline'>*</p></FormLabel>
+                <FormLabel>Kota Tujuan <small className='text-danger d-inline'>*</small></FormLabel>
                 <FormControl
                   type="text"
                   placeholder="Nama Kota Tujuan"
@@ -237,7 +238,7 @@ const EditData = () => {
                 />
               </Form.Group>
               <Form.Group className="mt-4 mb-2">
-                <FormLabel>Bandara Tujuan <p className='text-danger d-inline'>*</p></FormLabel>
+                <FormLabel>Bandara Tujuan <small className='text-danger d-inline'>*</small></FormLabel>
                 <FormControl
                   type="text"
                   placeholder="Contoh: Ngurah Rai International Airport"
@@ -247,7 +248,7 @@ const EditData = () => {
                 />
               </Form.Group>
               <Form.Group className="mt-4 mb-2">
-                <FormLabel>Depatue Date <p className='text-danger d-inline'>*</p></FormLabel>
+                <FormLabel>Depatue Date <small className='text-danger d-inline'>*</small></FormLabel>
                 <FormControl
                   type="date"
                   value={depaturedate}
@@ -256,7 +257,7 @@ const EditData = () => {
                 />
               </Form.Group>
               <Form.Group className="mt-4 mb-2">
-                <FormLabel>Depature Time <p className='text-danger d-inline'>*</p></FormLabel>
+                <FormLabel>Depature Time <small className='text-danger d-inline'>*</small></FormLabel>
                 <FormControl
                   type="text"
                   placeholder="Contoh: 19:00"
@@ -266,7 +267,7 @@ const EditData = () => {
                 />
               </Form.Group>
               <Form.Group className="mt-4 mb-2">
-                <FormLabel>Kode Negara Asal <p className='text-danger d-inline'>*</p></FormLabel>
+                <FormLabel>Kode Negara Asal <small className='text-danger d-inline'>*</small></FormLabel>
                 <FormControl
                   type="text"
                   placeholder="Contoh: ID"
@@ -276,7 +277,7 @@ const EditData = () => {
                 />
               </Form.Group>
               <Form.Group className="mt-4 mb-2">
-                <FormLabel>Kode Negara Tujuan <p className='text-danger d-inline'>*</p></FormLabel>
+                <FormLabel>Kode Negara Tujuan <small className='text-danger d-inline'>*</small></FormLabel>
                 <FormControl
                   type="text"
                   placeholder="Contoh: ID"
@@ -286,7 +287,7 @@ const EditData = () => {
                 />
               </Form.Group>
               <Form.Group className="mt-4 mb-2">
-                <FormLabel>Harga Tiket <p className='text-danger d-inline'>*</p></FormLabel>
+                <FormLabel>Harga Tiket <small className='text-danger d-inline'>*</small></FormLabel>
                 <FormControl
                   type="number"
                   placeholder="Contoh: 450000"
@@ -370,7 +371,7 @@ const EditData = () => {
               />
             </Form.Group>
             <Form.Group className="mt-4 mb-2">
-              <FormLabel>Harga Tiket <p className='text-danger d-inline'>*</p></FormLabel>
+              <FormLabel>Harga Tiket <small className='text-danger d-inline'>*</small></FormLabel>
               <FormControl
                 type="number"
                 placeholder="Contoh: 450000"
@@ -383,7 +384,7 @@ const EditData = () => {
           </Row>
           <p className='font-bold text-lg mt-5'>Other Information</p>
           <Form.Group>
-            <FormLabel>Total Price <p className='text-danger d-inline'>*</p></FormLabel>
+            <FormLabel>Total Price <small className='text-danger d-inline'>*</small></FormLabel>
             <FormControl 
             type='number'
             placeholder="Contoh: 900000"
@@ -393,7 +394,7 @@ const EditData = () => {
             />
           </Form.Group>
           <Form.Group className="my-2">
-          <FormLabel>Foto Produk <p className='text-danger d-inline'>*</p></FormLabel>
+          <FormLabel>Foto Produk <small className='text-danger d-inline'>*</small></FormLabel>
           <FormControl
             type="file"
             onChange={(e) => setImage(e.target.files[0])}
@@ -401,7 +402,7 @@ const EditData = () => {
           />
           </Form.Group>
           <Form.Group>
-            <FormLabel>Deskripsi <p className='text-danger d-inline'>*</p></FormLabel>
+            <FormLabel>Deskripsi <small className='text-danger d-inline'>*</small></FormLabel>
             <FormControl 
             as="textarea"
             value={deskripsi}

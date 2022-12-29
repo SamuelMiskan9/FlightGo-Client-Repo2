@@ -45,18 +45,16 @@ const Dropdowns = () => {
       </CCol>
       <CRow className='mt-4'>
       {ticket.map((ticket, i) => (
-      <CCol md='4' sm='6'>
+      <CCol md='4' sm='6' key={i}>
           <CCard className='px-1 shadow-sm m-2' style={{ width: '20em', height: '28em' }}>
             <CCardBody>
               <small className='mb-3 text-xs'>{ticket.bentuk_penerbangan} Flight</small>
               <CCardTitle className='flex text-sm font-bold'>{ticket.kota_asal} ({ticket.kode_negara_asal}) <FaPlane className='w-5 mx-2'/>{ticket.kota_tujuan} ({ticket.kode_negara_tujuan})</CCardTitle>
               <CCardImage alt={ticket.image_product} className='py-4' orientation="top" style={{ height: '10em' }} src={ticket.image_product} />
-              <CCardText>
-                <p className='font-thin text-xs lh-1'>{ticket.jenis_penerbangan} Flight/{ticket.kode_negara_asal} to {ticket.kode_negara_tujuan}</p>
-                <p className='text-xs lh-1'>Departure Date on {ticket.depature_date}</p>
-                <p className='font-bold lh-1'>Rp {ticket.total_price.toString().replace(/(\d)(?=(\d{3})+(?:\.\d+)?$)/g, '$1.')}/passenger</p>
-                <p className='text-xs font-thin'><CIcon icon={cilClock} /> Updated at {ticket.updatedAt}</p>
-              </CCardText>
+                <CCardText className='font-thin text-xs lh-1'>{ticket.jenis_penerbangan} Flight/{ticket.kode_negara_asal} to {ticket.kode_negara_tujuan}</CCardText>
+                <CCardText className='text-xs lh-1'>Departure Date on {ticket.depature_date}</CCardText>
+                <CCardText className='font-bold lh-1'>Rp {ticket.total_price.toString().replace(/(\d)(?=(\d{3})+(?:\.\d+)?$)/g, '$1.')}/passenger</CCardText>
+                <CCardText className='text-xs font-thin'><CIcon icon={cilClock} /> Updated at {ticket.updatedAt}</CCardText>
               <div className='flex position-absolute bottom-0 start-50 translate-middle-x justify-between'>
                 <CButton  className='m-auto text-xs mr-2 mb-2 w-100' style={{ backgroundColor: "#F97316" }} >
                   <Link to={`/editdata/${ticket.id}`} className='text-white mr-2'>

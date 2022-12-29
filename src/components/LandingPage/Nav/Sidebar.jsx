@@ -44,8 +44,8 @@ export default function Sidebar({ sidebarOpen, toggleSidebar }) {
               className="blackColor"
               style={{ padding: "10px 15px" }}
               href="/listorder"
-              spy={true}
-              smooth={true}
+              spy={true.toString()}
+              smooth={true.toString()}
               offset={-60}
             >
               Dashboard
@@ -57,8 +57,8 @@ export default function Sidebar({ sidebarOpen, toggleSidebar }) {
             className="blackColor"
             style={{ padding: "10px 15px" }}
             href="/wishlist"
-            spy={true}
-            smooth={true}
+            spy={true.toString()}
+            smooth={true.toString()}
             offset={-60}
           >
             Wishlist
@@ -69,8 +69,8 @@ export default function Sidebar({ sidebarOpen, toggleSidebar }) {
             className="blackColor"
             style={{ padding: "10px 15px" }}
             href="/history"
-            spy={true}
-            smooth={true}
+            spy={true.toString()}
+            smooth={true.toString()}
             offset={-60}
           >
             History
@@ -82,8 +82,8 @@ export default function Sidebar({ sidebarOpen, toggleSidebar }) {
             className="blackColor"
             style={{ padding: "10px 15px" }}
             href="/notif"
-            spy={true}
-            smooth={true}
+            spy={true.toString()}
+            smooth={true.toString()}
             offset={-60}
           >
             Notifications
@@ -95,8 +95,8 @@ export default function Sidebar({ sidebarOpen, toggleSidebar }) {
             className="blackColor"
             style={{ padding: "10px 15px" }}
             href="/profile"
-            spy={true}
-            smooth={true}
+            spy={true.toString()}
+            smooth={true.toString()}
             offset={-60}
           >
             Profile

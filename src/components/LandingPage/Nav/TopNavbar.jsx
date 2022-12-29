@@ -59,7 +59,7 @@ export default function TopNavbar() {
         <Backdrop toggleSidebar={toggleSidebar} />}
       <Wrapper className={nav ? 'nav activ' : 'nav'} style={y > 100 ? { height: "60px" } : { height: "80px" }}>
         <NavInner className="container flexSpaceCenter">
-          <a className="flexNullCenter" href="/landing" smooth={true}>
+          <a className="flexNullCenter" href="/landing" smooth={true.toString()}>
             <LogoIcon />
           </a>
 
@@ -70,7 +70,7 @@ export default function TopNavbar() {
           <UlWrapper className="flexNullCenter mt-3">
             {userRole ? (
               <li className="semiBold font15 pointer">
-                <a href='/listorder' className="text-gray-600" style={{ padding: "10px 15px" }} spy={true} smooth={true}
+                <a href='/listorder' className="text-gray-600" style={{ padding: "10px 15px" }} spy={true.toString()} smooth={true.toString()}
                   offset={-80}>
                   Dashbord
                 </a>
@@ -79,28 +79,28 @@ export default function TopNavbar() {
 
             <>
               <li className="semiBold font15 pointer">
-                <a href='/wishlist' className="text-gray-600" style={{ padding: "10px 15px" }} spy={true} smooth={true}
+                <a href='/wishlist' className="text-gray-600" style={{ padding: "10px 15px" }} spy={true.toString()} smooth={true.toString()}
                   offset={-80}>
                   Wishlist
                 </a>
               </li>
 
               <li className="semiBold font15 pointer">
-                <a href='/history' className="text-gray-600" style={{ padding: "10px 15px" }} spy={true} smooth={true}
+                <a href='/history' className="text-gray-600" style={{ padding: "10px 15px" }} spy={true.toString()} smooth={true.toString()}
                   offset={-80}>
                   History
                 </a>
               </li>
 
               <li className="semiBold font15 pointer">
-                <a href='/notif' className="text-gray-600" style={{ padding: "10px 15px" }} spy={true} smooth={true}
+                <a href='/notif' className="text-gray-600" style={{ padding: "10px 15px" }} spy={true.toString()} smooth={true.toString()}
                   offset={-80}>
                   Notification
                 </a>
               </li>
 
               <li className="semiBold font15 pointer">
-                <a href='/profile' className="text-gray-600" style={{ padding: "10px 15px" }} spy={true} smooth={true}
+                <a href='/profile' className="text-gray-600" style={{ padding: "10px 15px" }} spy={true.toString()} smooth={true.toString()}
                   offset={-80}>
                   Profile
                 </a>

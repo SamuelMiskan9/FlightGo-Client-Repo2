@@ -40,7 +40,7 @@ export default function TopNavbar() {
         <Backdrop toggleSidebar={toggleSidebar} />}
       <Wrapper className={nav ? 'nav activ' : 'nav'} style={y > 100 ? { height: "60px" } : { height: "80px" }}>
         <NavInner className="container flexSpaceCenter">
-          <Link className="flexNullCenter" to="home" smooth={true}>
+          <Link className="flexNullCenter" to="home" smooth={true.toString()}>
             <LogoIcon />
           </Link>
 
@@ -50,28 +50,28 @@ export default function TopNavbar() {
 
           <UlWrapper className="flexNullCenter mt-3">
             <li className="semiBold font15 pointer">
-              <a href='#panel' className="text-gray-600" style={{ padding: "10px 15px" }} spy={true} smooth={true}
+              <a href='#panel' className="text-gray-600" style={{ padding: "10px 15px" }} spy={true.toString()} smooth={true.toString()}
                 offset={-80}>
                 Booking
               </a>
             </li>
 
             <li className="semiBold font15 pointer">
-              <a href='#about' className="text-gray-600" style={{ padding: "10px 15px" }} spy={true} smooth={true}
+              <a href='#about' className="text-gray-600" style={{ padding: "10px 15px" }} spy={true.toString()} smooth={true.toString()}
                 offset={-80}>
                 About Us
               </a>
             </li>
 
             <li className="semiBold font15 pointer">
-              <a href='#destination' className="text-gray-600" style={{ padding: "10px 15px" }} spy={true} smooth={true}
+              <a href='#destination' className="text-gray-600" style={{ padding: "10px 15px" }} spy={true.toString()} smooth={true.toString()}
                 offset={-80}>
                 Destination
               </a>
             </li>
 
             <li className="semiBold font15 pointer">
-              <a href='#testimonial' className="text-gray-600" style={{ padding: "10px 15px" }} spy={true} smooth={true}
+              <a href='#testimonial' className="text-gray-600" style={{ padding: "10px 15px" }} spy={true.toString()} smooth={true.toString()}
                 offset={-80}>
                 Testimonial
               </a>
