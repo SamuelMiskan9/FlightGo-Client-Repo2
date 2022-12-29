@@ -60,10 +60,9 @@ export default function WishlistPage() {
                                         <p className="px-2 py-1 ">Type : {wishlist.bentuk_penerbangan} {wishlist.jenis_penerbangan} </p>
                                         <p
                                             onClick={() => removeFromWishlist(wishlist)}
-                                            className="border px-2 py-1
-              me-5 text-left rounded d-flex items-center"
+                                            className="border px-2 py-1 me-5 text-left rounded d-flex items-center"
                                         >
-                                            <FiHeart color="#999999" />
+                                            <FiHeart color="#ff0000" />
                                         </p>
                                     </div>
                                     <div className="col-lg-12 p-1">
@@ -99,7 +98,7 @@ export default function WishlistPage() {
                                                     </div>
                                                     <div className="ms-3 col-md-6">
                                                         <button className="border p-2 m-auto text-left rounded d-flex items-center text-white" style={{ backgroundColor: "#F97316" }}>
-                                                            <Link className="text-white " to={`/wishlist/book/${wishlist.id}`}>
+                                                            <Link className="text-white " to={`/ticket/book/${wishlist.id}`}>
                                                                 Choose Flight
                                                             </Link>
                                                         </button>

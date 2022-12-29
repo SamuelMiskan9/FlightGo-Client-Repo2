@@ -78,7 +78,7 @@ export default function Footer() {
 
             </MDBCol>
 
-            <MDBCol md='4' lg='3' xl='3' className='mx-auto mb-md-0 mb-4 text-center'>
+            <MDBCol md='4' lg='3' xl='3' className='mx-auto d-none d-md-block mb-md-0 mb-4 text-center'>
               <h6 className='text-uppercase fw-bold mb-4 text-slate-600'>Support</h6>
               <p>
                 <MDBIcon color='secondary' />Booking Guide

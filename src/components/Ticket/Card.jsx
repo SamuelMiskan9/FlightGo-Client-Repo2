@@ -22,7 +22,7 @@ const Card = () => {
     const updatedWishlist = [...wishlist, ticket];
     setWishlist(updatedWishlist);
     localStorage.setItem('wishlist', JSON.stringify(updatedWishlist));
-    swal(" Brhasil Menambahkan Wishlist", {
+    swal(" Berhasil Menambahkan Wishlist", {
       icon: "success",
     });
   }
@@ -30,7 +30,7 @@ const Card = () => {
     const updatedWishlist = wishlist.filter(t => t !== ticket);
     setWishlist(updatedWishlist);
     localStorage.setItem('wishlist', JSON.stringify(updatedWishlist));
-    swal(" Brhasil Menambahkan Wishlist", {
+    swal(" Berhasil Menambahkan Wishlist", {
       icon: "success",
     });
   }

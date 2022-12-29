@@ -259,7 +259,7 @@ const EditData = () => {
               <Form.Group className="mt-4 mb-2">
                 <FormLabel>Depature Time <small className='text-danger d-inline'>*</small></FormLabel>
                 <FormControl
-                  type="text"
+                  type="time"
                   placeholder="Contoh: 19:00"
                   value={depatuetime}
                   onChange={(e) => setDepaturetime(e.target.value)}
@@ -346,7 +346,7 @@ const EditData = () => {
             <Form.Group className="mt-4 mb-2">
               <FormLabel>Depature Time </FormLabel>
               <FormControl
-                type="text"
+                type="time"
                 placeholder="Contoh: 19:00"
                 value={depatuetime_}
                 onChange={(e) => setDepaturetime_(e.target.value)}

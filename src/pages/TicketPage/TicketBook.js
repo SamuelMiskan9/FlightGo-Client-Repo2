@@ -294,7 +294,7 @@ const TicketBook = () => {
                 </div>
               </div>
             <div
-                className="mt-3 bg-white rounded p-3 position-relative"
+                className="mt-3 bg-light rounded py-3 position-relative"
                 style={{
                   boxSizing: "border-box",
                   height: `${show ? "25vh" : "10vh"}`,
@@ -309,7 +309,7 @@ const TicketBook = () => {
                   </div>
                 </div>
               </div>
-              <Form onSubmit={handleSubmit} >
+              <Form onSubmit={handleSubmit} className='ms-1'>
                 <Form.Group>
                       <Form.Label>Bukti Resi Transfer</Form.Label>
                       <Form.Control
