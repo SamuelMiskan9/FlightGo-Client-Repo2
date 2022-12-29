@@ -3,7 +3,7 @@ import Pict1 from '../../components/assets/two.png'
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { Button, Col, Row } from 'react-bootstrap';
+import { Button, Col, Row, OverlayTrigger, Tooltip } from 'react-bootstrap';
 function History() {
   const [history, setHistory] = useState([]);
   const historyUser = () => {
@@ -55,11 +55,27 @@ function History() {
                       </div>
                     </Col>
                     <Col >
+                    {history.checkIn === null ? (
+                      
                       <Button className='d-flex justify-content-between' style={{ backgroundColor: "#F97316" }} >
                         <Link to={`/history/checkin/${history.id}`} className='text-white'>
                           Check In
                         </Link>
                       </Button>
+                    ) : (
+                      <OverlayTrigger
+                        placement="bottom"
+                        overlay={
+                          <Tooltip id="tooltip-right">
+                            Kamu Sudah Check In
+                          </Tooltip>
+                        }
+                      >
+                        <Button className='d-flex justify-content-between bg-success'>
+                          CHECK IN
+                        </Button>
+                      </OverlayTrigger>
+                    )}
                     </Col>
                   </Row>
                 </div>

@@ -8,9 +8,9 @@ import ServiceBox from "../Elements/AboutBox";
 export default function Services() {
   return (
     <Wrapper id="about">
-      <div className="pb-10 mt-0">
-        <div className="container">
-          <HeaderInfo>
+      <div className="pb-10 mt-5">
+        <div className="container ">
+          <HeaderInfo >
             <h1 className="font40 extraBold">ABOUT US</h1>
             <p className="font16">
               Booking flight ticket with Flightgo. We give many offers

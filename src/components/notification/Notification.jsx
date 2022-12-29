@@ -89,8 +89,13 @@ function Notification() {
                   <div className="card-body border-top bg-sky-100" key={i}>
                     <div className=''>
                       <p>
-                        Tiket pesanan anda dari {diterima.product.kota_asal} ke {diterima.product.kota_tujuan} telah <strong>diterima</strong> silahkan <a className="text-primary" href={`/history/checkin/${diterima.product.id}`}>Check-in</a>
-                      </p>
+                        Tiket pesanan anda dari {diterima.product.kota_asal} ke {diterima.product.kota_tujuan} telah <strong>diterima</strong> 
+                        {diterima.checkIn === null ? (
+                            <a className="text-primary" href={`/history/checkin/${diterima.product.id}`}> Check-in</a>
+                        ) : (
+                          <></>
+                          )}
+                        </p>
                     </div>
                   </div>
                 ))}
