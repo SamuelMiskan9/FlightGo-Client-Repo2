@@ -11,19 +11,38 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import swal from "sweetalert";
 const Card = () => {
-  const [show, setShow] = useState(false);
   const [ticket, setTicket] = useState([]);
   const [wishlist, setWishlist] = useState(JSON.parse(localStorage.getItem('wishlist')) || []);
+  const [showState, setShowState] = useState({});
+  const [isFavorited, setIsFavorited] = useState({});
   useEffect(() => {
     getTicket();
   }, []);
-  // Fungsi untuk menambahkan produk ke wishlist
   const addToWishlist = ticket => {
-    setWishlist([...wishlist, ticket]);
-    localStorage.setItem('wishlist', JSON.stringify(wishlist));
+    const updatedWishlist = [...wishlist, ticket];
+    setWishlist(updatedWishlist);
+    localStorage.setItem('wishlist', JSON.stringify(updatedWishlist));
     swal(" Brhasil Menambahkan Wishlist", {
       icon: "success",
     });
+  }
+  const removeFromWishlist = ticket => {
+    const updatedWishlist = wishlist.filter(t => t !== ticket);
+    setWishlist(updatedWishlist);
+    localStorage.setItem('wishlist', JSON.stringify(updatedWishlist));
+    swal(" Brhasil Menambahkan Wishlist", {
+      icon: "success",
+    });
+  }
+
+  const toggleWishlist = ticket => {
+    if (isFavorited[ticket.id]) {
+      removeFromWishlist(ticket);
+      setIsFavorited({ ...isFavorited, [ticket.id]: false });
+    } else {
+      addToWishlist(ticket);
+      setIsFavorited({ ...isFavorited, [ticket.id]: true });
+    }
   }
   const getTicket = async () => {
     const response = await axios.get("https://flightgo-be-server.up.railway.app/v1/api/ticket");
@@ -38,7 +57,18 @@ const Card = () => {
           style={{ boxShadow: "0 2px 4px 0 rgb(0 0 0 / 10%)" }}
         >
           <div className="col-lg-12 d-flex justify-content-between ">
-            <p className="px-2 py-1 ">Type : {ticket.bentuk_penerbangan} {ticket.jenis_penerbangan} </p><p onClick={() => addToWishlist(ticket)} className="border px-2 py-1 me-5 text-left rounded d-flex items-center" ><FiHeart /></p>
+            <p className="px-2 py-1 ">Type : {ticket.bentuk_penerbangan} {ticket.jenis_penerbangan} </p>
+            <p
+              onClick={() => toggleWishlist(ticket)}
+              className="border px-2 py-1
+              me-5 text-left rounded d-flex items-center"
+            >
+              {isFavorited[ticket.id] ? (
+                <FiHeart color="#ff0000" />
+              ) : (
+                <FiHeart color="#999999" />
+              )}
+            </p>
           </div>
           <div className="col-lg-12 p-1">
             <div className="row ">
@@ -79,8 +109,27 @@ const Card = () => {
                     </button>
                   </div>
                   <div>
-                    {!show && <FiChevronDown onClick={() => setShow(true)} />}
-                    {show && <FiChevronUp onClick={() => setShow(false)} />}
+                    {!showState[i] && (
+                      <FiChevronDown
+                        onClick={() => {
+                          // ubah state untuk dropdown yang diklik
+                          setShowState({ ...showState, [i]: true });
+                          // ubah state untuk dropdown yang lain menjadi false
+                          for (let j = 0; j < ticket.length; j++) {
+                            if (j !== i) {
+                              setShowState({ ...showState, [j]: false });
+                            }
+                          }
+                        }}
+                      />
+                    )}
+                    {showState[i] && (
+                      <FiChevronUp
+                        onClick={() => {
+                          setShowState({ ...showState, [i]: false });
+                        }}
+                      />
+                    )}
                   </div>
                 </div>
               </div>
@@ -88,7 +137,7 @@ const Card = () => {
             </div>
 
           </div>
-          {show && (
+          {showState[i] && (
             <div className="row mx-2 mt-4 border-top pt-4">
               <div className="col-md-3 px-2">
               </div>

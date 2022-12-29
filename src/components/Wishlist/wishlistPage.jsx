@@ -7,7 +7,7 @@ import {
 } from "react-icons/fa";
 import { Link } from 'react-router-dom'
 import swal from "sweetalert";
-
+import { FiHeart } from "react-icons/fi";
 export default function WishlistPage() {
     const [wishlist, setWishlist] = useState(JSON.parse(localStorage.getItem('wishlist')) || []);
     function clearWishlist() {
@@ -28,6 +28,15 @@ export default function WishlistPage() {
             }
         });
     }
+    const removeFromWishlist = ticket => {
+        const updatedWishlist = wishlist.filter(t => t !== ticket);
+        setWishlist(updatedWishlist);
+        localStorage.setItem('wishlist', JSON.stringify(updatedWishlist));
+        swal(" Berhasil Menghapus Wishlist", {
+            icon: "success",
+        });
+    }
+
     return (
         <div>
             <header className="section-header"></header>
@@ -49,6 +58,13 @@ export default function WishlistPage() {
                                 >
                                     <div className="col-lg-12 d-flex justify-content-between ">
                                         <p className="px-2 py-1 ">Type : {wishlist.bentuk_penerbangan} {wishlist.jenis_penerbangan} </p>
+                                        <p
+                                            onClick={() => removeFromWishlist(wishlist)}
+                                            className="border px-2 py-1
+              me-5 text-left rounded d-flex items-center"
+                                        >
+                                            <FiHeart color="#999999" />
+                                        </p>
                                     </div>
                                     <div className="col-lg-12 p-1">
                                         <div className="row ">
@@ -69,7 +85,7 @@ export default function WishlistPage() {
                                                     <h6>{wishlist.bandara_tujuan}</h6>
                                                     <h6 className="fonts-light">{wishlist.kode_negara_tujuan}</h6>
                                                 </div>
-                                                <div class="d-none d-md-block">
+                                                <div className="d-none d-md-block">
                                                     <h6>{wishlist.depature_date}</h6>
                                                     <h6 className="fonts-light">{wishlist.depature_time}</h6>
                                                 </div>
