@@ -49,7 +49,7 @@ const Card = () => {
     setTicket(response.data);
   };
   return (
-    <> <br/>
+    <> <br />
       {ticket.map((ticket, i) => (
         <div
           key={i}
@@ -73,8 +73,9 @@ const Card = () => {
           <div className="col-lg-12 p-1">
             <div className="row ">
               <div className="col-md-2 mt-4">
-                <div className="mx-3">
-                  <img className="" src={ticket.image_product} alt="" />
+                <div className="mx-3 col-md-2">
+                  <img className="m-auto" src={ticket.image_product} style={{ height: '6em' }} alt="" />
+                  {/* <img className="" src={ticket.image_product} alt="" /> */}
                 </div>
               </div>
               <div className="col-md-5 d-flex mt-4">
