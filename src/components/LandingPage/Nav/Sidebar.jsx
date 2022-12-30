@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import '../landingPage.css'
 import { useNavigate } from "react-router-dom";
+import { Button } from "react-bootstrap";
 // Assets
 import CloseIcon from "../../assets/svg/LandingPage/CloseIcon";
 import LogoIcon from "../../assets/svg/LandingPage/Logo";
@@ -26,18 +27,18 @@ export default function Sidebar({ sidebarOpen, toggleSidebar }) {
     window.location.reload();
   };
   return (
-    <Wrapper className="animate bg-gray-200" sidebarOpen={sidebarOpen}>
+    <Wrapper className="animate bg-white" sidebarOpen={sidebarOpen}>
       <SidebarHeader className="flexSpaceCenter">
         <div className="flexNullCenter">
           <LogoIcon />
         </div>
 
-        <CloseBtn onClick={() => toggleSidebar(!sidebarOpen)} className="animate pointer">
-          <CloseIcon />
-        </CloseBtn>
+        <CloseBtn onClick={() => toggleSidebar(!sidebarOpen)} className="animate text-black pointer">
+          <CloseIcon className='text-black' />
+        </CloseBtn >
       </SidebarHeader>
 
-      <UlStyle className="flexNullCenter flexColumn">
+      <UlStyle className="flexNullCenter flexColumn text-black">
         {userRole ? (
           <li className="semiBold font15 pointer">
             <a onClick={() => toggleSidebar(!sidebarOpen)}
@@ -104,9 +105,9 @@ export default function Sidebar({ sidebarOpen, toggleSidebar }) {
         </li>
 
         <li className="semiBold font15 pointer flexCenter">
-          <button className="radius8 bg-orange-500 text-white" style={{ padding: "4px 15px" }} onClick={logout}>
+          <Button className=" text-white" style={{ padding: "4px 15px", backgroundColor: "#F97316"  }} onClick={logout}>
             Sign Out
-          </button>
+          </Button>
         </li>
       </UlStyle>
     </Wrapper>
