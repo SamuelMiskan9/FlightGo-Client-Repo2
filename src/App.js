@@ -27,6 +27,7 @@ function App() {
 
   const DefaultLayout = React.lazy(() => import('./layout/DefaultLayout'))
   const [users, setUsers] = useState("");
+  // eslint-disable-next-line no-unused-vars
   const [role, setRole] = useState("");
   
   const whoami = () => {
