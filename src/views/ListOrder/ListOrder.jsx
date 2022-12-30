@@ -10,7 +10,6 @@ import  {
   CTableDataCell
 } from '@coreui/react'
 import { Link,useNavigate } from "react-router-dom";
-import Payment from '../../components/assets/bukti.png'
 import axios from "axios";
 import { FaEdit } from "react-icons/fa";
 
