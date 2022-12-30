@@ -1,4 +1,4 @@
-import  Register  from "../../../components/register/Register"
+import  Register  from "../../../components/register/Register.jsx"
 import { Helmet } from 'react-helmet';
 import Heroimage from '../../../components/assets/background.png'
 const RegisterPage =()=>{

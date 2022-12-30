@@ -1,4 +1,4 @@
-import Login  from "../../../components/login/Login"
+import Login  from "../../../components/login/Login.jsx"
 import { Helmet } from 'react-helmet';
 import Heroimage from '../../../components/assets/background.png'
 const LoginPage =()=>{
