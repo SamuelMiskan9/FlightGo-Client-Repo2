@@ -24,14 +24,14 @@ const AppHeader = () => {
         <CHeaderToggler
           className="ps-1 flex items-center w-1/3"
         >
-          <CIcon icon={cilMenu} size="lg" className='mr-4' onClick={() => dispatch({ type: 'set', sidebarShow: !sidebarShow })}/>
-          <CFormInput type="search" placeholder="Search" aria-label="default input example" />
+          <CIcon icon={cilMenu} size="lg" className='mr-4 my-auto' onClick={() => dispatch({ type: 'set', sidebarShow: !sidebarShow })}/>
+          {/* <CFormInput type="search" placeholder="Search" aria-label="default input example" /> */}
         </CHeaderToggler>        
         <CHeaderNav className="ms-3">
           <CNavItem>
-            <CNavLink href="#">
+            {/* <CNavLink href="#">
               <CIcon icon={cilBell} size="lg" />
-            </CNavLink>
+            </CNavLink> */}
           </CNavItem>
           <AppHeaderDropdown />
         </CHeaderNav>

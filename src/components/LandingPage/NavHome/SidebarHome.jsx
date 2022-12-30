@@ -3,19 +3,19 @@ import styled from "styled-components";
 import '../landingPage.css'
 
 // Assets
-import CloseIcon from "../../assets/svg/LandingPage/CloseIcon";
+import { FiX } from "react-icons/fi";
 import LogoIcon from "../../assets/svg/LandingPage/Logo";
 
 export default function Sidebar({ sidebarOpen, toggleSidebar }) {
   return (
-    <Wrapper className="animate bg-gray-200" sidebarOpen={sidebarOpen}>
+    <Wrapper className="animate  bg-white" sidebarOpen={sidebarOpen} style={{ opacity: 0.9 }}>
       <SidebarHeader className="flexSpaceCenter">
         <div className="flexNullCenter">
           <LogoIcon />
         </div>
 
         <CloseBtn onClick={() => toggleSidebar(!sidebarOpen)} className="animate pointer">
-          <CloseIcon />
+          <FiX className='text-dark text-lg' />
         </CloseBtn>
       </SidebarHeader>
 
@@ -23,9 +23,9 @@ export default function Sidebar({ sidebarOpen, toggleSidebar }) {
         <li className="semiBold font15 pointer">
           <a
             onClick={() => toggleSidebar(!sidebarOpen)}
-            className="blackColor"
+            className="text-black"
             style={{ padding: "10px 15px" }}
-            href="#panel"
+            href="/ticket"
             spy={true.toString()}
             smooth={true.toString()}
             offset={-60}
@@ -37,7 +37,7 @@ export default function Sidebar({ sidebarOpen, toggleSidebar }) {
         <li className="semiBold font15 pointer">
           <a
             onClick={() => toggleSidebar(!sidebarOpen)}
-            className="blackColor"
+            className="text-black"
             style={{ padding: "10px 15px" }}
             href="#about"
             spy={true.toString()}
@@ -48,10 +48,10 @@ export default function Sidebar({ sidebarOpen, toggleSidebar }) {
           </a>
         </li>
 
-        <li className="semiBold font15 pointer">
+        {/* <li className="semiBold font15 pointer">
           <a
             onClick={() => toggleSidebar(!sidebarOpen)}
-            className="blackColor"
+            className="text-black"
             style={{ padding: "10px 15px" }}
             href="#destination"
             spy={true.toString()}
@@ -60,12 +60,12 @@ export default function Sidebar({ sidebarOpen, toggleSidebar }) {
           >
             Destination
           </a>
-        </li>
+        </li> */}
 
         <li className="semiBold font15 pointer">
           <a
             onClick={() => toggleSidebar(!sidebarOpen)}
-            className="blackColor"
+            className="text-black"
             style={{ padding: "10px 15px" }}
             href="#testimonial"
             spy={true.toString()}
@@ -77,7 +77,7 @@ export default function Sidebar({ sidebarOpen, toggleSidebar }) {
         </li>
 
         <li className="semiBold font15 pointer flexCenter">
-          <a href="/login" className="radius8 bg-orange-500 text-white" style={{ padding: "4px 15px" }}>
+          <a href="/login"  className=" text-white" style={{ padding: "4px 15px", backgroundColor: "#F97316" }}>
             Sign In
           </a>
         </li>

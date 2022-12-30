@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 // Components
 import Sidebar from "../Nav/Sidebar";
 import Backdrop from "../Elements/Backdrop";
-
+import { Button } from "react-bootstrap";
 // Assets
 import LogoIcon from "../../assets/svg/LandingPage/Logo";
 import BurgerIcon from "../../assets/svg/LandingPage/BurgerIcon";
@@ -70,7 +70,7 @@ export default function TopNavbar() {
           <UlWrapper className="flexNullCenter mt-3">
             {userRole ? (
               <li className="semiBold font15 pointer">
-                <a href='/listorder' className="text-gray-600" style={{ padding: "10px 15px" }} spy={true.toString()} smooth={true.toString()}
+                <a href='/listorder'  className="text-black" style={{ padding: "10px 15px" }} spy={true.toString()} smooth={true.toString()}
                   offset={-80}>
                   Dashbord
                 </a>
@@ -79,28 +79,28 @@ export default function TopNavbar() {
 
             <>
               <li className="semiBold font15 pointer">
-                <a href='/wishlist' className="text-gray-600" style={{ padding: "10px 15px" }} spy={true.toString()} smooth={true.toString()}
+                <a href='/wishlist'  className="text-black" style={{ padding: "10px 15px" }} spy={true.toString()} smooth={true.toString()}
                   offset={-80}>
                   Wishlist
                 </a>
               </li>
 
               <li className="semiBold font15 pointer">
-                <a href='/history' className="text-gray-600" style={{ padding: "10px 15px" }} spy={true.toString()} smooth={true.toString()}
+                <a href='/history'  className="text-black" style={{ padding: "10px 15px" }} spy={true.toString()} smooth={true.toString()}
                   offset={-80}>
                   History
                 </a>
               </li>
 
               <li className="semiBold font15 pointer">
-                <a href='/notif' className="text-gray-600" style={{ padding: "10px 15px" }} spy={true.toString()} smooth={true.toString()}
+                <a href='/notif'  className="text-black" style={{ padding: "10px 15px" }} spy={true.toString()} smooth={true.toString()}
                   offset={-80}>
                   Notification
                 </a>
               </li>
 
               <li className="semiBold font15 pointer">
-                <a href='/profile' className="text-gray-600" style={{ padding: "10px 15px" }} spy={true.toString()} smooth={true.toString()}
+                <a href='/profile'  className="text-black" style={{ padding: "10px 15px" }} spy={true.toString()} smooth={true.toString()}
                   offset={-80}>
                   Profile
                 </a>
@@ -111,9 +111,9 @@ export default function TopNavbar() {
           <UlWrapperRight className="flexNullCenter mt-3">
 
             <li className="btnHover semiBold font15 pointer flexCenter">
-              <button className="radius8 bg-orange-500 text-white" style={{ padding: "4px 15px" }} onClick={logout}>
-                Sign Out
-              </button>
+            <Button className=" text-white" style={{ padding: "4px 15px", backgroundColor: "#F97316"  }} onClick={logout}>
+              Sign Out
+            </Button>
             </li>
           </UlWrapperRight>
         </NavInner>

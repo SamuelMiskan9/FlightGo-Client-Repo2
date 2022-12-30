@@ -32,21 +32,17 @@ const Dropdowns = () => {
   return (
     <CRow>
       <CCol xs={12}>
-        <p className='font-bold text-3xl'>Flight Ticket Schedule</p>
-        <p className='py-2 px-3 bg-gray-200 my-4'>Flight Ticket Schedule</p>
+        <h3 className=''>Flight Ticket Schedule</h3>
         <div className='flex justify-between'>
           <div className='flex justify-evenly'>
-            <button className='flex items-center bg-[#F66F4D] text-white px-3 py-1 mr-2 rounded-sm bg-opacity-70 border-opacity-100'>All</button>
-            <button className='flex items-center bg-[#F66F4D] text-white px-3 py-1 mr-2 rounded-sm bg-opacity-50 border-opacity-100'>Round Trip</button>
-            <button className='flex items-center bg-[#F66F4D] text-white px-3 py-1 mr-2 rounded-sm bg-opacity-50 border-opacity-100'>One-Way</button>
           </div>
-          <button className='flex items-center bg-[#F66F4D] text-white px-3 py-1 mr-2 rounded-sm border-opacity-100'><Link to='/addnewdata' className='text-white'><CIcon icon={cilPlus}/>Add New Data</Link></button>
+          <CButton className='flex items-center m-end ' style={{ backgroundColor: "#F97316"  }}><Link to='/addnewdata' className='text-white'><CIcon icon={cilPlus}/>Add New Data</Link></CButton>
         </div>
       </CCol>
       <CRow className='mt-4'>
       {ticket.map((ticket, i) => (
       <CCol md='4' sm='6' key={i}>
-          <CCard className='px-1 shadow-sm m-2' style={{ width: '20em', height: '28em' }}>
+          <CCard className='px-1 shadow-sm m-2' style={{ width: '20em', height: '30em' }}>
             <CCardBody>
               <small className='mb-3 text-xs'>{ticket.bentuk_penerbangan} Flight</small>
               <CCardTitle className='flex text-sm font-bold'>{ticket.kota_asal} ({ticket.kode_negara_asal}) <FaPlane className='w-5 mx-2'/>{ticket.kota_tujuan} ({ticket.kode_negara_tujuan})</CCardTitle>

@@ -60,7 +60,7 @@ function Login() {
                             <h1>Login Page</h1>
                             <Form.Group className="mb-3" controlId="formBasicEmail">
                                 <Form.Label>Email address</Form.Label>
-                                <Form.Control className="" type="email" placeholder="Enter email" onChange={setEmail} />
+                                <Form.Control className=" text-dark" type="email" placeholder="Enter email" onChange={setEmail} />
                                 <Form.Text className="text-muted">
                                     We'll never share your email with anyone else.
                                 </Form.Text>
@@ -70,9 +70,9 @@ function Login() {
                                 <Form.Label>Password</Form.Label>
                                 <Form.Control type="password" placeholder="Password" onChange={setPassword} />
                             </Form.Group>
-                            <Button onClick={login} className="text-center m-auto w-100" variant="primary" > Login</Button>
+                            <Button onClick={login} className="text-center m-auto w-100 mb-2" style={{ backgroundColor: "#F97316" }} > Login</Button>
                             <p> Not a FlightGo Member?
-                                <a href="/Register">Register</a>
+                                <a href="/Register"> Register</a>
                             </p>
                         </Form>
                     </Col>

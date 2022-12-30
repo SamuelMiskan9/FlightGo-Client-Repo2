@@ -30,7 +30,7 @@ const Card = () => {
     const updatedWishlist = wishlist.filter(t => t !== ticket);
     setWishlist(updatedWishlist);
     localStorage.setItem('wishlist', JSON.stringify(updatedWishlist));
-    swal(" Berhasil Menambahkan Wishlist", {
+    swal(" Berhasil Menghapus Wishlist", {
       icon: "success",
     });
   }
@@ -49,7 +49,7 @@ const Card = () => {
     setTicket(response.data);
   };
   return (
-    <>
+    <> <br/>
       {ticket.map((ticket, i) => (
         <div
           key={i}

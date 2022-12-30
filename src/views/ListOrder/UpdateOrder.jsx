@@ -114,7 +114,7 @@ const UpdateOrder = () => {
                 </Card.Body>
               </Col>
               <Col md={8}>
-              <Card.Text className="fw-bold">Bukti Pembayaran</Card.Text>
+              <Card.Text className="fw-bold mt-4">Bukti Pembayaran</Card.Text>
                 <Card.Img variant="top" src={orders.bukti_Pembayaran}/>
               </Col>
             </Row>

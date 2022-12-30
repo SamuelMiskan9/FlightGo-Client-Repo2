@@ -50,28 +50,28 @@ export default function TopNavbar() {
 
           <UlWrapper className="flexNullCenter mt-3">
             <li className="semiBold font15 pointer">
-              <a href='#panel' className="text-gray-600" style={{ padding: "10px 15px" }} spy={true.toString()} smooth={true.toString()}
+              <a href='#panel' className="text-black" style={{ padding: "10px 15px" }} spy={true.toString()} smooth={true.toString()}
                 offset={-80}>
                 Booking
               </a>
             </li>
 
             <li className="semiBold font15 pointer">
-              <a href='#about' className="text-gray-600" style={{ padding: "10px 15px" }} spy={true.toString()} smooth={true.toString()}
+              <a href='#about' className="text-black" style={{ padding: "10px 15px" }} spy={true.toString()} smooth={true.toString()}
                 offset={-80}>
                 About Us
               </a>
             </li>
 
             <li className="semiBold font15 pointer">
-              <a href='#destination' className="text-gray-600" style={{ padding: "10px 15px" }} spy={true.toString()} smooth={true.toString()}
+              <a href='#destination' className="text-black" style={{ padding: "10px 15px" }} spy={true.toString()} smooth={true.toString()}
                 offset={-80}>
                 Destination
               </a>
             </li>
 
             <li className="semiBold font15 pointer">
-              <a href='#testimonial' className="text-gray-600" style={{ padding: "10px 15px" }} spy={true.toString()} smooth={true.toString()}
+              <a href='#testimonial' className="text-black" style={{ padding: "10px 15px" }} spy={true.toString()} smooth={true.toString()}
                 offset={-80}>
                 Testimonial
               </a>
@@ -81,7 +81,7 @@ export default function TopNavbar() {
           <UlWrapperRight className="flexNullCenter mt-3">
 
             <li className="btnHover semiBold font15 pointer flexCenter">
-              <a href="/login" className="radius8 bg-orange-500 text-white" style={{ padding: "4px 15px" }}>
+              <a href="/login" className=" text-white" style={{ padding: "4px 15px", backgroundColor: "#F97316"  }}>
                 Sign In
               </a>
             </li>

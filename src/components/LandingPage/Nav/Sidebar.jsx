@@ -4,9 +4,8 @@ import '../landingPage.css'
 import { useNavigate } from "react-router-dom";
 import { Button } from "react-bootstrap";
 // Assets
-import CloseIcon from "../../assets/svg/LandingPage/CloseIcon";
 import LogoIcon from "../../assets/svg/LandingPage/Logo";
-
+import { FiX } from "react-icons/fi";
 export default function Sidebar({ sidebarOpen, toggleSidebar }) {
   // eslint-disable-next-line no-unused-vars
   const [userLogin, setUserLogin] = useState(false);
@@ -27,14 +26,14 @@ export default function Sidebar({ sidebarOpen, toggleSidebar }) {
     window.location.reload();
   };
   return (
-    <Wrapper className="animate bg-white" sidebarOpen={sidebarOpen}>
+    <Wrapper className="animate bg-white" sidebarOpen={sidebarOpen} >
       <SidebarHeader className="flexSpaceCenter">
         <div className="flexNullCenter">
           <LogoIcon />
         </div>
 
-        <CloseBtn onClick={() => toggleSidebar(!sidebarOpen)} className="animate text-black pointer">
-          <CloseIcon className='text-black' />
+        <CloseBtn onClick={() => toggleSidebar(!sidebarOpen)} className=" text-dark">
+          <FiX className='text-dark text-lg' />
         </CloseBtn >
       </SidebarHeader>
 
@@ -42,7 +41,7 @@ export default function Sidebar({ sidebarOpen, toggleSidebar }) {
         {userRole ? (
           <li className="semiBold font15 pointer">
             <a onClick={() => toggleSidebar(!sidebarOpen)}
-              className="blackColor"
+              className="text-black"
               style={{ padding: "10px 15px" }}
               href="/listorder"
               spy={true.toString()}
@@ -55,7 +54,7 @@ export default function Sidebar({ sidebarOpen, toggleSidebar }) {
         ) : null}
         <li className="semiBold font15 pointer">
           <a onClick={() => toggleSidebar(!sidebarOpen)}
-            className="blackColor"
+             className="text-black"
             style={{ padding: "10px 15px" }}
             href="/wishlist"
             spy={true.toString()}
@@ -67,7 +66,7 @@ export default function Sidebar({ sidebarOpen, toggleSidebar }) {
         </li>
         <li className="semiBold font15 pointer">
           <a onClick={() => toggleSidebar(!sidebarOpen)}
-            className="blackColor"
+             className="text-black"
             style={{ padding: "10px 15px" }}
             href="/history"
             spy={true.toString()}
@@ -80,7 +79,7 @@ export default function Sidebar({ sidebarOpen, toggleSidebar }) {
 
         <li className="semiBold font15 pointer">
           <a onClick={() => toggleSidebar(!sidebarOpen)}
-            className="blackColor"
+             className="text-black"
             style={{ padding: "10px 15px" }}
             href="/notif"
             spy={true.toString()}
@@ -93,7 +92,7 @@ export default function Sidebar({ sidebarOpen, toggleSidebar }) {
 
         <li className="semiBold font15 pointer">
           <a onClick={() => toggleSidebar(!sidebarOpen)}
-            className="blackColor"
+             className="text-black"
             style={{ padding: "10px 15px" }}
             href="/profile"
             spy={true.toString()}
@@ -105,7 +104,7 @@ export default function Sidebar({ sidebarOpen, toggleSidebar }) {
         </li>
 
         <li className="semiBold font15 pointer flexCenter">
-          <Button className=" text-white" style={{ padding: "4px 15px", backgroundColor: "#F97316"  }} onClick={logout}>
+          <Button className=" text-white" style={{ padding: "4px 15px", backgroundColor: "#F97316" }} onClick={logout}>
             Sign Out
           </Button>
         </li>

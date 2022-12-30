@@ -1,14 +1,13 @@
 import React from 'react'
 import { CNavGroup, CNavItem } from '@coreui/react'
-import IconNavbar from './components/assets/grid.png'
-
+import { FiGrid } from "react-icons/fi";
 const _nav = [
   
   {
     component: CNavGroup,
     name: 'CUSTOMER',
     to: '/',
-    icon: <img src={IconNavbar} alt='' className='w-6 mx-6'/>,
+    icon: <FiGrid className='w-6 mx-6 w-25'/>,
     items: [
       {
         component: CNavItem,
@@ -21,7 +20,7 @@ const _nav = [
     component: CNavGroup,
     name: 'TICKET LISITNG',
     to: '/',
-    icon: <img src={IconNavbar} alt='' className='w-6 mx-6'/>,
+    icon: <FiGrid className='w-6 mx-6 w-25'/>,
     items: [
       {
         component: CNavItem,

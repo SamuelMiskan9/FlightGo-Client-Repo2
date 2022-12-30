@@ -119,9 +119,9 @@ const EditData = () => {
           },
         }
       );
-      toast("Produk berhasil diubah", {
-        type: "success",
-      });
+      swal({
+        title: "Ticket Berhasil Dirubah",
+      })
       navigate("/ticketschedule");
     } catch (err) {
       if (Array.isArray(err.response.data.message)) {

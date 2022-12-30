@@ -8,7 +8,7 @@ import Testimonials from '../../components/LandingPage/Sections/Testimonials'
 import Footer from '../../components/LandingPage/Sections/Footer'
 import Payment from "../../components/LandingPage/Sections/Payment";
 // import Search from "../../components/LandingPage/Sections/Search";
-import Destination from "../../components/LandingPage/Sections/Destination";
+// import Destination from "../../components/LandingPage/Sections/Destination";
 
 export default function Landing() {
   return (
@@ -17,7 +17,7 @@ export default function Landing() {
       <Header />
       {/* <Search/> */}
       <About />
-      <Destination/>
+      {/* <Destination/> */}
       <Testimonials />
       <Payment/>
       <Footer />
