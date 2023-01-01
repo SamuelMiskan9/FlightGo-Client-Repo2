@@ -26,7 +26,8 @@ function App() {
   )
 
   const DefaultLayout = React.lazy(() => import('./layout/DefaultLayout'))
-  const [users, setUsers] = useState("");  
+  const [users, setUsers] = useState("");
+  
   const whoami = () => {
     axios
         .get('https://flightgo-be-server.up.railway.app/v1/api/current-user', {
