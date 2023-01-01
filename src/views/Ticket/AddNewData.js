@@ -95,17 +95,7 @@ const AddTicket = () => {
           });
       }
   } catch (error) {
-      if (Array.isArray(error.response.data.message)) {
-          error.response.data.message.forEach((err) => {
-              toast(err, {
-                  type: "error",
-              });
-          });
-      } else {
-          toast(error.response.data.message, {
-              type: "error",
-          });
-      }
+      swal(error.response.data.message);
   }
   }
   return (

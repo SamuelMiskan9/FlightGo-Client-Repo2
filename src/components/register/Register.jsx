@@ -1,7 +1,4 @@
 import { Container, Form, Button, Row, Col } from "react-bootstrap"
-import { ToastContainer, toast } from "react-toastify";
-
-// import { FormFloating } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import swal from "sweetalert";
@@ -27,22 +24,11 @@ function Register() {
         });
       })
       .catch((error) => {
-        if (Array.isArray(error.response.data.message)) {
-          error.response.data.message.forEach((err) => {
-            toast(err, {
-              type: "error",
-            });
-          });
-        } else {
-          toast(error.response.data.message, {
-            type: "error",
-          });
-        }
+        swal(error.response.data.message);
       });
   };
   return (
     <Container ><br /><br /><br /><br /><br />
-      <ToastContainer />
       <Row className="mt-5">
         <Col md >
           <Form >

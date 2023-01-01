@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Form, Container, Button } from "react-bootstrap";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import swal from "sweetalert";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -69,17 +69,7 @@ const EditProfile = () => {
                 });
             }
         } catch (error) {
-            if (Array.isArray(error.response.data.message)) {
-                error.response.data.message.forEach((err) => {
-                    toast(err, {
-                        type: "error",
-                    });
-                });
-            } else {
-                toast(error.response.data.message, {
-                    type: "error",
-                });
-            }
+            swal(error.response.data.message);
         }
     }
     return (
@@ -157,7 +147,6 @@ const EditProfile = () => {
                 <Button className="mt-2 mb-4 bg-success" type="submit">
                     Submit
                 </Button>
-                <ToastContainer className='text-danger' />
             </Form>
         </Container>
     )

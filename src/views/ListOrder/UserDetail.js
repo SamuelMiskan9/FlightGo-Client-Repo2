@@ -29,7 +29,6 @@ const UserDetail = () => {
             },
           })
           .then((response) => {
-              console.log(response.data)
             setUser(response.data);        
           });
       };

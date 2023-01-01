@@ -15,7 +15,6 @@ function Notification() {
         },
       })
       .then((response) => {
-        console.log(response.data)
         setMenunggu(response.data.notifOk);
       });
   };
@@ -27,7 +26,6 @@ function Notification() {
         },
       })
       .then((response) => {
-        console.log(response.data)
         setDiterima(response.data.notifAcc);
       });
   };
@@ -39,7 +37,6 @@ function Notification() {
         },
       })
       .then((response) => {
-        console.log(response.data)
         setDitolak(response.data.notifReject);
       });
   };
@@ -89,13 +86,13 @@ function Notification() {
                   <div className="card-body border-top bg-sky-100" key={i}>
                     <div className=''>
                       <p>
-                        Tiket pesanan anda dari {diterima.product.kota_asal} ke {diterima.product.kota_tujuan} telah <strong>diterima</strong> 
+                        Tiket pesanan anda dari {diterima.product.kota_asal} ke {diterima.product.kota_tujuan} telah <strong>diterima</strong>
                         {diterima.checkIn === null ? (
-                            <a className="text-primary" href={`/history/checkin/${diterima.product.id}`}> Check-in</a>
+                          <a className="text-primary" href={`/history/checkin/${diterima.product.id}`}> Check-in</a>
                         ) : (
                           <></>
-                          )}
-                        </p>
+                        )}
+                      </p>
                     </div>
                   </div>
                 ))}

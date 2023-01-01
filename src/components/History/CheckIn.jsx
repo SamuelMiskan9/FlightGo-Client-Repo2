@@ -22,7 +22,6 @@ function CheckIn() {
         },
       })
       .then((response) => {
-        console.log(response.data.data.product)
         setOrders(response.data.data.product);
       });
   };
@@ -248,23 +247,23 @@ function CheckIn() {
           </div>
         </div>
         <Form>
-        {orders.checkIn !== null ? (
-          <Button className='my-2 ms-4' style={{ backgroundColor: "#F97316" }} onClick={CheckIn}>CheckIn</Button>
-        ):(
-          <OverlayTrigger
-          placement="bottom"
-          overlay={
-            <Tooltip id="tooltip-right">
-              Kamu Sudah Check In
-            </Tooltip>
-          }
-        >
-          <Button className='d-flex justify-content-between bg-success'>
-            CHECK IN
-          </Button>
-        </OverlayTrigger>
-        )}
-          </Form>
+          {orders.checkIn !== null ? (
+            <Button className='my-2 ms-4' style={{ backgroundColor: "#F97316" }} onClick={CheckIn}>CheckIn</Button>
+          ) : (
+            <OverlayTrigger
+              placement="bottom"
+              overlay={
+                <Tooltip id="tooltip-right">
+                  Kamu Sudah Check In
+                </Tooltip>
+              }
+            >
+              <Button className='d-flex justify-content-between bg-success'>
+                CHECK IN
+              </Button>
+            </OverlayTrigger>
+          )}
+        </Form>
       </div>
     </Container >
   )

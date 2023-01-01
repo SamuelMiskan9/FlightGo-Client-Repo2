@@ -64,7 +64,7 @@ const ListOrder = () => {
           {transaction.map((transaction, i) => (
             <CTableRow key={i}>
               <CTableHeaderCell scope="row">{i+1}</CTableHeaderCell>
-              <CTableDataCell>{transaction.productId}</CTableDataCell>
+              <CTableDataCell><Link to={`/editdata/${transaction.productId}`} rel="noopener noreferrer" target="_blank">{transaction.productId}</Link></CTableDataCell>
               <CTableDataCell>
                  <Link to={`/listorder/userdetail/${transaction.userId}`} target="_blank">
                    Detail

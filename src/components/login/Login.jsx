@@ -1,5 +1,4 @@
 import { Container, Form, Button, Row, Col } from "react-bootstrap"
-import { ToastContainer, toast } from "react-toastify";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import swal from "sweetalert";
@@ -37,22 +36,11 @@ function Login() {
                 }
             })
             .catch((error) => {
-                if (Array.isArray(error.response.data.message)) {
-                    error.response.data.message.forEach((err) => {
-                        toast(err, {
-                            type: "error",
-                        });
-                    });
-                } else {
-                    toast("email or password are wrong", {
-                        // type: "error",
-                    });
-                }
+                swal(error.response.data.message);
             });
     };
     return (
         <Container ><br /><br /><br /><br /><br />
-            <ToastContainer />
             {!userLogin ? (
                 <Row className="mt-5">
                     <Col md={12} >

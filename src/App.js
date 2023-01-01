@@ -27,7 +27,6 @@ function App() {
 
   const DefaultLayout = React.lazy(() => import('./layout/DefaultLayout'))
   const [users, setUsers] = useState("");
-  const [role, setRole] = useState("");
   
   const whoami = () => {
     axios
@@ -38,7 +37,6 @@ function App() {
         })
         .then((response) => {
             setUsers(response.data.data);
-            setRole(response.data.role);
         });
   };
 

@@ -2,7 +2,6 @@ import React,  { useState, useEffect } from "react";
 import { AppBreadcrumb } from '../../components'
 import { Button, Col, Container, Form, FormControl, FormLabel, FormSelect, Row } from 'react-bootstrap';
 import {FaPlaneDeparture, FaPlaneArrival} from "react-icons/fa";
-import { toast } from "react-toastify";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import swal from "sweetalert";
@@ -119,28 +118,21 @@ const EditData = () => {
           },
         }
       );
-      toast("Produk berhasil diubah", {
-        type: "success",
+      swal({
+        title: "Berhasil!",
+        text: "Update Tiket Berhasil",
+        icon: "success",
+        button: "Oke",
       });
       navigate("/ticketschedule");
     } catch (err) {
-      if (Array.isArray(err.response.data.message)) {
-        err.response.data.message.forEach((err) => {
-          toast(err, {
-            type: "error",
-          });
-        });
-      } else {
-        toast(err.response.data.message, {
-          type: "error",
-        });
-      }
+      swal(err.response.data.message);
     }
   }
   function handleDelete() {
     swal({
-      title: "Ticket Akan Dihapus??",
-      text: "Ticket yang dihapus tidak dapat dikembalikan!!!",
+      title: "Tiket Akan Dihapus??",
+      text: "Tiket yang dihapus tidak dapat dikembalikan!!!",
       icon: "warning",
       buttons: true,
       dangerMode: true,
@@ -160,7 +152,7 @@ const EditData = () => {
             window.location.reload();
           });
       } else {
-        swal("Data tidak jadi dihapus!");
+        swal("Data tiket tidak jadi dihapus!");
       }
     });
   }
@@ -170,7 +162,6 @@ const EditData = () => {
   }, []);
   return (
     <Container>
-    {/* <ToastContainer /> */}
     <div className='py-2 px-3 bg-gray-200 my-4'>
         <AppBreadcrumb />
       </div>
@@ -184,7 +175,6 @@ const EditData = () => {
               setJenispenerbangan(JP);
               }}
               >
-              {/* <option value="" selected disabled hidden>Pilih disini</option> */}
               <option value={'One-way'}>One-way</option>
               <option value={'Round-trip'}>Round-trip</option>
             </FormSelect>
@@ -199,7 +189,6 @@ const EditData = () => {
               setBentukpenerbangan(TP);
               }}
               >
-              {/* <option value="" selected disabled hidden>Pilih disini</option> */}
               <option value={'Domestik'}>Domestik</option>
               <option value={'Internasional'}>Internasional</option>
             </FormSelect>
