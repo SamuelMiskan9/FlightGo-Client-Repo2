@@ -24,7 +24,7 @@ export default function WishlistPage() {
                 // Set state wishlist menjadi array kosong
                 setWishlist([]);
             } else {
-                swal("Data tidak jadi dihapus!");
+                swal("Wishlist tidak jadi dihapus!");
             }
         });
     }
