@@ -13,6 +13,7 @@ import {
     MDBCarousel,
     MDBCarouselItem
   } from 'mdb-react-ui-kit';
+  import { Helmet } from 'react-helmet';
 const UserDetail = () => {
     const { id } = useParams();
     const [user, setUser] = useState([]);
@@ -38,6 +39,9 @@ const UserDetail = () => {
       }, []);
     return(
         <section style={{ backgroundColor: '#FBFBFB' }}>
+            <Helmet>
+                <title >User Detail</title>
+            </Helmet>
             <MDBBtn href="/listorder" style={{ backgroundColor: "#F97316"}}>Back</MDBBtn>
         <MDBContainer className="py-5">
           <MDBRow>

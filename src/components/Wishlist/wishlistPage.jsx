@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
-
+import { Helmet } from 'react-helmet';
 // Assets
 import {
     FaArrowRight,
@@ -39,6 +39,9 @@ export default function WishlistPage() {
 
     return (
         <div>
+            <Helmet>
+                <title >Wishlist</title>
+            </Helmet>
             <header className="section-header"></header>
             <section className="section-content">
                 <div className="container">

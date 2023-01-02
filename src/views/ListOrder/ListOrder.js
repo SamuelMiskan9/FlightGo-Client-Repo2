@@ -13,6 +13,7 @@ import React, {
   CTableBody,
   CTableDataCell
 } from '@coreui/react'
+import { Helmet } from 'react-helmet';
 import { Link,useNavigate } from "react-router-dom";
 import Sort from '../../components/assets/sort.png'
 import Payment from '../../components/assets/bukti.png'
@@ -42,6 +43,9 @@ const ListOrder = () => {
 
   return (
     <CRow fluid>
+      <Helmet>
+        <title >List Order</title>
+      </Helmet>
       <CCol xs={12} md={12}>
         <p className='font-bold text-3xl'>List Booking Order</p>
         <p className='py-2 px-3 bg-gray-200 my-4'>Table list Booking Order</p>

@@ -9,6 +9,7 @@ import {
   CCardTitle,
   CCardText,
 } from '@coreui/react'
+import { Helmet } from 'react-helmet';
 import axios from "axios";
 import { cilPlus, cilClock } from '@coreui/icons'
 import CIcon from '@coreui/icons-react'
@@ -31,6 +32,9 @@ const Dropdowns = () => {
   }, []);
   return (
     <CRow>
+      <Helmet>
+        <title >Ticket List</title>
+      </Helmet>
       <CCol xs={12}>
         <p className='font-bold text-3xl'>Flight Ticket Schedule</p>
         <p className='py-2 px-3 bg-gray-200 my-4'>Flight Ticket Schedule</p>

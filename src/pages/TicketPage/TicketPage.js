@@ -1,10 +1,14 @@
 import React from "react";
 import Card from "../../components/Ticket/Card";
+import { Helmet } from 'react-helmet';
 import TopNavbar from '../../components/LandingPage/Nav/TopNavbar';
 import Footer from '../../components/LandingPage/Sections/Footer.jsx'
 const TicketPage = () => {
   return (
     <div className="bg-[#f6f6f6]">
+      <Helmet>
+        <title >Ticket Page</title>
+      </Helmet>
       <div className="bg-white">
         <TopNavbar />
       </div>

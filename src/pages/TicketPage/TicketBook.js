@@ -5,6 +5,7 @@ import {
   FaLanguage,
   FaWpforms,
 } from "react-icons/fa";
+import { Helmet } from 'react-helmet';
 import { ToastContainer, toast } from "react-toastify";
 import TopNavbar from '../../components/LandingPage/Nav/TopNavbar';
 import axios from "axios";
@@ -99,6 +100,9 @@ const TicketBook = () => {
   }, []);
   return (
     <>
+      <Helmet>
+        <title >Payment Page</title>
+      </Helmet>
       <div className="bg-[#f6f6f6]">
       <ToastContainer />
         <div className="bg-white">

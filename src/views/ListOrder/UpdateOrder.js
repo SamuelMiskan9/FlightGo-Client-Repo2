@@ -2,7 +2,7 @@ import { Button, Card, Col, Container, Row } from "react-bootstrap"
 import React,  { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
-
+import { Helmet } from 'react-helmet';
 import swal from "sweetalert";
 const UpdateOrder = () => {
     const { id } = useParams();
@@ -96,6 +96,9 @@ const UpdateOrder = () => {
       }, []);
     return(
         <Container>
+          <Helmet>
+            <title >Action Page</title>
+          </Helmet>
           <Card>
             <Row>
               <Col md={4}>

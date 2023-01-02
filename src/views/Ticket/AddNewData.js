@@ -6,7 +6,7 @@ import axios from "axios";
 import swal from "sweetalert";
 import { Button, Col, Container, Form, FormControl, FormLabel, FormSelect, Row } from 'react-bootstrap';
 import {FaPlaneDeparture, FaPlaneArrival} from "react-icons/fa";
-
+import { Helmet } from 'react-helmet';
 const AddTicket = () => {
   const [image, setImage] = useState(null);
   const [jenispenerbangann, setJenispenerbangan] = useState('')
@@ -100,6 +100,9 @@ const AddTicket = () => {
   }
   return (
     <Container>
+      <Helmet>
+        <title >Add New Ticket</title>
+      </Helmet>
       <p className='font-bold text-3xl'>Flight Ticket Schedule</p>
       <div className='py-2 px-3 bg-gray-200 my-4'>
         <AppBreadcrumb />

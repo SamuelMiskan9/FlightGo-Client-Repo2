@@ -9,10 +9,13 @@ import Footer from '../../components/LandingPage/Sections/Footer'
 import Payment from "../../components/LandingPage/Sections/Payment";
 // import Search from "../../components/LandingPage/Sections/Search";
 import Destination from "../../components/LandingPage/Sections/Destination";
-
+import { Helmet } from 'react-helmet';
 export default function Landing() {
   return (
     <>
+      <Helmet>
+        <title >Landing Page</title>
+      </Helmet>
       <TopNavbar />
       <Header />
       {/* <Search/> */}

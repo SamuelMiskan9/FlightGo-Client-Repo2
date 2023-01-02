@@ -5,6 +5,7 @@ import {FaPlaneDeparture, FaPlaneArrival} from "react-icons/fa";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import swal from "sweetalert";
+import { Helmet } from 'react-helmet';
 const EditData = () => {
   const [image, setImage] = useState(null);
   const [jenispenerbangann, setJenispenerbangan] = useState('')
@@ -162,6 +163,9 @@ const EditData = () => {
   }, []);
   return (
     <Container>
+      <Helmet>
+        <title >Edit Tiket</title>
+      </Helmet>
     <div className='py-2 px-3 bg-gray-200 my-4'>
         <AppBreadcrumb />
       </div>
