@@ -7,7 +7,7 @@ import About from '../../components/LandingPage/Sections/About';
 import Testimonials from '../../components/LandingPage/Sections/Testimonials';
 import FooterHome from '../../components/LandingPage/Sections/FooterHome';
 import Payment from "../../components/LandingPage/Sections/Payment";
-import SearchHome from "../../components/LandingPage/Sections/SearchHome";
+// import SearchHome from "../../components/LandingPage/Sections/SearchHome";
 import Destination from "../../components/LandingPage/Sections/Destination";
 
 export default function Homepage() {
@@ -15,7 +15,7 @@ export default function Homepage() {
     <>
       <Navbar />
       <Header />
-      <SearchHome/>
+      {/* <SearchHome/> */}
       <About />
       <Destination/>
       <Testimonials />
