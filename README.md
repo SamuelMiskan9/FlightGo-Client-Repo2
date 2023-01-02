@@ -1,3 +1,19 @@
+# KELOMPOK 4 FSW 1 FlightGo
+1. Syahri Rhamadhan
+2. Dwi Nurfiana
+3. Ely Yuniar Pertiwi
+4. Muhammad Sindida Hilmy
+5. Fatia Susanti
+
+# Repository
+FE
+- https://github.com/SyahriRhamadhan/FlightGo-FE-Client
+- https://github.com/SamuelMiskan9/FlightGo-Client-Repo2/tree/release
+BE
+- https://github.com/SyahriRhamadhan/FlightGo-BE-Server
+- https://github.com/SamuelMiskan9/FlightGo-BE-SERVER/tree/release
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -7,7 +23,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 In the project directory, you can run:
 
 ### `npm start`
-tess
+
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
