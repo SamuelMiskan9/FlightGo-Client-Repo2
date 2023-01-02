@@ -102,7 +102,7 @@ const UpdateOrder = () => {
                 <Card.Body>
                   <Card.Title className='fw-bold'>Cek Transaksi</Card.Title>
                     <Card.Text>Status: {orders.status}</Card.Text>
-                    <Card.Text>Penerbangan: {ticket.bentuk_penerbangan}-{ticket.jenis_penerbangan}</Card.Text>
+                    <Card.Text>Penerbangan: {ticket.bentuk_penerbangan}/{ticket.jenis_penerbangan}</Card.Text>
                     <Card.Text>Kota Asal: {ticket.kota_asal}</Card.Text>
                     <Card.Text>Kota Tujuan: {ticket.kota_tujuan}</Card.Text>
                   <Button className="me-3" onClick={Accepted}>
