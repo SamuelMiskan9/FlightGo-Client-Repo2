@@ -14,17 +14,15 @@ const Card = () => {
   const [ticket, setTicket] = useState([]);
   const [wishlist, setWishlist] = useState(JSON.parse(localStorage.getItem('wishlist')) || []);
   const [showState, setShowState] = useState({});
-  const [isFavorited, setIsFavorited] = useState(JSON.parse(localStorage.getItem('isFavorited')) || {});
-
+  const [isFavorited, setIsFavorited] = useState([]);
   useEffect(() => {
     getTicket();
   }, []);
-
   const addToWishlist = ticket => {
     const updatedWishlist = [...wishlist, ticket];
     setWishlist(updatedWishlist);
     localStorage.setItem('wishlist', JSON.stringify(updatedWishlist));
-    swal(" Berhasil Menambahkan Wishlist", {
+    swal(" Brhasil Menambahkan Wishlist", {
       icon: "success",
     });
   }
@@ -32,7 +30,7 @@ const Card = () => {
     const updatedWishlist = wishlist.filter(t => t !== ticket);
     setWishlist(updatedWishlist);
     localStorage.setItem('wishlist', JSON.stringify(updatedWishlist));
-    swal(" Berhasil Menghapus Wishlist", {
+    swal(" Berhasil Menambahkan Wishlist", {
       icon: "success",
     });
   }
@@ -45,7 +43,6 @@ const Card = () => {
       addToWishlist(ticket);
       setIsFavorited({ ...isFavorited, [ticket.id]: true });
     }
-    localStorage.setItem('isFavorited', JSON.stringify(isFavorited));
   }
   const getTicket = async () => {
     const response = await axios.get("https://flightgo-be-server.up.railway.app/v1/api/ticket");
